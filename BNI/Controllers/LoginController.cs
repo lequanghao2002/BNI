@@ -8,10 +8,18 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BNI.Controllers
 {
-    public class Board19Controller : Controller
+    public class LoginController : Controller
     {
         // GET: /<controller>/
         public IActionResult Index()
+        {
+            return View();
+        }
+        public IActionResult SignUp()
+        {
+            return View();
+        }
+        public IActionResult ResetPassword()
         {
             return View();
         }

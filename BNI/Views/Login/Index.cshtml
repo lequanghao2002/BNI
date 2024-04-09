@@ -1,0 +1,32 @@
+﻿<main>
+
+    <div class="oe_website_login_container">
+        <form class="oe_login_form" role="form" method="post" onsubmit="this.action = &#39;/web/login&#39; + location.hash" action="https://csjchapter.com/web/login">
+            <input type="hidden" name="csrf_token" value="b03d9cb6675e129ee78546e6040b42448f0c277bo1742396475" />
+
+
+            <div class="mb-3 field-login">
+                <label for="login" class="form-label">Email</label>
+                <input type="text" placeholder="Email" name="login" id="login" required="required" autofocus="autofocus" autocapitalize="off" class="form-control " />
+            </div>
+
+            <div class="mb-3">
+                <label for="password" class="form-label">Mật khẩu</label>
+                <input type="password" placeholder="Mật khẩu" name="password" id="password" required="required" autocomplete="current-password" maxlength="4096" class="form-control " />
+            </div>
+
+
+            <div class="clearfix oe_login_buttons text-center gap-1 d-grid mb-1 pt-3">
+                <button type="submit" class="btn btn-primary">Đăng nhập</button>
+                <div class="justify-content-between mt-2 d-flex small">
+                    <a href="signup.html">Bạn chưa có tài khoản?</a>
+                    <a href="reset_password.html">Đặt lại Mật khẩu</a>
+                </div>
+                <div class="o_login_auth"></div>
+            </div>
+
+            <input type="hidden" name="redirect" />
+        </form>
+    </div>
+
+</main>

@@ -8,10 +8,14 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BNI.Controllers
 {
-    public class Board19Controller : Controller
+    public class MemberController : Controller
     {
         // GET: /<controller>/
         public IActionResult Index()
+        {
+            return View();
+        }
+        public IActionResult MemberDetail()
         {
             return View();
         }

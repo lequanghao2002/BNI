@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BNI.Controllers
 {
-    public class Board19Controller : Controller
+    public class ContactController : Controller
     {
         // GET: /<controller>/
         public IActionResult Index()
