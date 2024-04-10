@@ -14238,6 +14238,15 @@ a.text-warning:hover, a.text-warning:focus {
     color: #dc3545 !important;
 }
 
+.text-danger ul {
+    list-style-type: none; 
+    padding-left: 0; 
+}
+   
+.text-danger li {
+        margin-bottom: 0; 
+}
+
 a.text-danger:hover, a.text-danger:focus {
     color: #921925 !important;
 }
