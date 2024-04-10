@@ -2,9 +2,9 @@
 
 namespace BNI.Controllers
 {
-    public class BlogController : Controller
+    public class Blog_Success_StoryController : Controller
     {
-        public IActionResult Blog()
+        public IActionResult Blog_Success_Story()
         {
             return View();
         }
