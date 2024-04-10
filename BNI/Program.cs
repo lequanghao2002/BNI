@@ -1,11 +1,15 @@
 using BNI.Models;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<BNIContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("BNI")));
+var connectionString = builder.Configuration.GetConnectionString("BNI");
+builder.Services.AddDbContext<BNIContext>(options =>
+ options.UseSqlServer(connectionString));
+
 
 var app = builder.Build();
 

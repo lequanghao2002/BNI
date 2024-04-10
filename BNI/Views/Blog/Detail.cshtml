@@ -1,0 +1,63 @@
+﻿@model BNI.Models.Post
+<section id="o_wblog_post_top">
+    <div class="container">
+
+        <div id="title" class="blog_header o_wblog_regular_cover_container container">
+
+            <nav aria-label="breadcrumb" class="breadcrumb flex-nowrap py-0 px-0 css_editable_mode_hidden mt-4 mb-3 bg-transparent">
+                <li class="breadcrumb-item"><a href="/blog">Tất cả blog</a></li>
+                <li class="breadcrumb-item">
+                    <a href="/blog/tin-tuc-2">Tin tức</a>
+                </li>
+                <li class="breadcrumb-item text-truncate active"><span>@Model.Title</span></li>
+            </nav>
+
+            <div>
+                <div class="o_wblog_post_title mb-3  js_comment">
+                    <h1 id="o_wblog_post_name" data-oe-expression="blog_post.name" placeholder="Tiêu đề" data-blog-id="6">Ngày Hội Kết Nối Giao Thương</h1>
+
+                </div>
+                <div class="text-muted mb-2">
+                    <i class="fa fa-clock-o fa-fw"></i>
+                    <span class="text-muted">25 tháng 6, 2023</span>
+                    <span>
+                        bởi
+                        <div class="o_not_editable align-items-center position-relative d-inline-flex me-2">
+                            <div style="line-height:1">
+                                <span>360 CORP, Nguyễn Đức Dương</span>
+                            </div>
+                        </div>
+                    </span>
+                </div>
+            </div>
+
+            <div data-name="Ảnh bìa" style="" data-use_size="True" data-res-model="blog.post" data-res-id="6" class="o_record_cover_container d-flex flex-column h-100 o_colored_level o_cc o_cc3 o_cc o_full_screen_height o_record_has_cover  o_wblog_post_page_cover o_wblog_post_page_cover_regular rounded shadow overflow-hidden">
+                <div style="background-image: url(@Model.Image);" class="o_record_cover_component o_record_cover_image "></div>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+<section id="o_wblog_post_main" class="container pt-4 pb-5 ">
+
+
+
+    <div class="o_container_small">
+        <div class="d-flex flex-column flex-lg-row">
+            <div id="o_wblog_post_content" class=" o_container_small w-100 flex-shrink-0">
+                <div data-editor-message="WRITE HERE OR DRAG BUILDING BLOCKS" class="o_wblog_post_content_field  js_comment o_wblog_read_text">
+
+
+                    <p>@Model.Content</p>
+
+                    <div class="o_text_columns"><div class="row"><div class="o_colored_level col-lg-6"><p style="text-align: left;"><img src="/web/image/1604-b7de7e28/331742339_9211150668902784_5342374218651198572_n.jpg?access_token=a1f46513-42c1-4e81-ae91-1547def1d892" alt="" class="img img-fluid o_we_custom_image" style="width: 100% !important;" data-original-id="1602" data-original-src="/web/image/1602-b10dd34d/331742339_9211150668902784_5342374218651198572_n.jpg" data-mimetype="image/jpeg" data-resize-width="600" loading="lazy" data-bs-original-title="" title="" aria-describedby="tooltip666532"><br></p></div><div class="o_colored_level col-lg-6"><p style="text-align: left;"><img src="/web/image/1600-085fa4de/331272888_595701795322746_3793167014250766486_n.jpg?access_token=a2bd0437-9ff7-445e-9fd2-42df1932ae67" alt="" class="img img-fluid o_we_custom_image" data-original-id="1600" data-original-src="/web/image/1600-085fa4de/331272888_595701795322746_3793167014250766486_n.jpg" data-mimetype="image/jpeg" data-bs-original-title="" title="" aria-describedby="tooltip862207" style="width: 100% !important;" loading="lazy"><br></p></div><div class="o_colored_level col-lg-6" style=""><p style="text-align: left;"><img src="/web/image/1605-382f6483/331774002_850648012700691_1625440284313315444_n.jpg?access_token=f6215a2a-8341-4004-918e-2191335c3ffd" alt="" class="img img-fluid o_we_custom_image" style="width: 100% !important;" data-original-id="1603" data-original-src="/web/image/1603-66aab1f3/331774002_850648012700691_1625440284313315444_n.jpg" data-mimetype="image/jpeg" data-resize-width="600" loading="lazy" data-bs-original-title="" title="" aria-describedby="tooltip374165"><br></p></div><div class="o_colored_level col-lg-6 pb0"><p><img src="/web/image/1601-2bfedbe3/332254275_1325810614661484_7578539231893972048_n.jpg?access_token=d46d1bb9-844d-4a38-b875-734f82baa050" alt="" class="img img-fluid o_we_custom_image" data-original-id="1601" data-original-src="/web/image/1601-2bfedbe3/332254275_1325810614661484_7578539231893972048_n.jpg" data-mimetype="image/jpeg" data-bs-original-title="" title="" aria-describedby="tooltip763938" loading="lazy" style="width: 100% !important;"><br></p></div></div></div>
+                </div>
+
+                <div class="css_editable_mode_hidden text-muted">
+                    <div>trong <a href="/blog/tin-tuc-2"><b>Tin tức</b></a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
