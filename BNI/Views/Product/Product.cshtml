@@ -1,0 +1,209 @@
+﻿<head>
+    <meta property="og:title" content="Sản phẩm & Dịch vụ | BNI Vũng Tàu" />
+    <meta name="twitter:title" content="Sản phẩm & Dịch vụ | BNI Vũng Tàu" />
+    <title>Sản phẩm & Dịch vụ | BNI Vũng Tàu</title>
+</head>
+
+<main>
+    <div id="wrap" class="js_sale o_wsale_products_page">
+        <div class="oe_structure oe_empty oe_structure_not_nearest" id="oe_structure_website_sale_products_1"></div>
+        <div class="container oe_website_sale pt-2">
+            <div class="row o_wsale_products_main_row align-items-start flex-nowrap">
+                <aside id="products_grid_before" class="d-none d-lg-block position-sticky col-3 px-3 clearfix">
+                    <div class="o_wsale_products_grid_before_rail vh-100 pe-lg-2 pb-lg-5 overflow-y-auto">
+                        <div class="products_attributes_filters">
+                            <div id="wsale_products_attributes_collapse" class=" position-relative">
+                            </div>
+                        </div>
+                        <div id="o_wsale_price_range_option"
+                            class="position-relative  opacity-75 pe-none user-select-none">
+                            <label class="m-0 h6 o_products_attributes_title ">
+                                <b>Khoảng giá</b>
+                            </label>
+                            <input type="range" multiple="multiple" class="form-range range-with-input "
+                                data-currency="₫" data-currency-position="after" step="1.0" min="0.000000"
+                                max="0.000000" value="0.000000,0.000000" />
+                        </div>
+                    </div>
+                </aside>
+                <div id="products_grid" class="o_wsale_layout_list col-lg-9">
+                    <div
+                        class="products_header btn-toolbar flex-nowrap align-items-center justify-content-between mb-3">
+                        <form method="get"
+                            class="o_searchbar_form o_wait_lazy_js s_searchbar_input o_wsale_products_searchbar_form me-auto flex-grow-1 d-lg-inline d-inline"
+                            action="/shop" data-snippet="s_searchbar_input">
+                            <div role="search" class="input-group ">
+                                <input type="search" name="search"
+                                    class="search-query form-control oe_search_box border-0 text-bg-light"
+                                    placeholder="Tìm..." value="" data-search-type="products" data-limit="5"
+                                    data-display-image="true" data-display-description="true"
+                                    data-display-extra-link="true" data-display-detail="true"
+                                    data-order-by="name asc" />
+                                <button type="submit" aria-label="Tìm kiếm" title="Tìm kiếm"
+                                    class="btn oe_search_button btn btn-light">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+
+                            <input name="order" type="hidden" class="o_search_order_by" value="name asc" />
+                        </form>
+
+
+                        <div class="o_pricelist_dropdown dropdown d-none">
+
+                            <a role="button" href="#" data-bs-toggle="dropdown" class="dropdown-toggle btn btn-light">
+                                Bảng giá niêm yết
+                            </a>
+                            <div class="dropdown-menu" role="menu">
+                                <a role="menuitem" class="dropdown-item" href="/shop/change_pricelist/1">
+                                    <span class="switcher_pricelist" data-pl_id="1">Bảng giá niêm yết</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="o_sortby_dropdown dropdown dropdown_sorty_by ms-lg-3 d-none d-lg-inline-block ms-3">
+                            <small class="d-none d-lg-inline text-muted">Sắp xếp theo:</small>
+                            <a role="button" href="#" data-bs-toggle="dropdown" class="dropdown-toggle btn btn-light">
+                                <span class="d-none d-lg-inline">
+                                    <span>Nổi bật</span>
+                                </span>
+                                <i class="fa fa-sort-amount-asc d-lg-none"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end" role="menu">
+                                <a role="menuitem" rel="noindex,nofollow" class="dropdown-item"
+                                    href="/shop?order=website_sequence+asc">
+                                    <span>Nổi bật</span>
+                                </a>
+                                <a role="menuitem" rel="noindex,nofollow" class="dropdown-item"
+                                    href="/shop?order=create_date+desc">
+                                    <span>Hàng mới về</span>
+                                </a>
+                                <a role="menuitem" rel="noindex,nofollow" class="dropdown-item"
+                                    href="/shop?order=name+asc">
+                                    <span>Tên (A-Z)</span>
+                                </a>
+                                <a role="menuitem" rel="noindex,nofollow" class="dropdown-item"
+                                    href="/shop?order=list_price+asc">
+                                    <span>Giá - Thấp tới cao</span>
+                                </a>
+                                <a role="menuitem" rel="noindex,nofollow" class="dropdown-item"
+                                    href="/shop?order=list_price+desc">
+                                    <span>Giá - Cao tới thấp</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="o_wsale_apply_layout btn-group ms-3 d-flex ms-3" data-active-classes="viền-chính">
+                            <input type="radio" class="btn-check" name="wsale_products_layout" id="o_wsale_apply_grid"
+                                value="grid" />
+                            <label title="Lưới" for="o_wsale_apply_grid" class="btn btn-light  o_wsale_apply_grid">
+                                <i class="fa fa-th-large"></i>
+                            </label>
+                            <input type="radio" class="btn-check" name="wsale_products_layout" id="o_wsale_apply_list"
+                                value="list" checked="checked" />
+                            <label title="Danh sách" for="o_wsale_apply_list"
+                                class="btn btn-light viền-chính o_wsale_apply_list">
+                                <i class="fa fa-bars"></i>
+                            </label>
+                        </div>
+
+                        <button data-bs-toggle="offcanvas" data-bs-target="#o_wsale_offcanvas"
+                            class="btn btn-light position-relative ms-3 d-lg-none">
+                            <i class="fa fa-sliders"></i>
+                        </button>
+                    </div>
+                    <div class="text-center text-muted mt128 mb256">
+                        <h3 class="mt8">Chưa có sản phẩm</h3>
+                    </div>
+                    <div class="products_pager d-flex justify-content-center pt-5 pb-3">
+                    </div>
+                </div>
+            </div>
+
+            <aside id="o_wsale_offcanvas" class="offcanvas offcanvas-end p-0">
+
+                <div id="o_wsale_offcanvas_content" class="accordion accordion-flush flex-grow-1 overflow-auto">
+                    <div class="accordion-item">
+                        <h2 id="o_wsale_offcanvas_orderby_header" class="accordion-header mb-0">
+                            <button class="o_wsale_offcanvas_title accordion-button border-top rounded-0 collapsed"
+                                type="button" data-bs-toggle="collapse" data-bs-target="#o_wsale_offcanvas_orderby"
+                                aria-expanded="false" aria-controls="o_wsale_offcanvas_orderby">
+                                <b>Sắp xếp theo</b>
+                            </button>
+                        </h2>
+                        <div id="o_wsale_offcanvas_orderby" class="accordion-collapse collapse"
+                            aria-labelledby="o_wsale_offcanvas_orderby_header">
+                            <div class="accordion-body pt-0">
+                                <div class="list-group list-group-flush">
+                                    <a role="menuitem" rel="noindex,nofollow" class="list-group-item border-0 ps-0 pb-0"
+                                        href="/shop?order=website_sequence+asc">
+                                        <div class="form-check d-inline-block">
+                                            <input type="radio" class="form-check-input o_not_editable"
+                                                name="wsale_sortby_radios_offcanvas"
+                                                onclick="location.href=&#39;/shop?order=website_sequence+asc&#39;;" />
+                                            <label class="form-check-label fw-normal">Nổi bật</label>
+                                        </div>
+                                    </a><a role="menuitem" rel="noindex,nofollow"
+                                        class="list-group-item border-0 ps-0 pb-0" href="/shop?order=create_date+desc">
+                                        <div class="form-check d-inline-block">
+                                            <input type="radio" class="form-check-input o_not_editable"
+                                                name="wsale_sortby_radios_offcanvas"
+                                                onclick="location.href=&#39;/shop?order=create_date+desc&#39;;" />
+                                            <label class="form-check-label fw-normal">Hàng mới về</label>
+
+                                        </div>
+                                    </a><a role="menuitem" rel="noindex,nofollow"
+                                        class="list-group-item border-0 ps-0 pb-0" href="/shop?order=name+asc">
+                                        <div class="form-check d-inline-block">
+                                            <input type="radio" class="form-check-input o_not_editable"
+                                                name="wsale_sortby_radios_offcanvas"
+                                                onclick="location.href=&#39;/shop?order=name+asc&#39;;" />
+                                            <label class="form-check-label fw-normal">Tên (A-Z)</label>
+                                        </div>
+                                    </a><a role="menuitem" rel="noindex,nofollow"
+                                        class="list-group-item border-0 ps-0 pb-0" href="/shop?order=list_price+asc">
+                                        <div class="form-check d-inline-block">
+                                            <input type="radio" class="form-check-input o_not_editable"
+                                                name="wsale_sortby_radios_offcanvas"
+                                                onclick="location.href=&#39;/shop?order=list_price+asc&#39;;" />
+                                            <label class="form-check-label fw-normal">Giá - Thấp tới cao</label>
+                                        </div>
+                                    </a><a role="menuitem" rel="noindex,nofollow"
+                                        class="list-group-item border-0 ps-0 pb-0" href="/shop?order=list_price+desc">
+                                        <div class="form-check d-inline-block">
+                                            <input type="radio" class="form-check-input o_not_editable"
+                                                name="wsale_sortby_radios_offcanvas"
+                                                onclick="location.href=&#39;/shop?order=list_price+desc&#39;;" />
+                                            <label class="form-check-label fw-normal">Giá - Cao tới thấp</label>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form method="get" class="js_attributes d-flex flex-column">
+                        <input type="hidden" name="search" value="" />
+                    </form>
+
+                    <div id="o_wsale_price_range_option"
+                        class="position-relative o_wsale_offcanvas_title px-4 border-top opacity-75 pe-none user-select-none">
+                        <label class="m-0 h6 o_products_attributes_title ms-n1 pt-3 pb-2">
+                            <b>Khoảng giá</b>
+                        </label>
+                        <input type="range" multiple="multiple" class="form-range range-with-input " data-currency="₫"
+                            data-currency-position="after" step="1.0" min="0.000000" max="0.000000"
+                            value="0.000000,0.000000" />
+                    </div>
+                </div>
+                <div class="offcanvas-body d-flex justify-content-between flex-grow-0 border-top overflow-hidden">
+                    <a href="/shop" title="Xoá bộ lọc" class="btn btn-light d-flex py-1 mb-2 disabled"
+                        aria-disabled="true">
+                        Xoá bộ lọc
+                    </a>
+                </div>
+            </aside>
+        </div>
+        <div class="oe_structure oe_empty oe_structure_not_nearest" id="oe_structure_website_sale_products_2"></div>
+    </div>
+</main>
