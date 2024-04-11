@@ -1,11 +1,15 @@
 using BNI.Models;
 using BNI.Models.Repositories;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<BNIContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("BNI")));
+var connectionString = builder.Configuration.GetConnectionString("BNI");
+builder.Services.AddDbContext<BNIContext>(options =>
+ options.UseSqlServer(connectionString));
+
 
 builder.Services.AddSession();
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
