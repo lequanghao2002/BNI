@@ -1,0 +1,184 @@
+﻿@model BNI.Models.Event
+<main style="padding-top: 71px;">
+    <div id="wrap" class="o_wevent_event js_event d-flex flex-column ">
+        <nav class="navbar navbar-light border-top shadow-sm d-print-none">
+            <div class="container align-items-baseline justify-content-start">
+                <a href="/event" class="navbar-brand h4 my-0 me-0 me-md-4">
+                    <i class="fa fa-long-arrow-left me-2"></i>
+                    <span>All Events</span>
+                </a>
+                <ul class="navbar-nav flex-row ms-md-auto ms-0">
+                    <li class="nav-item me-3">
+                        <a class="nav-link" href="/event?country=241">
+                            <i class="fa fa-map-marker me-2"></i><span>Việt Nam</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-centerflex-wrap ps-sm-3 pe-0">
+                    <form method="get" class="o_searchbar_form s_searchbar_input" action="/event" data-snippet="s_searchbar_input">
+                        <div role="search" class="input-group o_wevent_event_searchbar_form w-100 my-1 my-lg-0 ms-auto">
+                            <input type="search" name="search" class="search-query form-control oe_search_box None" placeholder="Tìm kiếm một sự kiện..." data-search-type="events" data-limit="5" data-display-image="true" data-display-description="true" data-display-extra-link="true" data-display-detail="false" data-order-by="name asc" autocomplete="off">
+                            <button type="submit" aria-label="Tìm kiếm" title="Tìm kiếm" class="btn oe_search_button btn-primary">
+                                <i class="oi oi-search"></i>
+                            </button>
+                        </div>
+
+                        <input name="order" type="hidden" class="o_search_order_by" value="name asc">
+
+
+
+
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        <div name="event" itemscope="itemscope" itemtype="http://schema.org/Event">
+            <div data-name="Ảnh bìa" style="background-color: #AC1B29;" data-use_size="True" data-use_filters="True" data-use_text_align="True" data-res-model="event.event" data-res-id="9" class="o_record_cover_container d-flex flex-column h-100 o_colored_level o_cc o_cc3 o_cc o_half_screen_height o_record_has_cover  ">
+                <div style="background-image: url(@Model.Image);" class="o_record_cover_component o_record_cover_image "></div>
+                <div style="opacity: 0.6;" class="o_record_cover_component o_record_cover_filter oe_black"></div>
+
+
+                <div class="container d-flex flex-column flex-grow-1 justify-content-around">
+                    <div class="o_wevent_event_title">
+                        <h1 class="o_wevent_event_name" itemprop="name" placeholder="Tiêu đề sự kiện">@Model.Title</h1>
+
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="o_wevent_theme_bg_base mb-5">
+                        <div class="alert alert-info mb-0 row g-0 justify-content-between align-items-center" role="status">
+                            <div class="col col-md-8">
+                                <em>Đăng ký đã <b>đóng</b></em>
+                            </div>
+                            <button class="btn btn-danger col col-md-4 py-2" disabled="1">
+                                <span>Đăng ký đã đóng</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <section class="mt-n5">
+                <div class="container overflow-hidden">
+                    <div class="row g-0 mt-n4 mb-3">
+
+                        <div id="o_wevent_event_main_col" class="o_wevent_theme_bg_base col-lg-8 px-3 pt-5 pb-0 shadow-sm">
+                            <span itemprop="description">
+                                <section class="s_text_block o_colored_level" data-name="Chỉnh Text" style="background-image: none;">
+                                    <h5>Giới thiệu</h5>
+                                    <p>@Model.Content</p><p style="line-height: 26px; text-align: justify;"><img src="@Model.Image" alt="" class="img img-fluid o_we_custom_image mx-auto d-block o_we_force_no_transition" data-original-id="1574" data-original-src="/web/image/1574-23d154ae/355702018_222315390690573_271358960600661545_n.jpgM" data-mimetype="image/jpeg" data-bs-original-title="" title="" aria-describedby="tooltip523688" style="width: 50% !important;" loading="lazy"></p>
+                                    <div class="s_hr text-start pt0 pb0" data-snippet="s_hr" data-name="Separator">
+                                        <hr class="mx-auto w-75" style="border-top-width: 1px; border-top-style: solid;">
+                                    </div>
+                                </section>
+                            </span>
+                        </div>
+                        <div class="o_wevent_theme_bg_light col-lg-4 shadow-sm d-print-none">
+
+                            <div class="o_wevent_sidebar_block">
+
+                                <h6 class="o_wevent_sidebar_title">Ngày &amp; Giờ</h6>
+                                <div class="d-flex">
+                                    @if (Model.StartTime.HasValue && Model.EndTime.HasValue)
+                                    {
+                                        <h5 class="my-1">@Model.StartTime.Value.ToString("dd/MM/yyyy")</h5>
+                                    }
+
+
+                                </div>
+                                @if (Model.StartTime.HasValue)
+                                {
+                                    <span data-oe-type="datetime" data-oe-expression="event.date_begin">@Model.StartTime.Value.ToString("HH:mm")</span>
+                                }
+                                <i class="fa fa-long-arrow-right mx-1"></i>
+                                @if (Model.EndTime.HasValue)
+                                {
+                                    <span datetime="2023-06-28 02:00:00">@Model.EndTime.Value.ToString("HH:mm")</span>
+                                }
+                                (<span>Asia/Saigon</span>)
+
+                                <div class="dropdown"><i class="fa fa-calendar me-1"></i><a href="#" role="button" data-bs-toggle="dropdown" class="">Thêm vào lịch</a><div class="dropdown-menu"><a class="dropdown-item" href="/event/9/ics?action=TEMPLATE&amp;text=Di%E1%BB%85n+gi%E1%BA%A3+h%C3%A0ng+tu%E1%BA%A7n+28%2F06%2F2023+-+CSJ+Chapter&amp;dates=20230628T064500%2F20230628T090000&amp;ctz=Asia%2FSaigon&amp;details=Di%E1%BB%85n+gi%E1%BA%A3+h%C3%A0ng+tu%E1%BA%A7n+28%2F06%2F2023+-+CSJ+Chapter&amp;location=CSJ+Chapter%2C+117+Th%C3%B9y+V%C3%A2n%2C+Th%E1%BA%AFng+Tam%2C+V%C5%A9ng+T%C3%A0u%2C+B%C3%A0+R%E1%BB%8Ba+-+V%C5%A9ng+T%C3%A0u+Vi%E1%BB%87t+Nam">iCal/Outlook</a><a class="dropdown-item" target="_blank" href="https://www.google.com/calendar/render?action=TEMPLATE&amp;text=Di%E1%BB%85n+gi%E1%BA%A3+h%C3%A0ng+tu%E1%BA%A7n+28%2F06%2F2023+-+CSJ+Chapter&amp;dates=20230628T064500%2F20230628T090000&amp;ctz=Asia%2FSaigon&amp;details=Di%E1%BB%85n+gi%E1%BA%A3+h%C3%A0ng+tu%E1%BA%A7n+28%2F06%2F2023+-+CSJ+Chapter&amp;location=CSJ+Chapter%2C+117+Th%C3%B9y+V%C3%A2n%2C+Th%E1%BA%AFng+Tam%2C+V%C5%A9ng+T%C3%A0u%2C+B%C3%A0+R%E1%BB%8Ba+-+V%C5%A9ng+T%C3%A0u+Vi%E1%BB%87t+Nam">Google</a></div></div>
+                            </div>
+
+                            <div class="o_wevent_sidebar_block">
+                                <h6 class="o_wevent_sidebar_title">Địa điểm</h6>
+                                <h4 class="">
+                                    <address class="mb-0" itemscope="itemscope" itemtype="http://schema.org/Organization">
+                                        <div>
+                                            <span itemprop="name">CSJ Chapter</span>
+                                        </div>
+                                        <div itemprop="address" itemscope="itemscope" itemtype="http://schema.org/PostalAddress">
+                                        </div>
+                                    </address>
+                                </h4>
+                                <div itemprop="location" class="mb-2">
+                                    <address class="mb-0" itemscope="itemscope" itemtype="http://schema.org/Organization">
+                                        <div itemprop="address" itemscope="itemscope" itemtype="http://schema.org/PostalAddress">
+                                            <div class="d-flex align-items-baseline">
+                                                <span class="w-100 d-block" itemprop="streetAddress">@Model.Address</span>
+                                            </div>
+                                        </div>
+                                    </address>
+                                </div>
+                                <div class="mb-3">
+                                    <address class="mb-0" itemscope="itemscope" itemtype="http://schema.org/Organization">
+                                        <div itemprop="address" itemscope="itemscope" itemtype="http://schema.org/PostalAddress">
+                                            <div><i class="fa fa-envelope fa-fw" role="img" aria-label="Email" title="Email"></i> <span itemprop="email">@Model.OrganizerEmail.</span></div>
+                                        </div>
+                                    </address>
+                                </div>
+                                <i class="fa fa-map-marker fa-fw" role="img"></i>
+                                <a target="_blank" href="https://maps.google.com/maps?q=117+Th%C3%B9y+V%C3%A2n%2C+Th%E1%BA%AFng+Tam%2C+V%C5%A9ng+T%C3%A0u+790000%2C+Vi%E1%BB%87t+Nam&amp;z=8">Xem chỉ đường</a>
+                            </div>
+
+                            <div class="o_wevent_sidebar_block">
+                                <h6 class="o_wevent_sidebar_title">@Model.OrganizerName</h6>
+                                <h4>CSJ Chapter</h4>
+                                <div itemprop="location">
+                                    <address class="mb-0" itemscope="itemscope" itemtype="http://schema.org/Organization">
+                                        <div itemprop="address" itemscope="itemscope" itemtype="http://schema.org/PostalAddress">
+                                            <div><i class="fa fa-envelope fa-fw" role="img" aria-label="Email" title="Email"></i> <span itemprop="email">info@csjchapter.com</span></div>
+                                        </div>
+                                    </address>
+                                </div>
+                            </div>
+
+                            <div class="o_wevent_sidebar_block">
+                                <h6 class="o_wevent_sidebar_title">CHIA SẺ</h6>
+                                <p class="mb-2">Tìm hiểu mọi người thấy và nói gì về sự kiện này, và tham gia vào các cuộc thảo luận. </p>
+                                <div data-snippet="s_share" class="s_share text-start o_wevent_sidebar_social mx-n1">
+                                    <a href="https://www.facebook.com/sharer/sharer.php?u={url}" target="_blank" class="s_share_facebook o_wevent_social_link">
+                                        <i class="fa fa-facebook "></i>
+                                    </a>
+                                    <a href="https://twitter.com/intent/tweet?text={title}&amp;url={url}" target="_blank" class="s_share_twitter o_wevent_social_link">
+                                        <i class="fa fa-twitter "></i>
+                                    </a>
+                                    <a href="https://www.linkedin.com/sharing/share-offsite/?url={url}" target="_blank" class="s_share_linkedin o_wevent_social_link">
+                                        <i class="fa fa-linkedin "></i>
+                                    </a>
+                                    <a href="https://wa.me/?text={title}" target="_blank" class="s_share_whatsapp o_wevent_social_link">
+                                        <i class="fa fa-whatsapp "></i>
+                                    </a>
+                                    <a href="https://pinterest.com/pin/create/button/?url={url}&amp;media={media}&amp;description={title}" target="_blank" class="s_share_pinterest o_wevent_social_link">
+                                        <i class="fa fa-pinterest "></i>
+                                    </a>
+                                    <a href="mailto:?body={url}&amp;subject={title}" class="s_share_email o_wevent_social_link">
+                                        <i class="fa fa-envelope "></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <div class="oe_structure oe_empty" id="oe_structure_website_event_layout_1" data-editor-sub-message="Nội dung sau sẽ xuất hiện ở tất cả sự kiện."></div>
+        <section class="o_wevent_sponsor_wrapper d-none d-md-block d-print-none mt-auto">
+        </section>
+    </div>
+
+</main>
