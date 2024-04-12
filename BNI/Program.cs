@@ -1,5 +1,6 @@
 using BNI.Models;
 using BNI.Models.Repositories;
+using BNI.Repository;
 using Microsoft.EntityFrameworkCore;
 using System;
 
@@ -15,7 +16,7 @@ builder.Services.AddSession();
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
 
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
-
+builder.Services.AddScoped<IPostCategoryRepository, PostCategoryRepository>();
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())

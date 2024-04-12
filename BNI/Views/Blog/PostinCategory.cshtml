@@ -1,4 +1,5 @@
-﻿
+﻿  @using X.PagedList.Mvc.Core
+ @model X.PagedList.IPagedList<BNI.Models.Post>  
 <main>
     <div id="wrap" class="js_blog website_blog">
         <div id="o_wblog_blog_top">
@@ -76,7 +77,6 @@
                     <input type="hidden" name="date_begin" />
                     <input type="hidden" name="date_end" />
                 </form>
-
             </div>
         </nav>
 
@@ -86,7 +86,87 @@
                     <div id="o_wblog_posts_loop_container" class="col">
                         <div id="o_wblog_posts_loop" class="">
                             <div class="row">
-                                @Html.Partial("Item_Blog")
+                                @foreach (var post in Model)
+                                {
+                                    <div class="pb-4 col-12 col-md-6">
+                                        <article name="blog_post"
+                                                 class="o_wblog_post position-relative">
+                                            <a href="@Url.Action("Detail","Blog",new{ id = post.Id})"
+                                               class="text-decoration-none d-block mb-2">
+                                                <div data-name="Ảnh bìa"
+                                                     style="background-color: rgba(255, 0, 0, 0.86)"
+                                                     data-res-model="blog.post"
+                                                     data-res-id="1"
+                                                     class="o_record_cover_container d-flex flex-column h-100 o_colored_level o_cc o_cc3 o_cc o_list_cover o_not_editable rounded overflow-hidden shadow mb-3">
+                                                    <div style="background-image: url('@post.Image');"
+                                                         class="o_record_cover_component o_record_cover_image"></div>
+
+
+                                                    <div class="o_not_editable align-items-center position-relative o_wblog_post_list_author o_list_cover d-flex text-white w-100 o_not_editable px-2 pb-2 pt-3">
+                                                        <div style="line-height: 1">
+                                                            <span>360 CORP, Administrator</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <div>
+                                                <a href="/blog/tin-tuc-2/hoi-nghi-dinh-cao-2023-1"
+                                                   class="d-block text-reset text-decoration-none o_blog_post_title my-0 h5">@post.Title</a>
+
+                                                <div>
+                                                    <a class="text-reset text-decoration-none"
+                                                       href="/blog/tin-tuc-2/hoi-nghi-dinh-cao-2023-1">
+                                                        <div class="mt-2 o_wblog_normalize_font">
+                                                            @(post.Content.Length > 50 ? post.Content.Substring(0, 50) + "..." : post.Content)
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="o_wblog_normalize_font pe-2 pb-2">
+                                                <div class="d-flex small flex-wrap mb-1 w-100">
+                                                    <div class="d-flex flex-wrap align-items-center justify-content-between mx-n2 flex-grow-1">
+                                                        <time class="text-nowrap fw-bold px-2">2 thg 6, 2023</time>
+                                                        <div class="px-2">
+                                                            <b class="text-nowrap" title="Bình luận">
+                                                                <i class="fa fa-comment text-muted me-1"></i>0
+                                                            </b>
+                                                            <b class="text-nowrap ps-2" title="Views">
+                                                                <i class="fa fa-binoculars text-muted me-1"></i>84
+                                                            </b>
+                                                        </div>
+                                                        <b class="text-nowrap text-truncate px-2">
+                                                            <i class="fa fa-folder-open text-muted"></i>
+                                                            <a href="/views/blogs/news.html">Tin tức</a>
+                                                        </b>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                }
+
+                                 <nav aria-label="Page navigation example">
+                                    <ul class="pagination">
+                                        <li class="page-item @(Model.HasPreviousPage ? "" : "disabled")">
+                                            <a class="page-link" href="@Url.Action("PostinCategory", new { page = Model.PageNumber - 1 })" aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                                <span class="sr-only">Previous</span>
+                                            </a>
+                                        </li>
+                                        @for (var pageNumber = 1; pageNumber <= Model.PageCount; pageNumber++)
+                                        {
+                                            <li class="page-item @(pageNumber == Model.PageNumber ? "active" : "")">
+                                                <a class="page-link" href="@Url.Action("PostinCategory", new { page = pageNumber })">@pageNumber</a>
+                                            </li>
+                                        }
+                                        <li class="page-item @(Model.HasNextPage ? "" : "disabled")">
+                                            <a class="page-link" href="@Url.Action("PostinCategory", new { page = Model.PageNumber + 1 })" aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                                <span class="sr-only">Next</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav> 
 
                             </div>
                         </div>
