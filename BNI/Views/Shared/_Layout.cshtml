@@ -37,6 +37,9 @@
             debug: "",
         };
     </script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous"></script>
     <script type="text/javascript">
         odoo.__session_info__ = {
             is_admin: false,
@@ -296,7 +299,7 @@
 
 <body class="">
     <div id="wrapwrap" class="   ">
-        <header id="top" data-anchor="true" data-name="Header" class="o_header_standard o_top_fixed_element">
+        <header id="top" style="position:sticky; top:0; z-index: 100;" data-anchor="true" data-name="Header" class="o_header_standard o_top_fixed_element">
             <nav data-name="Navbar" class="navbar navbar-light o_colored_level o_cc">
                 <div id="top_menu_container" class="container">
                     <a href="/" class="navbar-brand logo me-lg-auto me-0">
@@ -321,7 +324,7 @@
                         <section class="s_text_block o_colored_level" data-snippet="s_text_block" data-name="Text"
                             style="background-image: none">
                             <div class="container">
-                                <a href="/contactus" class="btn btn-primary btn_cta" data-bs-original-title=""
+                                <a href="/Contact" class="btn btn-primary btn_cta" data-bs-original-title=""
                                     title="">Liên hệ với chúng tôi</a>
                             </div>
                         </section>
@@ -387,6 +390,25 @@
                                 @Html.ActionLink("Đăng nhập", "Login", "Account", null, new { @class = "nav-link" })
                             </li>
                         </ul>
+                        
+                        <script>
+                            $(document).ready(function () {
+                                var pathname = window.location.pathname;
+                                var element = null;
+
+                                $("#top_menu_collapse ul li").each(function () {
+                                    var ref = $(this).find("a").attr("href");
+                                    if(ref && ref == pathname){
+                                        element = $(this);
+                                    }
+                                });
+
+                                var a = element.find("a");
+                                if(a){
+                                    a.attr("class", "nav-link active");
+                                }
+                            });
+                        </script>
 
                         <div class="oe_structure oe_structure_solo" id="oe_structure_header_hamburger_3">
                             <section class="s_text_block o_colored_level" data-snippet="s_text_block" data-name="Text"
