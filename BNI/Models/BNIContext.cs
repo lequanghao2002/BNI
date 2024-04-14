@@ -74,7 +74,8 @@ namespace BNI.Models
                 entity.ToTable("Contact");
 
                 entity.Property(e => e.Id)
-                    .ValueGeneratedNever()
+                    //Moi sua cho nay ne
+                    .ValueGeneratedOnAdd()
                     .HasColumnName("ID");
 
                 entity.Property(e => e.Email).HasMaxLength(50);
