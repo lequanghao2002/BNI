@@ -386,11 +386,10 @@
                                 <a role="menuitem" href="~/Introduce" class="nav-link">
                                     <span>Giới thiệu</span>
                                 </a>
+
                             </li>
                             <li class="nav-item">
-                                <a role="menuitem" href="/thanh-vien" class="nav-link">
-                                    <span>Thành Viên</span>
-                                </a>
+                                @Html.ActionLink("Thành Viên", "Index", "Member", null, new { @class = "nav-link" })
                             </li>
                             <li class="nav-item">
                                 <a role="menuitem"
@@ -400,34 +399,22 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a role="menuitem" href="/event" class="nav-link">
-                                    <span>Các sự kiện</span>
-                                </a>
+                                @Html.ActionLink("Các sự kiện", "Index", "Event", null, new { @class = "nav-link" })     
                             </li>
                             <li class="nav-item">
-                                <a role="menuitem" href="/blog/3" class="nav-link">
-                                    <span>Câu chuyện thành công</span>
-                                </a>
-                            </li>
+                                @Html.ActionLink("Câu chuyện thành công", "Blog_Success_Story", "Success_Story", null, new { @class = "nav-link" })                            </li>
                             <li class="nav-item">
                                 @Html.ActionLink("Tin tức", "Index", "Blog", null, new { @class = "nav-link" })
                             </li>
                             <li class="nav-item">
-                                <a role="menuitem" href="/contactus" class="nav-link">
-                                    <span>Liên hệ</span>
-                                </a>
+                                @Html.ActionLink("Liên hệ", "Index", "Contact", null, new { @class = "nav-link" })
                             </li>
                             <li class="nav-item">
-                                <a role="menuitem" href="/shop" class="nav-link">
-                                    <span>Sản phẩm &amp; Dịch vụ</span>
-                                </a>
+                                @Html.ActionLink("Sản phẩm Dịch vụ", "Product", "Product", null, new { @class = "nav-link" })
                             </li>
                             <li class="nav-item">
-                                <a role="menuitem" href="/ban-dieu-hanh-nhiem-ky-19" class="nav-link">
-                                    <span>Ban Điều Hành Nhiệm Kỳ 19</span>
-                                </a>
+                                @Html.ActionLink("Ban Điều Hành Nhiệm Kỳ 19", "Index", "Board19", null, new { @class = "nav-link" })
                             </li>
-
                             <li class="nav-item divider d-none"></li>
                             <li class="o_wsale_my_cart align-self-md-start nav-item">
                                 <a href="/shop/cart" class="nav-link" data-bs-original-title="" title="">
@@ -437,7 +424,7 @@
                             </li>
 
                             <li class="nav-item d-block d-sm-none o_no_autohide_item">
-                                <a href="/web/login" class="nav-link">Đăng nhập</a>
+                                @Html.ActionLink("Đăng nhập", "Login", "Account", null, new { @class = "nav-link" })
                             </li>
                         </ul>
 
