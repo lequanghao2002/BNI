@@ -13,6 +13,7 @@ builder.Services.AddDbContext<BNIContext>(options =>
 
 builder.Services.AddSession();
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
+builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 

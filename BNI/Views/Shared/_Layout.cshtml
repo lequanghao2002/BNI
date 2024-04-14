@@ -1,6 +1,18 @@
-﻿<!DOCTYPE html>
+﻿@using BNI.Common;
+@using Newtonsoft.Json;
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    string userJson = HttpContextAccessor.HttpContext.Session.GetString(CommonConstants.SessionUser);
+    User user = null;
+    if (userJson != null)
+    {
+        user = JsonConvert.DeserializeObject<User>(userJson);
+    }
+}
+
+<!DOCTYPE html>
 <html lang="vi-VN" data-website-id="1" data-main-object="website.page(5,)" data-add2cart-redirect="1"
-    data-logged="false" data-browser="chrome,122.0.0.0">
+      data-logged="false" data-browser="chrome,122.0.0.0">
 
 <head>
     <meta charset="utf-8" />
@@ -302,27 +314,50 @@
                     <a href="/" class="navbar-brand logo me-lg-auto me-0">
                         <span role="img" aria-label="Logo of BNI Vũng Tàu" title="BNI Vũng Tàu">
                             <img src="~/images/BNI Vũng Tàu.png" class="img img-fluid" width="95" height="40"
-                                alt="BNI Vũng Tàu" loading="lazy" />
+                                 alt="BNI Vũng Tàu" loading="lazy" />
                         </span>
                     </a>
 
-                    <ul class="nav navbar-nav navbar-expand d-none d-sm-block">
-                        <li class="nav-item ms-3 o_no_autohide_item">
-                            <a href="/account/login" class="nav-link">Đăng nhập</a>
-                        </li>
-                    </ul>
+                    @if (user != null)
+                    {
+                        <ul class="nav navbar-nav navbar-expand d-none d-sm-block">
+                            <li class="nav-item dropdown ms-3 o_no_autohide_item">
+                                <a href="#" role="button" data-bs-toggle="dropdown" class="dropdown-toggle nav-link">
+                                    <i class="fa fa-1x fa-fw fa-user-circle-o "></i>
+                                </a>
+                                <div role="menu" class="dropdown-menu js_usermenu position-absolute dropdown-menu-end">
+                                    <a href="~/Account/MyAccount" role="menuitem" class="dropdown-item ps-3">
+                                        <i class="fa fa-fw fa-id-card-o me-1 small text-muted"></i> My Account
+                                    </a>
+                                    <div id="o_logout_divider" class="dropdown-divider"></div>
+                                    <a role="menuitem" id="o_logout" class="dropdown-item ps-3" href="~/Account/Logout">
+                                        <i class="fa fa-fw fa-sign-out me-1 small text-muted"></i> Logout
+                                    </a>
+                                </div>
+                            </li>
+
+                        </ul>
+                    }
+                    else
+                    {
+                        <ul class="nav navbar-nav navbar-expand d-none d-sm-block">
+                            <li class="nav-item ms-3 o_no_autohide_item">
+                                <a href="/account/login" class="nav-link">Đăng nhập</a>
+                            </li>
+                        </ul>
+                    }
 
                     <button type="button" data-bs-toggle="collapse" data-bs-target="#top_menu_collapse"
-                        class="navbar-toggler order-first me-auto">
+                            class="navbar-toggler order-first me-auto">
                         <span class="navbar-toggler-icon o_not_editable"></span>
                     </button>
 
                     <div class="oe_structure oe_structure_solo ms-3">
                         <section class="s_text_block o_colored_level" data-snippet="s_text_block" data-name="Text"
-                            style="background-image: none">
+                                 style="background-image: none">
                             <div class="container">
                                 <a href="/contactus" class="btn btn-primary btn_cta" data-bs-original-title=""
-                                    title="">Liên hệ với chúng tôi</a>
+                                   title="">Liên hệ với chúng tôi</a>
                             </div>
                         </section>
                     </div>
@@ -343,12 +378,12 @@
                         </div>
                         <ul id="top_menu" class="nav navbar-nav nav-pills">
                             <li class="nav-item">
-                                <a role="menuitem" href="/" class="nav-link">
+                                <a role="menuitem" href="/" class="nav-link active">
                                     <span>Trang chủ</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a role="menuitem" href="/about-us" class="nav-link active">
+                                <a role="menuitem" href="~/Introduce" class="nav-link">
                                     <span>Giới thiệu</span>
                                 </a>
                             </li>
@@ -359,8 +394,8 @@
                             </li>
                             <li class="nav-item">
                                 <a role="menuitem"
-                                    href="https://dbb.bni.vn/bbd-capsaintjacques/vi-VN/applicationregistration?chapterId=37937"
-                                    class="nav-link">
+                                   href="https://dbb.bni.vn/bbd-capsaintjacques/vi-VN/applicationregistration?chapterId=37937"
+                                   class="nav-link">
                                     <span>Đăng ký thành viên</span>
                                 </a>
                             </li>
@@ -375,7 +410,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                    @Html.ActionLink("Tin tức", "Index", "Blog", null, new { @class = "nav-link" })
+                                @Html.ActionLink("Tin tức", "Index", "Blog", null, new { @class = "nav-link" })
                             </li>
                             <li class="nav-item">
                                 <a role="menuitem" href="/contactus" class="nav-link">
@@ -408,7 +443,7 @@
 
                         <div class="oe_structure oe_structure_solo" id="oe_structure_header_hamburger_3">
                             <section class="s_text_block o_colored_level" data-snippet="s_text_block" data-name="Text"
-                                style="background-image: none">
+                                     style="background-image: none">
                                 <div class="container">
                                     <div class="row align-items-center">
                                         <div class="col-lg-12 o_colored_level">
@@ -422,13 +457,13 @@
                                         </div>
                                         <div class="col-lg-6 pb16 o_colored_level">
                                             <div class="s_social_media text-start o_not_editable no_icon_color"
-                                                data-snippet="s_social_media" data-name="Social Media"
-                                                style="font-size: 18px">
+                                                 data-snippet="s_social_media" data-name="Social Media"
+                                                 style="font-size: 18px">
                                                 <h5 class="s_social_media_title d-none">
                                                     Theo dõi chúng tôi
                                                 </h5>
                                                 <a href="/website/social/facebook" class="s_social_media_facebook"
-                                                    target="_blank">
+                                                   target="_blank">
                                                     <i class="fa fa-facebook m-1 o_editable_media"></i>
                                                 </a>
                                             </div>
@@ -436,19 +471,19 @@
                                         <div class="col-lg-4 text-lg-end o_colored_level pt4 pb0">
                                             <h6>
                                                 <i class="fa fa-fw fa-envelope me-2 fa-1x text-o-color-1"
-                                                    data-bs-original-title="" title=""
-                                                    aria-describedby="tooltip982410"></i>
+                                                   data-bs-original-title="" title=""
+                                                   aria-describedby="tooltip982410"></i>
                                                 <font class="text-o-color-5">&ZeroWidthSpace;</font>
-                                                <font class="text-o-color-1" style="font-size: 18px">info@csjchapter.com
+                                                <font class="text-o-color-1" style="font-size: 18px">
+                                                    info@csjchapter.com
                                                 </font>
                                             </h6>
                                         </div>
                                         <div class="col-lg-2 text-lg-end o_colored_level pb0">
                                             <h6>
                                                 <i class="fa fa-1x fa-fw fa-phone me-2 text-o-color-1"
-                                                    data-bs-original-title="" title=""
-                                                    aria-describedby="tooltip402095"></i>&nbsp;<font
-                                                    class="text-o-color-1">(+84)&nbsp;</font><span class="o_force_ltr">
+                                                   data-bs-original-title="" title=""
+                                                   aria-describedby="tooltip402095"></i>&nbsp;<font class="text-o-color-1">(+84)&nbsp;</font><span class="o_force_ltr">
                                                     <a href="tel:(+84) 934304888" data-bs-original-title="" title="">
                                                         <span style="font-size: 18px">
                                                             <font class="text-o-color-1">934 304 888</font>
@@ -470,7 +505,7 @@
         <footer id="bottom" data-anchor="true" data-name="Footer" class="o_footer o_colored_level o_cc">
             <div id="footer" class="oe_structure oe_structure_solo">
                 <section class="s_text_block pt48" data-snippet="s_text_block" data-name="Text"
-                    style="background-image: none">
+                         style="background-image: none">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-3 pb24">
@@ -487,7 +522,7 @@
                     </div>
                 </section>
                 <section class="s_text_block" data-snippet="s_text_block" data-name="Text"
-                    style="background-image: none">
+                         style="background-image: none">
                     <div class="container">
                         <div class="row align-items-center">
                             <div class="col-lg-3 pb24">
@@ -518,7 +553,7 @@
                             </div>
                             <div class="col-lg-3 pb24">
                                 <div class="s_social_media text-end o_not_editable" data-snippet="s_social_media"
-                                    data-name="Social Media">
+                                     data-name="Social Media">
                                     <h5 class="s_social_media_title d-none">
                                         Theo dõi chúng tôi
                                     </h5>
@@ -529,7 +564,7 @@
                                         <i class="fa fa-1x fa-twitter rounded-circle shadow-sm o_editable_media"></i>
                                     </a>
                                     <a href="/website/social/instagram" class="s_social_media_instagram"
-                                        target="_blank">
+                                       target="_blank">
                                         <i class="fa fa-1x fa-instagram rounded-circle shadow-sm o_editable_media"></i>
                                     </a>
                                 </div>
@@ -551,8 +586,10 @@
                                 Cung cấp bởi -
                                 <a href="https://360.org.vn/" target="_blank" rel="noopener noreferrer">360 CORP</a>
                                 |
-                                <a href="https://vuahethong.com/" target="_blank" rel="noopener noreferrer">VUA HE
-                                    THONG</a>
+                                <a href="https://vuahethong.com/" target="_blank" rel="noopener noreferrer">
+                                    VUA HE
+                                    THONG
+                                </a>
                             </div>
                         </div>
                     </div>
