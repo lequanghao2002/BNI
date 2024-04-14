@@ -1,4 +1,5 @@
-﻿<head>
+﻿@using X.PagedList.Mvc.Core
+<head>
     <meta property="og:title" content="Câu chuyện thành công | BNI Vũng Tàu" />
 
     <meta name="twitter:title" content="Câu chuyện thành công | BNI Vũng Tàu" />
@@ -33,33 +34,29 @@
                                class="btn dropdown-toggle"
                                data-bs-toggle="dropdown">
                                 <i class="fa fa-calendar"></i>
-                                Sự kiện đã qua
+                                Tất cả các Sự kiện
                             </a>
-                            <div class="dropdown-menu">
-                                <a href="eventcoming.html"
-                                   class="dropdown-item d-flex align-items-center justify-content-between">
-                                    Sự kiện sắp tới
+                            <div class="dropdown-menu" asp-controller="Event"
+                                 asp-action="EventCategory"
+                                 action="@Url.Action("EventCategory", "Event")">
+                                <a class="dropdown-item d-flex align-items-center justify-content-between active">
+                                    Tất cả các Sự kiện
                                 </a>
-                                <a href="eventold.html"
-                                   class="dropdown-item d-flex align-items-center justify-content-between active">
+                                <a class="dropdown-item d-flex align-items-center justify-content-betweet">
                                     Sự kiện đã qua
                                 </a>
-                                <a href="eventall.html"
-                                   class="dropdown-item d-flex align-items-center justify-content-between">
-                                    Tất cả các Sự kiện
+                                <a class="dropdown-item d-flex align-items-center justify-content-between">
+                                    Sự kiện sắp tới
                                 </a>
                             </div>
                         </li>
                     </ul>
                     <div class="d-flex align-items-center flex-wrap ps-sm-3 pe-0">
-                        <form method="get"
-                              class="o_searchbar_form s_searchbar_input"
-                              action="/event"
-                              data-snippet="s_searchbar_input">
+                        <form method="get" asp-controller="Event" asp-action="EventSearch" class="o_searchbar_form s_searchbar_input" data-snippet="s_searchbar_input">
                             <div role="search"
                                  class="input-group o_wevent_event_searchbar_form w-100 my-1 my-lg-0">
                                 <input type="search"
-                                       name="search"
+                                       name="keyword"
                                        class="search-query form-control oe_search_box None"
                                        placeholder="Tìm kiếm một sự kiện..."
                                        value=""
@@ -87,6 +84,7 @@
                             <input type="hidden" name="date" value="old" />
                             <input type="hidden" name="tags" value="" />
                         </form>
+
                     </div>
                 </div>
             </div>
