@@ -38,13 +38,27 @@ namespace BNI.Controllers
 
         public IActionResult Search(string keyword, int? page)
         {
-            int pagesize = 2;
-            int pagenumber = page == null || page < 0 ? 1 : page.Value;
-            var listPost = _context.Posts.AsNoTracking().Where(x => x.Title.Contains(keyword)).ToList();
-            int totalPostsFound = listPost.Count;
-            PagedList<Post> model = new PagedList<Post>(listPost, pagenumber, pagesize);
+            int pageSize = 2;
+            int pageNumber = page ?? 1;
+
+            // Đếm tổng số bài viết
+            int totalPostsFound = _context.Posts.AsNoTracking().Count(x => x.Title.Contains(keyword));
+
+            // Lấy chỉ các bài viết cho trang hiện tại
+            var listPost = _context.Posts
+                .AsNoTracking()
+                .Where(x => x.Title.Contains(keyword))
+                .OrderByDescending(x => x.Id) // Sắp xếp theo Id hoặc bất kỳ trường nào phù hợp
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+
+            // Tạo đối tượng PagedList
+            var model = new StaticPagedList<Post>(listPost, pageNumber, pageSize, totalPostsFound);
+
             ViewBag.TotalPostsFound = totalPostsFound;
             ViewBag.Keyword = keyword;
+
             return View(model);
         }
     }

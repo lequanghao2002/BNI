@@ -277,64 +277,25 @@
 </main>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    $(document).ready(function() {
-        $(".o_searchbar_form").submit(function(event) {
-            // Ngăn chặn hành động mặc định của biểu mẫu
-            event.preventDefault();
+       $(document).ready(function() {
+    var isFormSubmitted = false; // Biến kiểm tra biểu mẫu đã được gửi hay chưa
 
-            // Lấy URL và dữ liệu từ biểu mẫu tìm kiếm
-            var url = $(this).attr("action");
-            var data = $(this).serialize();
+    $(".o_searchbar_form").submit(function(event) {
+        if (!isFormSubmitted) {
+            event.preventDefault(); // Ngăn chặn hành động mặc định của biểu mẫu tìm kiếm
 
-            // Gửi yêu cầu AJAX
-            $.ajax({
-                type: "GET",
-                url: url,
-                data: data,
-                success: function(response) {
-                    // Cập nhật số lượng kết quả tìm thấy
-                    $(".oe_search_found small").text("(" + response.Count + ")");
-                }
-            });
-        });
+            var keyword = $(".oe_search_box").val(); // Lấy từ khóa mới từ ô tìm kiếm
+
+            // Đặt giá trị từ khóa mới vào ô tìm kiếm
+            $(this).find("input[name='keyword']").val(keyword);
+
+            // Đánh dấu biểu mẫu đã được gửi
+            isFormSubmitted = true;
+
+            // Gửi lại biểu mẫu tìm kiếm
+            $(this).submit();
+        }
     });
-</script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $(".o_searchbar_form").submit(function(event) {
-            // Ngăn chặn hành động mặc định của biểu mẫu
-            event.preventDefault();
-
-            // Lấy URL và dữ liệu từ biểu mẫu tìm kiếm
-            var url = $(this).attr("action");
-            var data = $(this).serialize();
-
-            // Gửi yêu cầu AJAX
-            $.ajax({
-                type: "GET",
-                url: url,
-                data: data,
-                success: function(response) {
-                    // Cập nhật số lượng kết quả tìm thấy
-                    $(".oe_search_found small").text("(" + response.TotalPostsFound + " được tìm thấy)");
-
-                   
-                }
-            });
-        });
-    });
-    //  $(document).ready(function() {
-    //     $(".post_link").click(function(event) {
-    //         event.preventDefault(); Ngăn chặn hành động mặc định của liên kết
-
-    //         Xóa từ khóa tìm kiếm
-    //         var keyword = "@ViewBag.Keyword";
-    //         $(".oe_search_box").val(""); Xóa giá trị trong ô tìm kiếm
-
-    //         Gửi lại biểu mẫu tìm kiếm với từ khóa rỗng
-    //         $(".o_searchbar_form").submit();
-    //     });
-    // });
+});
 
 </script>
