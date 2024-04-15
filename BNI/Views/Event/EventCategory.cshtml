@@ -1,13 +1,5 @@
 ﻿@model X.PagedList.IPagedList<BNI.Models.Event>
-    <head>
-        <script>window.onload = function () {
-                function updateSelectedEventType(eventTypeName) {
-                    document.getElementById('selectedEventType').innerText = eventTypeName;
-                }
-            };</script>
 
-
-    </head>
 <main>
 
     <div id="wrap" class="o_wevent_index">
@@ -32,36 +24,34 @@
 
 
                         <li class="nav-item dropdown me-2 my-1">
+
                             <a href="#" role="button" class="btn dropdown-toggle" id="eventTypeDropdown" data-bs-toggle="dropdown">
                                 <i class="fa fa-calendar"></i>
-                                <span id="selectedEventType">Tất cả các Sự kiện</span>
+                                <span>@ViewBag.EventType</span>
                             </a>
+
 
                             <div class="dropdown-menu">
                                 <a asp-controller="Event"
                                    asp-action="EventCategory"
                                    asp-route-eventType="all"
-                                   class="dropdown-item d-flex align-items-center justify-content-between"
-                                   onclick="updateSelectedEventType('Tất cả các Sự kiện')">
+                                   class="dropdown-item d-flex align-items-center justify-content-between">
                                     Tất cả các Sự kiện
                                 </a>
                                 <a asp-controller="Event"
                                    asp-action="EventCategory"
                                    asp-route-eventType="past"
-                                   class="dropdown-item d-flex align-items-center justify-content-between"
-                                   onclick="updateSelectedEventType('Sự kiện đã qua')">
+                                   class="dropdown-item d-flex align-items-center justify-content-between">
                                     Sự kiện đã qua
                                 </a>
                                 <a asp-controller="Event"
                                    asp-action="EventCategory"
                                    asp-route-eventType="future"
-                                   class="dropdown-item d-flex align-items-center justify-content-between"
-                                   onclick="updateSelectedEventType('Sự kiện sắp tới')">
+                                   class="dropdown-item d-flex align-items-center justify-content-between">
                                     Sự kiện sắp tới
                                 </a>
                             </div>
                         </li>
-
 
 
                     </ul>
@@ -195,10 +185,5 @@
 
         <div id="oe_structure_we_index_2" class="oe_structure oe_empty"></div>
     </div>
-    <script>window.onload = function () {
-            function updateSelectedEventType(eventTypeName) {
-                document.getElementById('selectedEventType').innerText = eventTypeName;
-            }
-        };</script>
 
 </main>

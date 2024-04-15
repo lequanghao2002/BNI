@@ -47,11 +47,14 @@ namespace BNI.Controllers
        
 
 
+            
+            
         public IActionResult EventCategory(string eventType, int? page, int id)
         {
             //IQueryable<Event> events = _context.Events;
             var ev = _context.Events.SingleOrDefault(x => x.Id == id);
             int pageSize = 10;
+            string evType = "";
             int pageNumber = page == null || page < 0 ? 1 : page.Value;
             DateTime currentDate = DateTime.Now.Date; 
 
@@ -61,15 +64,19 @@ namespace BNI.Controllers
             {
                 case "past":
                     listEvent = _context.Events.AsNoTracking().Where(x => x.StartTime.HasValue && x.StartTime.Value.Date < currentDate);
+                    evType = "Sự kiện đã qua";
                     break;
                 case "future":
                     listEvent = _context.Events.AsNoTracking().Where(x => x.StartTime.HasValue && x.StartTime.Value.Date >= currentDate);
+                    evType = "Sự kiện sắp tới";
                     break;
                 default:
+                    evType = "Tất cả các Sự kiện";
                     break;
             }
-
+            ViewBag.EventType = evType;
             PagedList<Event> model = new PagedList<Event>(listEvent, pageNumber, pageSize);
+
             return View(model);
         }
 
