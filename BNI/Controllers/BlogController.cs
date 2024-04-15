@@ -31,7 +31,7 @@ namespace BNI.Controllers
             int pagesize = 2;
             int pagenumber = page == null || page < 0 ? 1 : page.Value;
             var listPost = _context.Posts.AsNoTracking().Where(x => x.PostCategory == id).ToList();
-
+            ViewBag.SelectedCategoryId = id;
             PagedList<Post> model = new PagedList<Post>(listPost, pagenumber, pagesize);
             return View(model);
         }
@@ -41,8 +41,10 @@ namespace BNI.Controllers
             int pagesize = 2;
             int pagenumber = page == null || page < 0 ? 1 : page.Value;
             var listPost = _context.Posts.AsNoTracking().Where(x => x.Title.Contains(keyword)).ToList();
-
+            int totalPostsFound = listPost.Count;
             PagedList<Post> model = new PagedList<Post>(listPost, pagenumber, pagesize);
+            ViewBag.TotalPostsFound = totalPostsFound;
+            ViewBag.Keyword = keyword;
             return View(model);
         }
     }
