@@ -31,14 +31,18 @@
           href="~/css/style.css"
           data-asset-bundle="web.assets_frontend"
           data-asset-version="2e23a77" />
-    <script id="web.layout.odooscript" type="text/javascript">
-        var odoo = {
+    <script>window.onload = function () {
+            function updateSelectedEventType(eventTypeName) {
+                document.getElementById('selectedEventType').innerText = eventTypeName;
+            }
+        };</script>
+
+
+    <script id="web.layout.odooscript" type="text/javascript">var odoo = {
             csrf_token: "5f51c1d9455cb880f6fbae2c2ba5750a6bebff08o1742282176",
             debug: "",
-        };
-    </script>
-    <script type="text/javascript">
-        odoo.__session_info__ = {
+        };</script>
+    <script type="text/javascript">odoo.__session_info__ = {
             is_admin: false,
             is_system: false,
             is_website_user: true,
@@ -60,8 +64,7 @@
         if (!/(^|;\s)tz=/.test(document.cookie)) {
             const userTZ = Intl.DateTimeFormat().resolvedOptions().timeZone;
             document.cookie = `tz=${userTZ}; path=/`;
-        }
-    </script>
+        }</script>
     <script defer="defer"
             type="text/javascript"
             src="~/js/frontend_minimal.js"

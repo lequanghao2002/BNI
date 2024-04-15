@@ -44,39 +44,33 @@ namespace BNI.Controllers
             return View(model);
         }
 
-        public IActionResult EventCategory(int? page, int id)
-        {
+       
 
+
+        public IActionResult EventCategory(string eventType, int? page, int id)
+        {
+            //IQueryable<Event> events = _context.Events;
             var ev = _context.Events.SingleOrDefault(x => x.Id == id);
             int pageSize = 10;
-            int pageNumber = page ?? 1;
-            DateTime currentDate = DateTime.Now;
+            int pageNumber = page == null || page < 0 ? 1 : page.Value;
+            DateTime currentDate = DateTime.Now.Date; 
+
             var listEvent = _context.Events.AsNoTracking();
 
-            IQueryable<Event> events = _context.Events.AsNoTracking();
-            if (ev != null && ev.StartTime != null )
+            switch (eventType)
             {
-                DateTime evStartDate = ev.StartTime.Value.Date;
-                DateTime currentDateTime = currentDate.Date;
-
-                if (evStartDate > currentDateTime)
-                {
-                    listEvent = events.Where(x => x.StartTime > currentDateTime);
-                }
-                else if (evStartDate < currentDateTime)
-                {
-                    listEvent = events.Where(x => x.StartTime < currentDateTime);
-                }
-                else
-                {
-                    // Trường hợp StartTime của sự kiện bằng currentDate
-                    listEvent = events.Where(x => x.StartTime == currentDateTime);
-                }
+                case "past":
+                    listEvent = _context.Events.AsNoTracking().Where(x => x.StartTime.HasValue && x.StartTime.Value.Date < currentDate);
+                    break;
+                case "future":
+                    listEvent = _context.Events.AsNoTracking().Where(x => x.StartTime.HasValue && x.StartTime.Value.Date >= currentDate);
+                    break;
+                default:
+                    break;
             }
 
             PagedList<Event> model = new PagedList<Event>(listEvent, pageNumber, pageSize);
             return View(model);
-
         }
 
 
