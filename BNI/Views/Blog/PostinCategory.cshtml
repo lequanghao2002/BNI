@@ -1,5 +1,11 @@
-﻿  @using X.PagedList.Mvc.Core
+﻿@using Microsoft.EntityFrameworkCore
+  @using X.PagedList.Mvc.Core
  @model X.PagedList.IPagedList<BNI.Models.Post>  
+ @inject BNIContext _Context
+@{
+    // Tạo một HashSet để lưu trữ các ID của các thể loại đã được thêm vào
+    HashSet<int> addedCategoryIds = new HashSet<int>();
+}
 <main>
     <div id="wrap" class="js_blog website_blog">
         <div id="o_wblog_blog_top">
@@ -22,14 +28,34 @@
                         <div class="h4 bg-o-color-3 px-2 d-inline-block rounded-1">
                             Mới nhất
                         </div>
-                        <a class="text-white text-decoration-none"
-                           href="/views/blogs/blog_detail.html"
-                           title="Ngày Hội Kết Nối Giao Thương">
-                            <div id="o_wblog_post_name"
-                                 placeholder="Tiêu đề Blog"
-                                 data-blog-id="6">
-                                Ngày Hội Kết Nối Giao Thương
+                        <a class="text-white text-decoration-none">
+                            <div id="o_wblog_post_name" placeholder="Tiêu đề Blog" data-blog-id="6">
+                                @foreach (var post in Model)
+                                {
+                                    // Kiểm tra xem post.CategoryId có giá trị không null không
+                                    if (post.PostCategory.HasValue)
+                                    {
+                                        // Lấy giá trị của post.CategoryId và chuyển đổi thành int
+                                        int categoryId = post.PostCategory.Value;
+
+                                        // Kiểm tra xem ID của thể loại đã được thêm vào HashSet chưa
+                                        if (!addedCategoryIds.Contains(categoryId))
+                                        {
+                                            // Lấy thông tin của thể loại từ cơ sở dữ liệu
+                                            var category = _Context.PostsCategories.FirstOrDefault(c => c.Id == categoryId);
+
+                                            // Kiểm tra xem category có tồn tại hay không
+                                            if (category != null)
+                                            {
+                                                // Hiển thị tên của thể loại và thêm ID vào HashSet
+                                                <span>@category.Name.Trim()</span>
+                                                addedCategoryIds.Add(categoryId);
+                                            }
+                                        }
+                                    }
+                                }
                             </div>
+
                         </a>
 
                         <div>
