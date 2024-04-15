@@ -14,9 +14,13 @@ builder.Services.AddDbContext<BNIContext>(options =>
 
 builder.Services.AddSession();
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
+builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
+
 builder.Services.AddScoped<IPostCategoryRepository, PostCategoryRepository>();
+builder.Services.AddScoped<IContactRepository, ContactRepository>();
+
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())
@@ -34,7 +38,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Contact}/{action=Index}/{id?}");
 
 app.UseSession();
 

@@ -4,7 +4,7 @@ namespace BNI.Controllers
 {
     public class IntroduceController : Controller
     {
-        public IActionResult Introduce()
+        public IActionResult Index()
         {
             return View();
         }
