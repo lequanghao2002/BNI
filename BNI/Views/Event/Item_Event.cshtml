@@ -1,0 +1,86 @@
+﻿@using X.PagedList.Mvc.Core
+@model X.PagedList.IPagedList<BNI.Models.Event>
+
+@foreach (var ev in Model)
+{
+    <div class=" col-md-6 col-lg-4 mb-4">
+        <a class="text-decoration-none" href=@Url.Action("EventDetail","Event",new{ id = ev.Id}) data-publish="on">
+            <article itemscope="itemscope" itemtype="http://schema.org/Event" class="h-100 card border-0 shadow-sm">
+                <div class="h-100 row g-0">
+
+                    <header class="overflow-hidden bg-secondary col-12 ">
+
+                        <div class="d-block h-100 w-100">
+                            <div data-name="Ảnh bìa" style="background-color: #AC1B29;" data-res-model="event.event" data-res-id="9" class="o_record_cover_container d-flex flex-column h-100 o_colored_level o_cc o_cc3 o_cc   ">
+                                <div style="background-image: url(@ev.Image);" class="o_record_cover_component o_record_cover_image "></div>
+                                <div class="o_wevent_event_date position-absolute shadow-sm o_not_editable">
+                                    <span class="o_wevent_event_month" data-oe-type="datetime" data-oe-expression="event.date_begin">Thg 6</span>
+                                    <span class="o_wevent_event_day oe_hide_on_date_edit" data-oe-type="datetime" data-oe-expression="event.date_begin">28</span>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                    <div class="col-12  position-relative">
+
+                        <main class="card-body">
+
+                            <h5 class="card-title mt-2 mb-0 text-truncate ">
+                                <span itemprop="name">@ev.Title</span>
+                            </h5>
+
+                            <time class="o_not_editable" itemprop="startDate" datetime="2023-06-27 23:45:00">
+                                <span data-oe-type="datetime" data-oe-expression="event.date_begin">@ev.StartTime.</span> -
+                                
+                                (<span>Asia/Saigon</span>)
+                            </time>
+
+                            <div class="o_not_editable" itemprop="location" data-oe-type="contact" data-oe-expression="event.address_id">
+                                <address class="mb-0" itemscope="itemscope" itemtype="http://schema.org/Organization">
+                                    <div itemprop="address" itemscope="itemscope" itemtype="http://schema.org/PostalAddress">
+                                        <div class="d-flex align-items-baseline">
+                                            <span>
+                                                <div>
+                                                    <span itemprop="addressLocality">@ev.Address</span>
+                                                </div>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </address>
+                            </div>
+                            <div class="mt8">
+                            </div>
+                        </main>
+                    </div>
+
+                    <footer class="alert-secondary small align-self-end w-100 card-footer border-top">
+                        <span>
+                            Đăng ký đã đóng
+                        </span>
+                    </footer>
+                </div>
+            </article>
+        </a>
+    </div>
+}
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        <li class="page-item @(Model.HasPreviousPage ? "" : "disabled")">
+            <a class="page-link" href="@Url.Action("Index", new { page = Model.PageNumber - 1 })" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previous</span>
+            </a>
+        </li>
+        @for (var pageNumber = 1; pageNumber <= Model.PageCount; pageNumber++)
+        {
+            <li class="page-item @(pageNumber == Model.PageNumber ? "active" : "")">
+                <a class="page-link" href="@Url.Action("Index", new { page = pageNumber })">@pageNumber</a>
+            </li>
+        }
+        <li class="page-item @(Model.HasNextPage ? "" : "disabled")">
+            <a class="page-link" href="@Url.Action("Index", new { page = Model.PageNumber + 1 })" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Next</span>
+            </a>
+        </li>
+    </ul>
+</nav>

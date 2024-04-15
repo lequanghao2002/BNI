@@ -86,7 +86,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Member\" />
-    <Folder Include="Views\Contact\" />
     <Folder Include="Views\Board19\" />
   </ItemGroup>
 </Project>
