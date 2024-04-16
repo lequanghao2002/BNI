@@ -405,7 +405,11 @@
                                 @Html.ActionLink("Các sự kiện", "Index", "Event", null, new { @class = "nav-link" })     
                             </li>
                             <li class="nav-item">
-                                @Html.ActionLink("Câu chuyện thành công", "Blog_Success_Story", "Success_Story", null, new { @class = "nav-link" })                            </li>
+
+                                <a role="menuitem" asp-controller="Blog" asp-action="PostinCategory" asp-route-id="3" class="nav-link">
+                                    <span>Câu chuyện thành công</span>
+                                </a>
+                            </li>
                             <li class="nav-item">
                                 @Html.ActionLink("Tin tức", "Index", "Blog", null, new { @class = "nav-link" })
                             </li>

@@ -1,5 +1,6 @@
 using BNI.Models;
 using BNI.Models.Repositories;
+using BNI.Repository;
 using Microsoft.EntityFrameworkCore;
 using System;
 
@@ -16,6 +17,8 @@ builder.Services.AddAutoMapper(typeof(Program).Assembly);
 builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
+
+builder.Services.AddScoped<IPostCategoryRepository, PostCategoryRepository>();
 builder.Services.AddScoped<IContactRepository, ContactRepository>();
 
 var app = builder.Build();
