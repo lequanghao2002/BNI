@@ -26,7 +26,16 @@
                         <li class="nav-item dropdown me-2 my-1">
                             <a href="#" role="button" class="btn dropdown-toggle" id="eventTypeDropdown" data-bs-toggle="dropdown">
                                 <i class="fa fa-calendar"></i>
-                                <span>@ViewBag.EventType</span>
+                                <span>
+                                    @if (string.IsNullOrEmpty(ViewBag.EventType))
+                                    {
+                                        <text>Tất cả sự kiện</text>
+                                    }
+                                    else
+                                    {
+                                        <text>@ViewBag.EventType</text>
+                                    }
+                                </span>
                             </a>
 
 

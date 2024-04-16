@@ -18,7 +18,7 @@ namespace BNI.Controllers
         // GET: /<controller>/
         public IActionResult Index(int? page)
         {
-            int pagesize = 5;
+            int pagesize = 3;
             int pagenumber = page == null || page < 0 ? 1 : page.Value;
             var listEvent = _context.Events.AsNoTracking();
             PagedList<Event> model = new PagedList<Event>(listEvent, pagenumber, pagesize);
@@ -36,11 +36,22 @@ namespace BNI.Controllers
         public IActionResult EventSearch(string keyword, int? page)
         {
 
-            int pagesize = 2;
-            int pagenumber = page == null || page < 0 ? 1 : page.Value;
-            var listEvent = _context.Events.AsNoTracking().Where(x => x.Title.Contains(keyword)).ToList();
+            int pageSize = 10;
+            int pageNumber = page == null || page < 0 ? 1 : page.Value;
+            int totalEventsFound = _context.Events.AsNoTracking().Count(x => x.Title.Contains(keyword));
+            var listEvent = _context.Events
+                .AsNoTracking()
+                .Where(x => x.Title.Contains(keyword))
+                .OrderByDescending(x => x.Id) 
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
 
-            PagedList<Event> model = new PagedList<Event>(listEvent, pagenumber, pagesize);
+            var model = new StaticPagedList<Event>(listEvent, pageNumber, pageSize, totalEventsFound);
+
+            ViewBag.TotalPostsFound = totalEventsFound;
+            ViewBag.Keyword = keyword;
+
             return View(model);
         }
 
