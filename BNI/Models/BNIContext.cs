@@ -24,6 +24,7 @@ namespace BNI.Models
         public virtual DbSet<Post> Posts { get; set; } = null!;
         public virtual DbSet<PostsCategory> PostsCategories { get; set; } = null!;
         public virtual DbSet<Profession> Professions { get; set; } = null!;
+        public virtual DbSet<ProfessionDetail> ProfessionDetails { get; set; } = null!;
         public virtual DbSet<Term> Terms { get; set; } = null!;
         public virtual DbSet<User> Users { get; set; } = null!;
 
@@ -193,11 +194,9 @@ namespace BNI.Models
 
                 entity.Property(e => e.Email).HasMaxLength(50);
 
-                entity.Property(e => e.Firstname).HasMaxLength(30);
+                entity.Property(e => e.Fullname).HasMaxLength(30);
 
                 entity.Property(e => e.Introducer).HasMaxLength(50);
-
-                entity.Property(e => e.Lastname).HasMaxLength(30);
 
                 entity.Property(e => e.LinkWeb).HasColumnName("Link_web");
 
@@ -322,6 +321,29 @@ namespace BNI.Models
                     .HasColumnName("ID");
 
                 entity.Property(e => e.Title).HasMaxLength(100);
+            });
+
+            modelBuilder.Entity<ProfessionDetail>(entity =>
+            {
+                entity.ToTable("Profession_Detail");
+
+                entity.Property(e => e.Id)
+                    .ValueGeneratedOnAdd()
+                    .HasColumnName("ID");
+
+                entity.Property(e => e.Description).HasColumnType("Description");
+
+                entity.Property(e => e.ProfessionId).HasColumnName("Profession_Id");
+
+                entity.Property(e => e.Title).HasColumnName("Title");
+                entity.Property(e => e.Icon).HasColumnName("Icon");
+                entity.Property(e => e.OrderIndex).HasColumnName("OrderIndex");
+                entity.Property(e => e.TypeColumn).HasColumnName("TypeColumn");
+
+                //entity.HasOne(d => d.Professions)
+                //    .WithMany(p => p.)
+                //    .HasForeignKey(d => d.ProfessionId)
+                //    .HasConstraintName("FK_Profession_Detail_Profession");
             });
 
             modelBuilder.Entity<Term>(entity =>

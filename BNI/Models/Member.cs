@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace BNI.Models
+﻿namespace BNI.Models
 {
     public partial class Member
     {
@@ -22,8 +19,7 @@ namespace BNI.Models
         public string? Zalo { get; set; }
         public string? Description { get; set; }
         public string? Pronoun { get; set; }
-        public string? Firstname { get; set; }
-        public string? Lastname { get; set; }
+        public string? Fullname { get; set; }
         public string? Company { get; set; }
         public string? Introducer { get; set; }
         public string? TaxNumber { get; set; }
@@ -44,6 +40,7 @@ namespace BNI.Models
         public string? BusinessSector { get; set; }
         public string? Referrer1 { get; set; }
         public string? Referrer2 { get; set; }
+        public string? Position { get; set; }
 
         public virtual Profession Profession { get; set; } = null!;
         public virtual User? User { get; set; }
