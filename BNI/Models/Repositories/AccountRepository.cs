@@ -17,6 +17,7 @@ namespace BNI.Models.Repositories
         public bool sendEmailResetPassword(string email);
         public bool ResetPassword(RegisterViewModel registerViewModel);
         public bool ChangePassword(string oldPassword, string newPassword);
+        public bool Update (User user);
     }
     public class AccountRepository : IAccountRepository
     {
@@ -104,6 +105,28 @@ namespace BNI.Models.Repositories
             return false;
         }
 
+        public bool Update(User user)
+        {
+            var userById = _bniContext.Users.SingleOrDefault(u => u.Id == user.Id);
+            if (userById != null)
+            {
+                userById.FullName = user.FullName;
+                userById.Email = user.Email;
+                userById.Company = user.Company;
+                userById.Vat = user.Vat;
+                userById.PhoneNumber = user.PhoneNumber;
+                userById.Address = user.Address;
+                userById.City = user.City;
+                userById.Zip = user.Zip;
+                userById.Country = user.Country;
+
+                _bniContext.SaveChanges();
+
+                return true;
+            }
+
+            return false;
+        }
 
     }
 }

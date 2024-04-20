@@ -1,0 +1,877 @@
+﻿@using BNI.Common;
+@using Newtonsoft.Json;
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    ViewData["Title"] = "MyAccount";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    string userJson = HttpContextAccessor.HttpContext.Session.GetString(CommonConstants.SessionUser);
+    User user = null;
+    if (userJson != null)
+    {
+        user = JsonConvert.DeserializeObject<User>(userJson);
+    }
+}
+@*<head>
+    <meta property="og:title" content="My Portal | BNI Vũng Tàu" />
+    <meta name="twitter:title" content="My Portal | BNI Vũng Tàu" />
+    <title>My Portal | BNI Vũng Tàu</title>
+</head>*@
+
+<main style="">
+    <div class="o_portal container mt-3">
+        <div class="row align-items-center bg-white g-0 border rounded">
+            <div class="col-10">
+                <ol class="o_portal_submenu breadcrumb mb-0 py-2 flex-grow-1">
+                    <li class="breadcrumb-item ms-1"><a href="/my/home" aria-label="Trang chủ" title="Trang chủ"><i class="fa fa-home"></i></a></li>
+                    <li class="breadcrumb-item">Chi tiết</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div id="wrap" class="o_portal_wrap">
+        <div class="container mb64">
+
+            <form action="/account/information" method="post">
+                <div class="row o_portal_details">
+                    <div class="col-lg-8">
+                        <div class="row">
+                            <input type="hidden" name="csrf_token" value="f9e7dd0a71c05f8ff9c6ff9d0bc09c1442f8bf3eo1745141256">
+                            <div id="userData" data-user="@JsonConvert.SerializeObject(user)"></div>
+                            <input type="hidden" name="id" class="form-control" value="@user.Id">
+                            <div class="mb-3  col-xl-6">
+                                <label class="col-form-label" for="name">Tên</label>
+                                <input type="text" name="FullName" class="form-control " value="@user.FullName">
+                            </div>
+                            <div class="mb-3  col-xl-6">
+                                <label class="col-form-label" for="email">Email</label>
+                                <input type="email" name="Email" class="form-control " value="@user.Email">
+                            </div>
+
+                            <div class="clearfix"></div>
+                            <div class="mb-1  col-xl-6">
+                                <label class="col-form-label label-optional" for="company_name">Tên Công ty</label>
+
+                                <input type="text" name="Company" class="form-control " value="@user.Company">
+                            </div>
+                            <div class="mb-1  col-xl-6">
+                                <label class="col-form-label label-optional" for="vat">Số VAT</label>
+
+                                <input type="text" name="Vat" class="form-control " value="@user.Vat">
+                            </div>
+                            <div class="mb-3  col-xl-6">
+                                <label class="col-form-label" for="phone">Điện thoại</label>
+                                <input type="tel" name="PhoneNumber" class="form-control " value="@user.PhoneNumber">
+                            </div>
+
+                            <div class="clearfix"></div>
+                            <div class="mb-3  col-xl-6">
+                                <label class="col-form-label" for="street">Địa chỉ</label>
+                                <input type="text" name="Address" class="form-control " value="@user.Address">
+                            </div>
+                            <div class="mb-3  col-xl-6">
+                                <label class="col-form-label" for="city">Thành phố</label>
+                                <input type="text" name="City" class="form-control " value="@user.City">
+                            </div>
+                            <div class="mb-3  col-xl-6">
+                                <label class="col-form-label label-optional" for="zipcode">Mã Zip / Postal</label>
+                                <input type="text" name="Zip" class="form-control " value="@user.Zip">
+                            </div>
+                            <div class="mb-3  col-xl-6">
+                                <label class="col-form-label" for="country_id">Quốc gia</label>
+                                <select id="countryName" name="country" class="form-select">
+                                    <option value="">Quốc gia...</option>
+                                    <option value="3">
+                                        Afghanistan
+                                    </option>
+                                    <option value="65">
+                                        Ai Cập
+                                    </option>
+                                    <option value="6">
+                                        Albania
+                                    </option>
+                                    <option value="62">
+                                        Algeria
+                                    </option>
+                                    <option value="11">
+                                        American Samoa
+                                    </option>
+                                    <option value="1">
+                                        Andorra
+                                    </option>
+                                    <option value="8">
+                                        Angola
+                                    </option>
+                                    <option value="5">
+                                        Anguilla
+                                    </option>
+                                    <option value="4">
+                                        Antigua và Barbuda
+                                    </option>
+                                    <option value="10">
+                                        Argentina
+                                    </option>
+                                    <option value="7">
+                                        Armenia
+                                    </option>
+                                    <option value="14">
+                                        Aruba
+                                    </option>
+                                    <option value="16">
+                                        Azerbaijan
+                                    </option>
+                                    <option value="178">
+                                        Ba Lan
+                                    </option>
+                                    <option value="32">
+                                        Ba-ha-ma
+                                    </option>
+                                    <option value="23">
+                                        Bahrain
+                                    </option>
+                                    <option value="19">
+                                        Bangladesh
+                                    </option>
+                                    <option value="18">
+                                        Barbados
+                                    </option>
+                                    <option value="36">
+                                        Belarus
+                                    </option>
+                                    <option value="37">
+                                        Belize
+                                    </option>
+                                    <option value="25">
+                                        Benin
+                                    </option>
+                                    <option value="27">
+                                        Bermuda
+                                    </option>
+                                    <option value="33">
+                                        Bhutan
+                                    </option>
+                                    <option value="29">
+                                        Bolivia
+                                    </option>
+                                    <option value="30">
+                                        Bonaire, Sint Eustatius và Saba
+                                    </option>
+                                    <option value="17">
+                                        Bosnia và Herzegovina
+                                    </option>
+                                    <option value="35">
+                                        Botswana
+                                    </option>
+                                    <option value="31">
+                                        Brazil
+                                    </option>
+                                    <option value="28">
+                                        Brunei Darussalam
+                                    </option>
+                                    <option value="22">
+                                        Bulgaria
+                                    </option>
+                                    <option value="21">
+                                        Burkina Faso
+                                    </option>
+                                    <option value="24">
+                                        Burundi
+                                    </option>
+                                    <option value="108">
+                                        Băng Đảo
+                                    </option>
+                                    <option value="143">
+                                        Bắc Macedonia
+                                    </option>
+                                    <option value="120">
+                                        Bắc Triều Tiên
+                                    </option>
+                                    <option value="20">
+                                        Bỉ
+                                    </option>
+                                    <option value="183">
+                                        Bồ Đào Nha
+                                    </option>
+                                    <option value="47">
+                                        Cameroon
+                                    </option>
+                                    <option value="116">
+                                        Campuchia
+                                    </option>
+                                    <option value="38">
+                                        Canada
+                                    </option>
+                                    <option value="52">
+                                        Cape Verde
+                                    </option>
+                                    <option value="214">
+                                        Chad
+                                    </option>
+                                    <option value="46">
+                                        Chi-lê
+                                    </option>
+                                    <option value="49">
+                                        Colombia
+                                    </option>
+                                    <option value="118">
+                                        Comoros
+                                    </option>
+                                    <option value="45">
+                                        Cook Islands
+                                    </option>
+                                    <option value="50">
+                                        Costa Rica
+                                    </option>
+                                    <option value="97">
+                                        Croatia
+                                    </option>
+                                    <option value="51">
+                                        Cuba
+                                    </option>
+                                    <option value="53">
+                                        Curaçao
+                                    </option>
+                                    <option value="2">
+                                        Các Tiểu Vương Quốc A-rập Thống Nhất
+                                    </option>
+                                    <option value="42">
+                                        Công-gô
+                                    </option>
+                                    <option value="44">
+                                        Côte d'Ivoire
+                                    </option>
+                                    <option value="56">
+                                        Cộng hoà Séc
+                                    </option>
+                                    <option value="61">
+                                        Cộng hòa Dominica
+                                    </option>
+                                    <option value="41">
+                                        Cộng hòa Dân chủ Congo
+                                    </option>
+                                    <option value="58">
+                                        Djibouti
+                                    </option>
+                                    <option value="60">
+                                        Dominica
+                                    </option>
+                                    <option value="63">
+                                        Ecuador
+                                    </option>
+                                    <option value="209">
+                                        El Salvador
+                                    </option>
+                                    <option value="87">
+                                        Equatorial Guinea
+                                    </option>
+                                    <option value="67">
+                                        Eritrea
+                                    </option>
+                                    <option value="64">
+                                        Estonia
+                                    </option>
+                                    <option value="212">
+                                        Eswatini
+                                    </option>
+                                    <option value="69">
+                                        Ethiopia
+                                    </option>
+                                    <option value="72">
+                                        Falkland Islands
+                                    </option>
+                                    <option value="71">
+                                        Fiji
+                                    </option>
+                                    <option value="76">
+                                        Gabon
+                                    </option>
+                                    <option value="84">
+                                        Gambia
+                                    </option>
+                                    <option value="78">
+                                        Georgia
+                                    </option>
+                                    <option value="80">
+                                        Ghana
+                                    </option>
+                                    <option value="81">
+                                        Gibraltar
+                                    </option>
+                                    <option value="83">
+                                        Greenland
+                                    </option>
+                                    <option value="77">
+                                        Grenada
+                                    </option>
+                                    <option value="86">
+                                        Guadeloupe
+                                    </option>
+                                    <option value="91">
+                                        Guam
+                                    </option>
+                                    <option value="90">
+                                        Guatemala
+                                    </option>
+                                    <option value="82">
+                                        Guernsey
+                                    </option>
+                                    <option value="79">
+                                        Guiana thuộc Pháp
+                                    </option>
+                                    <option value="85">
+                                        Guinea
+                                    </option>
+                                    <option value="92">
+                                        Guinea Bissau
+                                    </option>
+                                    <option value="93">
+                                        Guyana
+                                    </option>
+                                    <option value="98">
+                                        Haiti
+                                    </option>
+                                    <option value="96">
+                                        Honduras
+                                    </option>
+                                    <option value="99">
+                                        Hungary
+                                    </option>
+                                    <option value="88">
+                                        Hy Lạp
+                                    </option>
+                                    <option value="165">
+                                        Hà Lan
+                                    </option>
+                                    <option value="94">
+                                        Hồng Kông
+                                    </option>
+                                    <option value="233">
+                                        Hợp chủng quốc Hoa Kỳ
+                                    </option>
+                                    <option value="106">
+                                        I-rắc
+                                    </option>
+                                    <option value="100">
+                                        Indonesia
+                                    </option>
+                                    <option value="107">
+                                        Iran
+                                    </option>
+                                    <option value="101">
+                                        Ireland
+                                    </option>
+                                    <option value="102">
+                                        Israel
+                                    </option>
+                                    <option value="111">
+                                        Jamaica
+                                    </option>
+                                    <option value="110">
+                                        Jersey
+                                    </option>
+                                    <option value="112">
+                                        Jordan
+                                    </option>
+                                    <option value="124">
+                                        Kazakhstan
+                                    </option>
+                                    <option value="114">
+                                        Kenya
+                                    </option>
+                                    <option value="117">
+                                        Kiribati
+                                    </option>
+                                    <option value="250">
+                                        Kosovo
+                                    </option>
+                                    <option value="122">
+                                        Kuwait
+                                    </option>
+                                    <option value="115">
+                                        Kyrgyzstan
+                                    </option>
+                                    <option value="134">
+                                        Latvia
+                                    </option>
+                                    <option value="126">
+                                        Lebanon
+                                    </option>
+                                    <option value="131">
+                                        Lesotho
+                                    </option>
+                                    <option value="130">
+                                        Liberia
+                                    </option>
+                                    <option value="135">
+                                        Libya
+                                    </option>
+                                    <option value="128">
+                                        Liechtenstein
+                                    </option>
+                                    <option value="132">
+                                        Lithuania
+                                    </option>
+                                    <option value="190">
+                                        Liên bang Nga
+                                    </option>
+                                    <option value="133">
+                                        Luxembourg
+                                    </option>
+                                    <option value="125">
+                                        Lào
+                                    </option>
+                                    <option value="215">
+                                        Lãnh thổ phía Nam của Pháp
+                                    </option>
+                                    <option value="105">
+                                        Lãnh thổ Ấn Độ Dương thuộc Anh
+                                    </option>
+                                    <option value="147">
+                                        Ma Cao
+                                    </option>
+                                    <option value="136">
+                                        Ma-rốc
+                                    </option>
+                                    <option value="141">
+                                        Madagascar
+                                    </option>
+                                    <option value="155">
+                                        Malawi
+                                    </option>
+                                    <option value="157">
+                                        Malaysia
+                                    </option>
+                                    <option value="154">
+                                        Maldives
+                                    </option>
+                                    <option value="144">
+                                        Mali
+                                    </option>
+                                    <option value="152">
+                                        Malta
+                                    </option>
+                                    <option value="149">
+                                        Martinique
+                                    </option>
+                                    <option value="150">
+                                        Mauritania
+                                    </option>
+                                    <option value="153">
+                                        Mauritius
+                                    </option>
+                                    <option value="246">
+                                        Mayotte
+                                    </option>
+                                    <option value="156">
+                                        Mexico
+                                    </option>
+                                    <option value="73">
+                                        Micronesia
+                                    </option>
+                                    <option value="145">
+                                        Miến Điện
+                                    </option>
+                                    <option value="138">
+                                        Moldova
+                                    </option>
+                                    <option value="137">
+                                        Monaco
+                                    </option>
+                                    <option value="139">
+                                        Montenegro
+                                    </option>
+                                    <option value="151">
+                                        Montserrat
+                                    </option>
+                                    <option value="158">
+                                        Mozambique
+                                    </option>
+                                    <option value="146">
+                                        Mông Cổ
+                                    </option>
+                                    <option value="166">
+                                        Na Uy
+                                    </option>
+                                    <option value="9">
+                                        Nam Cực
+                                    </option>
+                                    <option value="89">
+                                        Nam Georgia và Quần đảo Nam Sandwich
+                                    </option>
+                                    <option value="247">
+                                        Nam Phi
+                                    </option>
+                                    <option value="207">
+                                        Nam Sudan
+                                    </option>
+                                    <option value="121">
+                                        Nam Triều tiên
+                                    </option>
+                                    <option value="159">
+                                        Namibia
+                                    </option>
+                                    <option value="168">
+                                        Nauru
+                                    </option>
+                                    <option value="160">
+                                        New Caledonia
+                                    </option>
+                                    <option value="170">
+                                        New Zealand
+                                    </option>
+                                    <option value="182">
+                                        Nhà nước Palestine
+                                    </option>
+                                    <option value="113">
+                                        Nhật Bản
+                                    </option>
+                                    <option value="164">
+                                        Ni-ca-ra-goa
+                                    </option>
+                                    <option value="161">
+                                        Niger
+                                    </option>
+                                    <option value="163">
+                                        Nigeria
+                                    </option>
+                                    <option value="169">
+                                        Niue
+                                    </option>
+                                    <option value="162">
+                                        Norfolk Island
+                                    </option>
+                                    <option value="167">
+                                        Nê-pan
+                                    </option>
+                                    <option value="40">
+                                        Nước Cộng Hoà Trung Phi
+                                    </option>
+                                    <option value="171">
+                                        Oman
+                                    </option>
+                                    <option value="177">
+                                        Pakistan
+                                    </option>
+                                    <option value="184">
+                                        Palau
+                                    </option>
+                                    <option value="172">
+                                        Panama
+                                    </option>
+                                    <option value="175">
+                                        Papua New Guinea
+                                    </option>
+                                    <option value="185">
+                                        Paraguay
+                                    </option>
+                                    <option value="176">
+                                        Philippines
+                                    </option>
+                                    <option value="75">
+                                        Pháp
+                                    </option>
+                                    <option value="70">
+                                        Phần Lan
+                                    </option>
+                                    <option value="174">
+                                        Polynesia thuộc Pháp
+                                    </option>
+                                    <option value="181">
+                                        Puerto Rico
+                                    </option>
+                                    <option value="173">
+                                        Pê-ru
+                                    </option>
+                                    <option value="186">
+                                        Qatar
+                                    </option>
+                                    <option value="148">
+                                        Quần đảo Bắc Mariana
+                                    </option>
+                                    <option value="123">
+                                        Quần đảo Cay-man
+                                    </option>
+                                    <option value="39">
+                                        Quần đảo Cocos (Keeling)
+                                    </option>
+                                    <option value="74">
+                                        Quần đảo Faroe
+                                    </option>
+                                    <option value="95">
+                                        Quần đảo Heard và Quần đảo McDonald
+                                    </option>
+                                    <option value="142">
+                                        Quần đảo Marshall
+                                    </option>
+                                    <option value="232">
+                                        Quần đảo Nhỏ Xa xôi của Hoa Kỳ
+                                    </option>
+                                    <option value="180">
+                                        Quần đảo Pitcairn
+                                    </option>
+                                    <option value="193">
+                                        Quần đảo Solomon
+                                    </option>
+                                    <option value="213">
+                                        Quần đảo Turks và Caicos
+                                    </option>
+                                    <option value="188">
+                                        Romania
+                                    </option>
+                                    <option value="191">
+                                        Rwanda
+                                    </option>
+                                    <option value="187">
+                                        Réunion
+                                    </option>
+                                    <option value="26">
+                                        Saint Barthélémy
+                                    </option>
+                                    <option value="198">
+                                        Saint Helena, Ascension và Tristan da Cunha
+                                    </option>
+                                    <option value="119">
+                                        Saint Kitts và Nevis
+                                    </option>
+                                    <option value="127">
+                                        Saint Lucia
+                                    </option>
+                                    <option value="140">
+                                        Saint Martin (thuộc Pháp)
+                                    </option>
+                                    <option value="179">
+                                        Saint Pierre và Miquelon
+                                    </option>
+                                    <option value="237">
+                                        Saint Vincent và the Grenadines
+                                    </option>
+                                    <option value="244">
+                                        Samoa
+                                    </option>
+                                    <option value="203">
+                                        San Marino
+                                    </option>
+                                    <option value="204">
+                                        Senegal
+                                    </option>
+                                    <option value="189">
+                                        Serbia
+                                    </option>
+                                    <option value="194">
+                                        Seychelles
+                                    </option>
+                                    <option value="202">
+                                        Sierra Leone
+                                    </option>
+                                    <option value="197">
+                                        Singapore
+                                    </option>
+                                    <option value="210">
+                                        Sint Maarten (Dutch part)
+                                    </option>
+                                    <option value="201">
+                                        Slovakia
+                                    </option>
+                                    <option value="199">
+                                        Slovenia
+                                    </option>
+                                    <option value="205">
+                                        Somalia
+                                    </option>
+                                    <option value="129">
+                                        Sri Lanka
+                                    </option>
+                                    <option value="195">
+                                        Sudan
+                                    </option>
+                                    <option value="206">
+                                        Suriname
+                                    </option>
+                                    <option value="200">
+                                        Svalbard và Jan Mayen
+                                    </option>
+                                    <option value="211">
+                                        Syria
+                                    </option>
+                                    <option value="208">
+                                        São Tomé and Príncipe
+                                    </option>
+                                    <option value="55">
+                                        Síp
+                                    </option>
+                                    <option value="218">
+                                        Tajikistan
+                                    </option>
+                                    <option value="228">
+                                        Tanzania
+                                    </option>
+                                    <option value="217">
+                                        Thái Lan
+                                    </option>
+                                    <option value="224">
+                                        Thổ Nhĩ Kỳ
+                                    </option>
+                                    <option value="43">
+                                        Thụy Sĩ
+                                    </option>
+                                    <option value="196">
+                                        Thụy Điển
+                                    </option>
+                                    <option value="223">
+                                        Timor-Leste
+                                    </option>
+                                    <option value="216">
+                                        Togo
+                                    </option>
+                                    <option value="219">
+                                        Tokelau
+                                    </option>
+                                    <option value="222">
+                                        Tonga
+                                    </option>
+                                    <option value="225">
+                                        Trinidad và Tobago
+                                    </option>
+                                    <option value="48">
+                                        Trung Quốc
+                                    </option>
+                                    <option value="221">
+                                        Tunisia
+                                    </option>
+                                    <option value="220">
+                                        Turkmenistan
+                                    </option>
+                                    <option value="226">
+                                        Tuvalu
+                                    </option>
+                                    <option value="68">
+                                        Tây Ban Nha
+                                    </option>
+                                    <option value="236">
+                                        Tòa Thánh (Thành quốc Vatican)
+                                    </option>
+                                    <option value="230">
+                                        Uganda
+                                    </option>
+                                    <option value="229">
+                                        Ukraine
+                                    </option>
+                                    <option value="234">
+                                        Uruguay
+                                    </option>
+                                    <option value="235">
+                                        Uzbekistan
+                                    </option>
+                                    <option value="242">
+                                        Vanuatu
+                                    </option>
+                                    <option value="238">
+                                        Venezuela
+                                    </option>
+                                    <option value="239">
+                                        Virgin Islands (British)
+                                    </option>
+                                    <option value="240">
+                                        Virgin Islands (USA)
+                                    </option>
+                                    <option value="241">
+                                        Việt Nam
+                                    </option>
+                                    <option value="231">
+                                        Vương Quốc Anh Thống Nhất
+                                    </option>
+                                    <option value="243">
+                                        Wallis và Futuna
+                                    </option>
+                                    <option value="66">
+                                        Western Sahara
+                                    </option>
+                                    <option value="245">
+                                        Yemen
+                                    </option>
+                                    <option value="248">
+                                        Zambia
+                                    </option>
+                                    <option value="249">
+                                        Zimbabwe
+                                    </option>
+                                    <option value="12">
+                                        Áo
+                                    </option>
+                                    <option value="15">
+                                        Åland Islands
+                                    </option>
+                                    <option value="13">
+                                        Úc
+                                    </option>
+                                    <option value="109">
+                                        Ý
+                                    </option>
+                                    <option value="59">
+                                        Đan Mạch
+                                    </option>
+                                    <option value="227">
+                                        Đài Loan
+                                    </option>
+                                    <option value="34">
+                                        Đảo Bouvet
+                                    </option>
+                                    <option value="54">
+                                        Đảo Christmas
+                                    </option>
+                                    <option value="103">
+                                        Đảo Man
+                                    </option>
+                                    <option value="57">
+                                        Đức
+                                    </option>
+                                    <option value="192">
+                                        Ả Rập Xê Út
+                                    </option>
+                                    <option value="104">
+                                        Ấn-độ
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        @if (ViewBag.UpdateSuccess != null)
+                        {
+                            <div class="alert alert-success">@ViewBag.UpdateSuccess</div>
+                        }
+
+                        @if (@ViewBag.ErrorSuccess != null)
+                        {
+                            <div class="alert alert-danger">@ViewBag.ErrorSuccess</div>
+                        }
+                        <div class="clearfix">
+                            <button type="submit" class="btn btn-primary float-end mb32 ">
+                                Xác nhận
+                                <span class="fa fa-long-arrow-right"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+</main>
+
+                            
+@section script {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var userDataElement = document.getElementById('userData');
+            if (userDataElement) {
+                var userDataJson = userDataElement.getAttribute('data-user');
+                var user = JSON.parse(userDataJson);
+
+                var countryNameElement = document.getElementById('countryName');
+                if (countryNameElement) {
+                    countryNameElement.value = user.Country;
+                }
+            }
+        });
+    </script>
+}
