@@ -1,0 +1,290 @@
+﻿@using X.PagedList.Mvc.Core
+
+@model List<BNI.Models.Assignment>
+
+<main style="padding-top: 71px;">
+
+    <div id="wrap" class="oe_structure oe_empty">
+        <section class="s_title o_colored_level o_cc o_cc4 pt120 pb128 oe_img_bg o_bg_img_center"
+                 data-vcss="001"
+                 data-snippet="s_title"
+                 style="
+                position: relative;
+                background-image: url('/images/banner1.jpg');
+                background-color: rgba(141, 22, 33, 0.54);
+              "
+                 data-original-id="966"
+                 data-original-src="~/images/banner1.jpg"
+                 data-mimetype="image/jpeg"
+                 data-resize-width="1600"
+                 data-gl-filter="custom"
+                 data-filter-options='{"filterColor":"rgba(219, 0, 0, 0.27)"}'
+                 data-name="Chỉnh Title">
+            <div class="s_allow_columns container">
+                <h1 style="text-align: center">
+                    <font class="text-o-color-4" style="text-transform: uppercase">về chúng tôi</font>
+                    <br />
+                </h1>
+            </div>
+        </section>
+        <section class="s_text_image o_colored_level pt0 pb0 o_cc o_cc1" data-snippet="s_image_text" data-name="Image - Text" style="background-image: none;">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 pt16 pb16 o_colored_level">
+                        <img src="~/images/LOGO.jpg" alt="" class="img img-fluid mx-auto img-thumbnail o_we_custom_image" style="padding: 15px;" data-original-id="1628" data-original-src="/web/image/1628-1cd7e268/LOGO.jpg" data-mimetype="image/jpeg" data-resize-width="690" data-bs-original-title="" title="" aria-describedby="tooltip963285" loading="lazy">
+                    </div>
+                    <div class="col-lg-6 pt16 pb16 o_colored_level">
+                        <h2><strong><span style="font-size: 24px;">BNI CSJ CHAPTER</span></strong></h2>
+                        <p><span class="oe-tabs" style="width: 16.5px;">	</span>&ZeroWidthSpace;CSJ (Cap Saint Jacques) Chapter là một trong những Chapter đời đầu của BNI tại Việt Nam, thành lập từ năm 2013 cho đến nay và hoạt động tại thành phố Vũng Tàu. Chapter gồm hơn&nbsp;<strong>49+ thành viên</strong>&nbsp;đại diện cho nhiều lĩnh vực kinh doanh khác nhau như: Chuyển đổi số 4.0, tài chính, xây dựng, bất động sản, giáo dục, thương mại, du lịch, thiết kế, in ấn, sản xuất, chăm sóc sức khoẻ....</p><p>Trong 12 tháng vừa qua chúng tôi đã trao nhau&nbsp;<strong>22.459.643.620 VND</strong>&nbsp;và tiếp tực không ngừng tăng trưởng. Chapter của chúng tôi là nhóm các chủ doanh nghiệp tích cực, cam kết và luôn biết cách trao cơ hội kinh doanh cho nhau<span class="oe-tabs" style="width: 0.203125px;">	</span>&ZeroWidthSpace;<span class="oe-tabs" style="width: 40px;">	</span>&ZeroWidthSpace;<span class="oe-tabs" style="width: 40px;">	</span><span class="oe-tabs" style="width: 40px;">	</span>&ZeroWidthSpace;<span class="oe-tabs" style="width: 40px;">	</span><span class="oe-tabs" style="width: 40px;">	</span>&ZeroWidthSpace;&ZeroWidthSpace;&ZeroWidthSpace;</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section data-snippet="s_dynamic_snippet" class="s_public_members s_public_member_snippet s_dynamic pt32 pb32 o_colored_level s_member_hidden_business_bni s_member_hidden_address s_member_effect_scale s_public_member_snippet_temp3 s_member_hidden_social s_member_hidden_contact" data-name="Public Member Snippet" style="background-image: none;" data-filter-by-committee-id="3">
+            <div class="container o_not_editable">
+                <div class="css_non_editable_mode_hidden">
+                    <div class="missing_option_warning alert alert-info rounded-0 fade show d-print-none">
+                        Đoạn mã động của bạn sẽ được hiển thị ở đây... Thông báo này được hiển thị vì bạn không cung cấp cả bộ lọc và mẫu để sử dụng.<br>
+                    </div>
+                </div>
+                <div class="dynamic_snippet_template">
+                    <div class="container mb32">
+                        <div class="">
+
+
+                            <section class="s_heading_1 pt16 pb16">
+                                <div class="container">
+                                    <div class="row s_col_no_bgcolor s_nb_column_fixed">
+                                        <div class="col-12 tp-heading-container text-center tp-line-thickness-normal tp-line-width-normal tp-line-bottom">
+
+                                            <h2 class="text-uppercase text-o-color-1 fw-bold mb-3">Ban điều hành<strong class="text-o-color-5"> Nhiệm Kỳ 19</strong></h2>
+                                            <p class="lead mb-0">( - 31/03/2024)</p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <div class="container mb32">
+                                <div class="row justify-content-evenly ">
+
+                                    @foreach (var excutiveboard in Model.Where(x => x.GroupId == 1))
+                                    {
+                                        if (excutiveboard.PositionName == "Chủ tịch")
+                                        {
+                                            <div class="col-lg-4">
+                                                <a href="@Url.Action("Index", "Assignment")" data-publish="on">
+                                                    <div class="card bg-primary o_raise_tmp_scale w-100 text-center mb-5 border pm_rounded shadow-sm o_wprofile_pointer pm_card">
+                                                        <div class="">
+                                                            <div class="card-body pm_gradient">
+                                                                <div class="d-inline-block position-relative" onclick="location.href='/partners/members/?back_url=/ban-dieu-hanh-nhiem-ky-19';">
+                                                                    <img class="s_member_avatar" src="@excutiveboard.Avatar" alt="Avatar">
+                                                                </div>
+
+                                                                <div class="mt-2">
+                                                                    <strong class="badge bg-secondary text-primary text-uppercase">@excutiveboard.PositionName</strong>
+                                                                </div>
+                                                                <h4 class="mt-2 mb-0 s_member_name text-white" onclick="location.href='/partners/member/?back_url=/ban-dieu-hanh-nhiem-ky-19';" style="cursor: pointer;">@excutiveboard.Fullname</h4>
+
+                                                                <div class="d-none s_second_member_parent">
+                                                                    <small><p class="text-center text-muted">@excutiveboard.Company</p></small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="col-lg-4">
+                                                <a href="@Url.Action("Index", "Assignment")" data-publish="on">
+                                                    <div class="card  w-100 text-center mb-5 border pm_rounded shadow-sm o_wprofile_pointer pm_card">
+                                                        <div class="">
+                                                            <div class="card-body pm_gradient">
+
+
+                                                                <div class="d-inline-block position-relative" onclick="location.href='/partners/members/cty-tnhh-dao-tao-lan-anh-pham-thi-lan-anh-37/?back_url=/ban-dieu-hanh-nhiem-ky-19';">
+                                                                    <img class="s_member_avatar" src="@excutiveboard.Avatar" alt="Avatar">
+                                                                </div>
+
+                                                                <div class="mt-2">
+
+                                                                    <strong class="text-primary text-uppercase">@excutiveboard.PositionName</strong>
+
+                                                                </div>
+                                                                <h4 class="mt-2 mb-0 s_member_name " onclick="location.href='/partners/members/cty-tnhh-dao-tao-lan-anh-pham-thi-lan-anh-37/?back_url=/ban-dieu-hanh-nhiem-ky-19';" style="cursor: pointer;">@excutiveboard.Fullname</h4>
+
+
+                                                                <div class="d-none s_second_member_parent">
+                                                                    <small><p class="text-center text-muted">@excutiveboard.Company</p></small>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+
+
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        }
+
+                                    }
+                                </div>
+                            </div>
+
+                            <section class="s_heading_1 pt16 pb16">
+                                <div class="container">
+                                    <div class="row s_col_no_bgcolor s_nb_column_fixed">
+                                        <div class="col-12 tp-heading-container text-center tp-line-thickness-normal tp-line-width-normal tp-line-bottom">
+
+                                            <h2 class="text-uppercase text-o-color-1 fw-bold mb-3">Ban thành viên</h2>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <div class="container mb32">
+                                <div class="row justify-content-evenly ">
+                                    @foreach (var memberboards in Model.Where(x => x.GroupId == 2))
+                                    {
+                                        <div class="col-lg-4">
+                                            <a href="@Url.Action("Index", "Assignment")" data-publish="on">
+                                                <div class="card  w-100 text-center mb-5 border pm_rounded shadow-sm o_wprofile_pointer pm_card">
+                                                    <div class="">
+                                                        <div class="card-body pm_gradient">
+
+
+                                                            <div class="d-inline-block position-relative" onclick="location.href='/partners/members/360-corp-le-ba-chau-8/?back_url=/ban-dieu-hanh-nhiem-ky-19';">
+                                                                <img class="s_member_avatar" src="@memberboards.Avatar" alt="Avatar">
+                                                            </div>
+
+                                                            <div class="mt-2">
+
+                                                                <strong class="text-primary text-uppercase">@memberboards.PositionName</strong>
+
+                                                            </div>
+                                                            <h4 class="mt-2 mb-0 s_member_name " onclick="location.href='/partners/members/360-corp-le-ba-chau-8/?back_url=/ban-dieu-hanh-nhiem-ky-19';" style="cursor: pointer;">@memberboards.Fullname</h4>
+
+                                                            <div class="d-none s_second_member_parent">
+                                                                <small><p class="text-center text-muted">@memberboards.Company</p></small>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                    }
+                                </div>
+                            </div>
+
+                            <section class="s_heading_1 pt16 pb16">
+                                <div class="container">
+                                    <div class="row s_col_no_bgcolor s_nb_column_fixed">
+                                        <div class="col-12 tp-heading-container text-center tp-line-thickness-normal tp-line-width-normal tp-line-bottom">
+
+                                            <h2 class="text-uppercase text-o-color-1 fw-bold mb-3">Ban khách mời</h2>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <div class="container mb32">
+                                <div class="row justify-content-evenly ">
+                                    @foreach (var guestboards in Model.Where(x => x.GroupId == 3))
+                                    {
+                                        <div class="col-lg-4">
+                                            <a href="@Url.Action("Index", "Assignment")" data-publish="on">
+                                                <div class="card  w-100 text-center mb-5 border pm_rounded shadow-sm o_wprofile_pointer pm_card">
+                                                    <div class="">
+                                                        <div class="card-body pm_gradient">
+
+
+                                                            <div class="d-inline-block position-relative" onclick="location.href='/partners/members/cty-tnhh-dau-tu-mega-space-tran-thi-cam-thach-199/?back_url=/ban-dieu-hanh-nhiem-ky-19';">
+                                                                <img class="s_member_avatar" src="@guestboards.Avatar" alt="Avatar">
+                                                            </div>
+
+                                                            <div class="mt-2">
+
+                                                                <strong class="text-primary text-uppercase">@guestboards.PositionName</strong>
+
+                                                            </div>
+                                                            <h4 class="mt-2 mb-0 s_member_name " onclick="location.href='/partners/members/cty-tnhh-dau-tu-mega-space-tran-thi-cam-thach-199/?back_url=/ban-dieu-hanh-nhiem-ky-19';" style="cursor: pointer;">@guestboards.Fullname</h4>
+
+
+                                                            <div class="d-none s_second_member_parent">
+                                                                <small><p class="text-center text-muted">@guestboards.Company</p></small>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                    }
+                                </div>
+                            </div>
+
+                            <section class="s_heading_1 pt16 pb16">
+                                <div class="container">
+                                    <div class="row s_col_no_bgcolor s_nb_column_fixed">
+                                        <div class="col-12 tp-heading-container text-center tp-line-thickness-normal tp-line-width-normal tp-line-bottom">
+
+                                            <h2 class="text-uppercase text-o-color-1 fw-bold mb-3">Đại điện<strong class="text-o-color-5"> BNI VIỆT NAM</strong> </h2>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <div class="container mb32">
+                                <div class="row justify-content-evenly s_public_member_snippet_temp4">
+                                    @foreach (var represetboards in Model.Where(x => x.GroupId == 4))
+                                    {
+                                        <div class="col-lg-4">
+                                            <a href="@Url.Action("Index", "Assignment")" data-publish="on">
+                                                <div class="card  w-100 text-center mb-5 border pm_rounded shadow-sm o_wprofile_pointer pm_card">
+                                                    <div class="">
+                                                        <div class="card-body pm_gradient">
+
+
+                                                            <div class="d-inline-block position-relative" onclick="location.href='/partners/members/cty-tnhh-ky-thuat-minh-huy-ngo-hien-phong-213/?back_url=/ban-dieu-hanh-nhiem-ky-19';">
+                                                                <img class="s_member_avatar" src="@represetboards.Avatar" alt="Avatar">
+                                                            </div>
+
+                                                            <div class="mt-2">
+
+                                                                <strong class="text-primary text-uppercase">@represetboards.PositionName</strong>
+
+                                                            </div>
+                                                            <h4 class="mt-2 mb-0 s_member_name " onclick="location.href='/partners/members/cty-tnhh-ky-thuat-minh-huy-ngo-hien-phong-213/?back_url=/ban-dieu-hanh-nhiem-ky-19';" style="cursor: pointer;">@represetboards.Fullname</h4>
+
+
+                                                            <div class="d-none s_second_member_parent">
+                                                                <small><p class="text-center text-muted">@represetboards.Company</p></small>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+                                            </a>
+                                        </div>
+                                    }
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+</main>

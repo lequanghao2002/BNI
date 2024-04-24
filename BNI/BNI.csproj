@@ -82,10 +82,10 @@
     <None Remove="Views\Member\" />
     <None Remove="Views\Contact\" />
     <None Remove="Views\Login\" />
-    <None Remove="Views\Board19\" />
+    <None Remove="Views\Assignment\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Member\" />
-    <Folder Include="Views\Board19\" />
+    <Folder Include="Views\Assignment\" />
   </ItemGroup>
 </Project>
