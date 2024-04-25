@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BNI.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,11 +14,17 @@ namespace BNI.Controllers
     {
         BNIContext _context = new BNIContext();
         // GET: /<controller>/
-        public IActionResult Index()
+        public AssignmentController(BNIContext context)
         {
-            var assignment = _context.Assignments.ToList();
+            _context = context;
+        }
 
-            return View(assignment);
+        // GET: /<controller>/
+        public async Task<IActionResult> Index(int id)
+        {
+            var assignments = await _context.Assignments.Include(a => a.Term).ToListAsync(); // Bao gồm thông tin của Term khi truy vấn
+
+            return View(assignments);
         }
     }
 }
