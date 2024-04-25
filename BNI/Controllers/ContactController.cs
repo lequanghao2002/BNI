@@ -34,7 +34,7 @@ namespace BNI.Controllers
             is_success = _contactRepository.Save(data);
 
             if (is_success)
-                return RedirectToAction("Index", "Contact");
+                return View("~/Views/Contact/Success.cshtml");
 
             return View("Loi luu data");
         }
