@@ -158,7 +158,6 @@ namespace BNI.Models
                 entity.ToTable("Member");
 
                 entity.Property(e => e.Id)
-                    .ValueGeneratedNever()
                     .HasColumnName("ID");
 
                 entity.Property(e => e.Address1)
@@ -193,11 +192,10 @@ namespace BNI.Models
 
                 entity.Property(e => e.Email).HasMaxLength(50);
 
-                entity.Property(e => e.Firstname).HasMaxLength(30);
+                entity.Property(e => e.Fullname);
 
                 entity.Property(e => e.Introducer).HasMaxLength(50);
 
-                entity.Property(e => e.Lastname).HasMaxLength(30);
 
                 entity.Property(e => e.LinkWeb).HasColumnName("Link_web");
 
@@ -210,7 +208,7 @@ namespace BNI.Models
                     .HasColumnName("Postal_code")
                     .IsFixedLength();
 
-                entity.Property(e => e.ProfessionId).HasColumnName("Profession_ID");
+                entity.Property(e => e.Profession_ID).HasColumnName("Profession_ID");
 
                 entity.Property(e => e.Pronoun).HasMaxLength(20);
 
@@ -235,15 +233,14 @@ namespace BNI.Models
                 entity.Property(e => e.TaxNumber)
                     .HasMaxLength(30)
                     .HasColumnName("Tax_Number");
-
-                entity.Property(e => e.UserId).HasColumnName("User_ID");
+                entity.Property(e => e.Description).HasColumnName("Description");
+               
 
                 entity.HasOne(d => d.Profession)
                     .WithMany(p => p.Members)
-                    .HasForeignKey(d => d.ProfessionId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasForeignKey(d => d.Profession_ID)
                     .HasConstraintName("FK_Member_Profession1");
-
+                entity.Property(e => e.UserId).HasColumnName("User_ID");
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Members)
                     .HasForeignKey(d => d.UserId)
@@ -343,8 +340,8 @@ namespace BNI.Models
             {
                 entity.ToTable("User");
 
-                entity.Property(e => e.Id)
-                    .ValueGeneratedNever()
+                entity.Property(e => e.ID)
+                   
                     .HasColumnName("ID");
 
                 entity.Property(e => e.Address).HasMaxLength(100);

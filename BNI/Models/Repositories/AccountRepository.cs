@@ -54,7 +54,7 @@ namespace BNI.Models.Repositories
         public bool Register(RegisterViewModel registerVM)
         {
             var registerUser = _mapper.Map<User>(registerVM);
-            
+            registerUser.ID = 0;
             _bniContext.Users.Add(registerUser);
             _bniContext.SaveChanges();
 
