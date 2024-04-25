@@ -43,13 +43,17 @@
           href="~/css/style.css"
           data-asset-bundle="web.assets_frontend"
           data-asset-version="2e23a77" />
-    
-
-    <script id="web.layout.odooscript" type="text/javascript">var odoo = {
+    <script id="web.layout.odooscript" type="text/javascript">
+        var odoo = {
             csrf_token: "5f51c1d9455cb880f6fbae2c2ba5750a6bebff08o1742282176",
             debug: "",
-        };</script>
-    <script type="text/javascript">odoo.__session_info__ = {
+        };
+    </script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        odoo.__session_info__ = {
             is_admin: false,
             is_system: false,
             is_website_user: true,
@@ -71,7 +75,8 @@
         if (!/(^|;\s)tz=/.test(document.cookie)) {
             const userTZ = Intl.DateTimeFormat().resolvedOptions().timeZone;
             document.cookie = `tz=${userTZ}; path=/`;
-        }</script>
+        }
+    </script>
     <script defer="defer"
             type="text/javascript"
             src="~/js/frontend_minimal.js"
@@ -355,7 +360,7 @@
                                  style="background-image: none">
                             <div class="container">
                                 <a href="/Contact" class="btn btn-primary btn_cta" data-bs-original-title=""
-                                    title="">Liên hệ với chúng tôi</a>
+                                   title="">Liên hệ với chúng tôi</a>
                             </div>
                         </section>
                     </div>
@@ -397,13 +402,10 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                @Html.ActionLink("Các sự kiện", "Index", "Event", null, new { @class = "nav-link" })     
+                                @Html.ActionLink("Các sự kiện", "Index", "Event", null, new { @class = "nav-link" })
                             </li>
                             <li class="nav-item">
-
-                                <a role="menuitem" asp-controller="Blog" asp-action="PostinCategory" asp-route-id="3" class="nav-link">
-                                    <span>Câu chuyện thành công</span>
-                                </a>
+                                @Html.ActionLink("Câu chuyện thành công", "Blog_Success_Story", "Success_Story", null, new { @class = "nav-link" })
                             </li>
                             <li class="nav-item">
                                 @Html.ActionLink("Tin tức", "Index", "Blog", null, new { @class = "nav-link" })
@@ -429,7 +431,7 @@
                                 @Html.ActionLink("Đăng nhập", "Login", "Account", null, new { @class = "nav-link" })
                             </li>
                         </ul>
-                        
+
                         <script>
                             $(document).ready(function () {
                                 var pathname = window.location.pathname;
@@ -437,13 +439,13 @@
 
                                 $("#top_menu_collapse ul li").each(function () {
                                     var ref = $(this).find("a").attr("href");
-                                    if(ref && ref == pathname){
+                                    if (ref && ref == pathname) {
                                         element = $(this);
                                     }
                                 });
 
                                 var a = element.find("a");
-                                if(a){
+                                if (a) {
                                     a.attr("class", "nav-link active");
                                 }
                             });
@@ -616,8 +618,6 @@
         <div class="o_notification_manager o_upload_progress_toast"></div>
         <div class="o_popover_container"></div>
     </div>
-
-    @RenderSection("script", false)
 </body>
-</html>
 
+</html>

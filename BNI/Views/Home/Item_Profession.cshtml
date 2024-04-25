@@ -6,19 +6,20 @@
         <div class="card text-bg-white h-100 shadow" style="box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px 0px !important;">
             <a href="@Url.Action("ProfessionDetail", "Home", new{id=ev.Id})" data-bs-original-title="" title="">
                 <img src="@ev.Image" alt="" class="card-img-top img img-fluid o_we_custom_image"
-                    data-resize-width="undefined" loading="lazy" data-bs-original-title="" title=""
-                    aria-describedby="tooltip105845" />
+                     data-resize-width="undefined" loading="lazy" data-bs-original-title="" title=""
+                     aria-describedby="tooltip105845" />
             </a>
 
             <div class="card-body">
                 <h3 class="card-title" style="text-align: center">
                     <a href="@Url.Action("ProfessionDetail", "Home", new{id=ev.Id})" data-bs-original-title="" title=""
-                        aria-describedby="popover417404">
+                       aria-describedby="popover417404">
                         <font class="text-900">@ev.Title</font>
                     </a>
                 </h3>
                 <p class="card-text" style="text-align: left">
-                    <font class="text-600">@ev.Description1
+                    <font class="text-600">
+                        @ev.Description1
                     </font>
                     <br />
                 </p>
