@@ -18,12 +18,9 @@ namespace BNI.Controllers
         {
             _context = context;
         }
-
-        // GET: /<controller>/
-        public async Task<IActionResult> Index(int id)
+        public async Task<IActionResult> Index()
         {
-            var assignments = await _context.Assignments.Include(a => a.Term).ToListAsync(); // Bao gồm thông tin của Term khi truy vấn
-
+            var assignments = await _context.Assignments.Include(a => a.Term).ToListAsync(); 
             return View(assignments);
         }
     }

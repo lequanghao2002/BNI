@@ -65,8 +65,8 @@
                                             {
                                                 if (assignment.TermId != previousTermId)
                                                 {
-                                                    <p class="lead mb-0">@assignment.Term.StartDate.Value.ToString("dd/MM/yyyy") - @assignment.Term.EndDate.Value.ToString("dd/MM/yyyy"))</p>
-                                                    // Gán previousTermId thành assignment.TermId để đánh dấu rằng Term này đã được hiển thị
+                                                    <p class="lead mb-0">(@assignment.Term.StartDate.Value.ToString("dd/MM/yyyy") - @assignment.Term.EndDate.Value.ToString("dd/MM/yyyy"))</p>
+                                                    
                                                     previousTermId = assignment.TermId;
                                                 }
 
