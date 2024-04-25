@@ -1,10 +1,5 @@
-﻿<head>
-    <meta property="og:title" content="Câu chuyện thành công | BNI Vũng Tàu" />
+﻿@using X.PagedList.Mvc.Core
 
-    <meta name="twitter:title" content="Câu chuyện thành công | BNI Vũng Tàu" />
-
-    <title>Events | BNI Vũng Tàu</title>
-</head>
 <main>
     <div id="wrap" class="o_wevent_index">
         <nav class="navbar navbar-light border-top shadow-sm d-print-none">
@@ -27,39 +22,54 @@
                                 </a>
                             </div>
                         </li>
+
                         <li class="nav-item dropdown me-2 my-1">
-                            <a href="#"
-                               role="button"
-                               class="btn dropdown-toggle"
-                               data-bs-toggle="dropdown">
+                            <a href="#" role="button" class="btn dropdown-toggle" id="eventTypeDropdown" data-bs-toggle="dropdown">
                                 <i class="fa fa-calendar"></i>
-                                Sự kiện đã qua
+                                <span>
+                                    @if (string.IsNullOrEmpty(ViewBag.EventType))
+                                    {
+                                        <text>Tất cả sự kiện</text>
+                                    }
+                                    else
+                                    {
+                                        <text>@ViewBag.EventType</text>
+                                    }
+                                </span>
                             </a>
+
+
                             <div class="dropdown-menu">
-                                <a href="eventcoming.html"
-                                   class="dropdown-item d-flex align-items-center justify-content-between">
-                                    Sự kiện sắp tới
-                                </a>
-                                <a href="eventold.html"
-                                   class="dropdown-item d-flex align-items-center justify-content-between active">
-                                    Sự kiện đã qua
-                                </a>
-                                <a href="eventall.html"
+                                <a asp-controller="Event"
+                                   asp-action="EventCategory"
+                                   asp-route-eventType="all"
                                    class="dropdown-item d-flex align-items-center justify-content-between">
                                     Tất cả các Sự kiện
                                 </a>
+                                <a asp-controller="Event"
+                                   asp-action="EventCategory"
+                                   asp-route-eventType="past"
+                                   class="dropdown-item d-flex align-items-center justify-content-between">
+                                    Sự kiện đã qua
+                                </a>
+                                <a asp-controller="Event"
+                                   asp-action="EventCategory"
+                                   asp-route-eventType="future"
+                                   class="dropdown-item d-flex align-items-center justify-content-between">
+                                    Sự kiện sắp tới
+                                </a>
                             </div>
                         </li>
+
                     </ul>
+
+
                     <div class="d-flex align-items-center flex-wrap ps-sm-3 pe-0">
-                        <form method="get"
-                              class="o_searchbar_form s_searchbar_input"
-                              action="/event"
-                              data-snippet="s_searchbar_input">
+                        <form method="get" asp-controller="Event" asp-action="EventSearch" class="o_searchbar_form s_searchbar_input" data-snippet="s_searchbar_input">
                             <div role="search"
                                  class="input-group o_wevent_event_searchbar_form w-100 my-1 my-lg-0">
                                 <input type="search"
-                                       name="search"
+                                       name="keyword"
                                        class="search-query form-control oe_search_box None"
                                        placeholder="Tìm kiếm một sự kiện..."
                                        value=""
@@ -87,6 +97,7 @@
                             <input type="hidden" name="date" value="old" />
                             <input type="hidden" name="tags" value="" />
                         </form>
+
                     </div>
                 </div>
             </div>
@@ -114,4 +125,5 @@
 
         <div id="oe_structure_we_index_2" class="oe_structure oe_empty"></div>
     </div>
+
 </main>

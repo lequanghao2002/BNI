@@ -1,12 +1,15 @@
 ﻿using BNI.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using X.PagedList;
 
 namespace BNI.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+
+        BNIContext _context = new BNIContext();
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -15,11 +18,22 @@ namespace BNI.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var professions = _context.Professions.ToList();
+
+            return View(professions);
         }
-        public IActionResult HomePage()
+
+        public IActionResult ProfessionDetail(int id)
         {
-            return View();
+            var ev = _context.Professions.SingleOrDefault(x => x.Id == id);
+            var imgev = _context.Professions.Where(x => x.Id == id).Select(x => x.Image).FirstOrDefault();
+            ViewBag.imgev = imgev;
+
+            ViewData["members"] = _context.Members.Where(s => s.ProfessionId == id).ToList();
+            ViewData["details"] = _context.ProfessionDetails.Where(s => s.ProfessionId == id).ToList();
+            ViewData["related"] = _context.Professions.ToList();
+
+            return View(ev);
         }
 
         public IActionResult Privacy()
