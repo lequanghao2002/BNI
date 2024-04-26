@@ -1,0 +1,113 @@
+﻿@model List<BNI.Models.Assignment>
+@{
+    ViewData["Title"] = "MemberDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main style="padding-top: 71px;">
+    <div id="wrap" class="o_wprofile_wrap mt-0">
+        <div id="oe_structure_website_event_location_1" class="oe_structure"></div>
+        <div class="col-lg-5">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="~/Member">Các thành viên</a></li>
+                <li class="breadcrumb-item active"><span>@Model[0].Member.Company, @Model[0].Member.Fullname</span></li>
+            </ol>
+        </div>
+        <div class="container mt-5">
+            <div class="row d-flex justify-content-center">
+                <div class="card p-3 py-4">
+
+                    <div class="text-center">
+                        <img class="s_member_avatar_x2 rounded-circle" width="100" src=@Model[0].Member.Avatar loading="lazy" style="">
+                    </div>
+
+                    <div class="text-center mt-3">
+                        <div>
+                            <span class="bg-secondary p-1 px-4 rounded text-white">@Model[0].Member.Company</span>
+                        </div>
+                        <h3 class="mt-2 mb-0">
+                            <span>@Model[0].Member.Fullname</span>
+                        </h3>
+                        <div class="lead mb-2">
+                            <i class="fa fa-briefcase fa-fw me-1"></i><span class="fw-bold">@Model[0].Member.Position</span>
+                        </div>
+                        <div class="lead mb-2">
+                            Đăng ký BNI: <span class="fw-bold">@Model[0].Member.BusinessSector</span>
+                        </div>
+
+                        <div class="s_social_media text-center o_not_editable" data-snippet="s_social_media" data-name="Social Media" contenteditable="false">
+                            <a target="" href="@Model[0].Member.Facebook" class="s_social_media_facebook m-2">
+                                <i class="fa fa-2x fa-facebook m-1"></i>
+                            </a>
+                            <a target="" href="@Model[0].Member.Youtube" class="s_social_media_youtube m-2">
+                                <i class="fa fa-2x fa-youtube m-1"></i>
+                            </a>
+                            <a target="" href="@Model[0].Member.Zalo" class="s_social_media_zalo_2x m-2">
+                                <img src="https://csjchapter.com/membership_profile/static/src/img/zalo.svg" loading="lazy" style="">
+                            </a>
+                        </div>
+                        <div class="w-20">
+                            <div>
+                                <img width="100%" class="pm_zoom s_member_avatar border border-1 rounded m-2" alt="QR Code" src="data:image/png;base64,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" loading="lazy" style="">
+                            </div>
+                            <a class="o_onclick_create_vcard btn btn-outline-primary px-4" data-vcard="BEGIN:VCARD>
+                                <i class="fa fa-share-alt"></i>
+                                <span class="d-none d-sm-inline">Lưu liên hệ</span>
+                            </a>
+                            <a target="_blank" class="btn btn-primary px-4 ms-3" href="@Model[0].Member.LinkWeb">
+                                <i class="fa fa-globe"></i>
+                                <span class="d-none d-sm-inline">Đi đến Website</span>
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <section class="s_timeline pt24 pb48 o_not_editable">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-8 mx-auto text-center">
+                        <div class="section-title">
+                            <h4 class="o_not_editable">Hành trình BNI</h4>
+                        </div>
+                        <button class="btn btn-primary btn-sm d-md-none border mb-5 o_not_editable" type="button" data-bs-toggle="collapse" data-bs-target="#o_wprofile_committee_collapse" aria-expanded="false" aria-controls="o_wprofile_committee_collapse">Xem hành trình BNI</button>
+                    </div>
+                </div>
+            </div>
+            <div class="container s_timeline_line">
+                <div class="collapse d-md-block o_not_editable" id="o_wprofile_committee_collapse">
+                    @{
+                        var check = 1;
+                        foreach (var item in Model)
+                        {
+                            <div class="@(check % 2 == 1 ? "s_timeline_row d-block d-md-flex flex-row" : "s_timeline_row d-block d-md-flex flex-row-reverse")" data-name="Row">
+                                <div class="s_timeline_date">
+                                    <span class="bg-white">
+                                        <b>
+                                            @string.Format("{0:MM/yyyy}", item.CreateDate)
+                                        </b>
+                                    </span>
+                                </div>
+                                <div class="s_timeline_content d-flex">
+                                    <div class="s_timeline_card s_card card bg-white w-100" data-name="Card" data-snippet="s_card">
+                                        <div class="card-body">
+                                            <h4 class="text-uppercase text-primary">@item.Position.Title - @item.Term.Name</h4>
+                                            <span>(@string.Format("{0:dd/MM/yyyy}", item.Term.StartDate) - @string.Format("{0:dd/MM/yyyy}", item.Term.EndDate))</span>
+                                        </div>
+                                    </div>
+                                    <i class="fa fa-1x fa-child bg-secondary rounded-circle s_timeline_icon"></i>
+                                </div>
+                                <div class="s_timeline_content"></div>
+                            </div>
+                            check++;
+                        }
+                    }
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
