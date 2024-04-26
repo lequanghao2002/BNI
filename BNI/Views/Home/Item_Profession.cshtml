@@ -1,6 +1,6 @@
-﻿@model List<BNI.Models.Profession>
+﻿@model BNI.Models.ViewModel.HomeViewModel
 
-@foreach (var ev in Model)
+@foreach (var ev in @Model.Professions)
 {
     <div class="s_col_no_bgcolor col-lg-3">
         <div class="card text-bg-white h-100 shadow" style="box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px 0px !important;">

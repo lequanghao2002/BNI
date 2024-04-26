@@ -1,4 +1,9 @@
-﻿<head>
+﻿@model BNI.Models.ViewModel.HomeViewModel
+@{
+
+    List<string> previousLogos = new List<string>();
+}
+<head>
     <meta property="og:title" content="Home | BNI Vũng Tàu" />
 
     <meta name="twitter:title" content="Home | BNI Vũng Tàu" />
@@ -831,51 +836,20 @@
                     <br />
                 </p>
                 <div class="row">
-                    <div class="col-lg-2 pt16 pb16 o_cc o_cc1 rounded pt48 pb48 o_colored_level" style="
-                    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px 0px !important;
-                  ">
-                        <img src="~/images/Picture32.png" alt="" class="img img-fluid mx-auto o_we_custom_image"
-                             data-original-id="1314" data-original-src="/web/image/1314-b69e3aa8/Picture32.png"
-                             data-mimetype="image/png" data-resize-width="150" loading="lazy" />
-                    </div>
-                    <div class="col-lg-2 o_cc o_cc1 rounded o_colored_level pt64 pb48" style="
-                    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px 0px !important;
-                  ">
-                        <img src="~/images/Picture1_home.png" alt="" class="img img-fluid mx-auto o_we_custom_image"
-                             data-original-id="1315" data-original-src="/web/image/1315-58e3afba/Picture1.png"
-                             data-mimetype="image/png" data-resize-width="234" data-bs-original-title="" title=""
-                             aria-describedby="tooltip843261" loading="lazy" />
-                    </div>
-                    <div class="col-lg-2 o_cc o_cc1 rounded o_colored_level pb64 pt64" style="
-                    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px 0px !important;
-                  ">
-                        <img src="~/images/Picture3_home.png" alt="" class="img img-fluid mx-auto o_we_custom_image"
-                             data-original-id="1318" data-original-src="/web/image/1318-6b6dcc88/Picture3.png"
-                             data-mimetype="image/png" data-resize-width="223" data-bs-original-title="" title=""
-                             aria-describedby="tooltip943214" loading="lazy" />
-                    </div>
-                    <div class="col-lg-2 o_cc o_cc1 rounded o_colored_level pb24 pt40" style="
-                    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px 0px !important;
-                  ">
-                        <img src="~/images/Picture2_home.png" alt="" class="img img-fluid mx-auto o_we_custom_image"
-                             data-original-id="1317" data-original-src="/web/image/1317-e9cea315/Picture2.png"
-                             data-mimetype="image/png" data-resize-width="204" data-bs-original-title="" title=""
-                             aria-describedby="tooltip964839" loading="lazy" />
-                    </div>
-                    <div class="col-lg-2 pb16 o_cc o_cc1 rounded pb48 o_colored_level pt80" style="
-                    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px 0px !important;
-                  ">
-                        <img src="~/images/Picture31.png" alt="" class="img img-fluid mx-auto o_we_custom_image"
-                             data-original-id="1320" data-original-src="/web/image/1320-cca990f5/Picture31.png"
-                             data-mimetype="image/png" data-resize-width="225" loading="lazy" />
-                    </div>
-                    <div class="col-lg-2 pt16 pb16 o_cc o_cc1 rounded pt48 pb48 o_colored_level" style="
-                    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px 0px !important;
-                  ">
-                        <img src="~/images/Picture37.png" alt="" class="img img-fluid mx-auto o_we_custom_image"
-                             data-original-id="1321" data-original-src="/web/image/1321-2c7144b8/Picture37.png"
-                             data-mimetype="image/png" data-resize-width="267" loading="lazy" />
-                    </div>
+                    @foreach (var member in @Model.Members)
+                    {
+                            if (!previousLogos.Contains(member.Logo))
+                            {
+                                <div class="col-lg-4 pt16 pb16 o_cc o_cc1 rounded pt48 pb48 o_colored_level" style="
+                                                    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px 0px !important;
+                                                  ">
+                                    <img src="@member.Logo" alt="" class="img img-fluid mx-auto o_we_custom_image"
+                                         data-original-id="1314" data-original-src=""
+                                         data-mimetype="image/png" data-resize-width="150" loading="lazy" />
+                                </div>
+                                previousLogos.Add(member.Logo);
+                            }
+                        }
                 </div>
             </div>
         </section>
