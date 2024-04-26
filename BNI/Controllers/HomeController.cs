@@ -1,4 +1,5 @@
 ﻿using BNI.Models;
+using BNI.Models.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using X.PagedList;
@@ -18,9 +19,16 @@ namespace BNI.Controllers
 
         public IActionResult Index()
         {
+            var blogs = _context.Posts.ToList();
             var professions = _context.Professions.ToList();
 
-            return View(professions);
+            var viewModel = new HomeViewModel
+            {
+                Blogs = blogs,
+                Professions = professions
+            };
+
+            return View(viewModel);
         }
 
         public IActionResult ProfessionDetail(int id)
