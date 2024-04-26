@@ -361,7 +361,7 @@
                                  style="background-image: none">
                             <div class="container">
                                 <a href="/Contact" class="btn btn-primary btn_cta" data-bs-original-title=""
-                                    title="">Liên hệ với chúng tôi</a>
+                                   title="">Liên hệ với chúng tôi</a>
                             </div>
                         </section>
                     </div>
@@ -382,7 +382,7 @@
                         </div>
                         <ul id="top_menu" class="nav navbar-nav nav-pills">
                             <li class="nav-item">
-                                <a role="menuitem" href="/" class="nav-link active">
+                                <a role="menuitem" href="/Home" class="nav-link">
                                     <span>Trang chủ</span>
                                 </a>
                             </li>
@@ -399,13 +399,10 @@
                                 @Html.ActionLink("Đăng kí thành viên", "Index", "RegisterMember", null, new { @class = "nav-link" })
                             </li>
                             <li class="nav-item">
-                                @Html.ActionLink("Các sự kiện", "Index", "Event", null, new { @class = "nav-link" })     
+                                @Html.ActionLink("Các sự kiện", "Index", "Event", null, new { @class = "nav-link" })
                             </li>
                             <li class="nav-item">
-
-                                <a role="menuitem" asp-controller="Blog" asp-action="PostinCategory" asp-route-id="3" class="nav-link">
-                                    <span>Câu chuyện thành công</span>
-                                </a>
+                                @Html.ActionLink("Câu chuyện thành công", "Blog_Success_Story", "Success_Story", null, new { @class = "nav-link" })
                             </li>
                             <li class="nav-item">
                                 @Html.ActionLink("Tin tức", "Index", "Blog", null, new { @class = "nav-link" })
@@ -417,7 +414,7 @@
                                 @Html.ActionLink("Sản phẩm Dịch vụ", "Product", "Product", null, new { @class = "nav-link" })
                             </li>
                             <li class="nav-item">
-                                @Html.ActionLink("Ban Điều Hành Nhiệm Kỳ 19", "Index", "Board19", null, new { @class = "nav-link" })
+                                @Html.ActionLink("Ban Điều Hành Nhiệm Kỳ 19", "Index", "Assignment", null, new { @class = "nav-link" })
                             </li>
                             <li class="nav-item divider d-none"></li>
                             <li class="o_wsale_my_cart align-self-md-start nav-item">
@@ -431,7 +428,7 @@
                                 @Html.ActionLink("Đăng nhập", "Login", "Account", null, new { @class = "nav-link" })
                             </li>
                         </ul>
-                        
+
                         <script>
                             $(document).ready(function () {
                                 var pathname = window.location.pathname;
@@ -439,13 +436,13 @@
 
                                 $("#top_menu_collapse ul li").each(function () {
                                     var ref = $(this).find("a").attr("href");
-                                    if(ref && ref == pathname){
+                                    if (ref && ref == pathname) {
                                         element = $(this);
                                     }
                                 });
 
                                 var a = element.find("a");
-                                if(a){
+                                if (a) {
                                     a.attr("class", "nav-link active");
                                 }
                             });

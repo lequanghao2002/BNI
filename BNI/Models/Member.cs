@@ -1,9 +1,9 @@
+
 ﻿using AutoMapper.Execution;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-
-namespace BNI.Models
+﻿namespace BNI.Models
 {
     public partial class Member
     {
@@ -66,14 +66,13 @@ namespace BNI.Models
         public bool RegulatoryCompliance { get; set; }
         public int Profession_ID { get; set; }
         public virtual Profession Profession { get; set; } 
+        public string? Position { get; set; }
         public virtual User? User { get; set; }
         public virtual ICollection<Assignment> Assignments { get; set; }
         public virtual ICollection<Post> Posts { get; set; }
     }
     public partial class MemberDTO
     {
-       
-
         public string? Logo { get; set; }
         public string? Avatar { get; set; }
         public string? LinkWeb { get; set; }

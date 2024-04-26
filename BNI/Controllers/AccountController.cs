@@ -183,6 +183,32 @@ namespace BNI.Controllers
             }
            
         }
+
+        public IActionResult Information()
+        {
+
+            return View()
+;       }
+
+        [HttpPost]
+        public IActionResult Information(User user)
+        {
+            var update = _accountRepository.Update(user);
+
+            if (update == false)
+            {
+                ViewBag.ErrorSuccess = "Lưu thất bại";
+                return View();
+            }
+
+            var userLogin = _accountRepository.Login(new LoginViewModel() { Email = user.Email,  Password = user.Password });
+            string userJson = JsonSerializer.Serialize(user);
+            HttpContext.Session.SetString(CommonConstants.SessionUser, userJson);
+
+            ViewBag.UpdateSuccess = "Lưu thành công";
+            return View()
+;
+        }
     }
 }
 
