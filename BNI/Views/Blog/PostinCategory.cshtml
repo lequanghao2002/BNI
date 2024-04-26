@@ -1,7 +1,7 @@
 ﻿@using Microsoft.EntityFrameworkCore
-  @using X.PagedList.Mvc.Core
- @model X.PagedList.IPagedList<BNI.Models.Post>  
- @inject BNIContext _Context
+@using X.PagedList.Mvc.Core
+@model X.PagedList.IPagedList<BNI.Models.Post>  
+@inject BNIContext _Context
 @{
     // Tạo một HashSet để lưu trữ các ID của các thể loại đã được thêm vào
     HashSet<int> addedCategoryIds = new HashSet<int>();
