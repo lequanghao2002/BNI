@@ -366,7 +366,7 @@ namespace BNI.Models
                 entity.ToTable("User");
 
                 entity.Property(e => e.Id)
-                    .ValueGeneratedNever()
+                    //.ValueGeneratedNever()
                     .HasColumnName("ID");
 
                 entity.Property(e => e.Address).HasMaxLength(100);

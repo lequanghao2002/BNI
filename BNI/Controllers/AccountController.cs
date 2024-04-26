@@ -78,6 +78,11 @@ namespace BNI.Controllers
 
                 if (userRegister == true)
                 {
+                    var userLogin = _accountRepository.Login(new LoginViewModel() { Email = registerVM.Email, Password = registerVM.Password });
+
+                    string userJson = JsonSerializer.Serialize(userLogin);
+                    HttpContext.Session.SetString(CommonConstants.SessionUser, userJson);
+
                     return RedirectToAction("MyAccount");
                 }
             }
