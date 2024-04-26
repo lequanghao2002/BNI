@@ -17,10 +17,19 @@ namespace BNI.Controllers
 
             return View(members);
         }
-
+            
         public IActionResult MemberDetail(int id)
         {
-            return View();
+            var assigments = _context.Assignments.Where(a => a.MemberId == id).ToList();
+            foreach (var item in assigments)
+            {
+                item.Member = _context.Members.FirstOrDefault(x => x.Id == item.MemberId);
+                item.Group = _context.Groups.FirstOrDefault(x => x.Id == item.GroupId);
+                item.Term = _context.Terms.FirstOrDefault(x => x.Id == item.TermId);
+                item.Position = _context.Positions.FirstOrDefault(x => x.Id == item.PositionId);
+            }
+
+            return View(assigments);
         }
 
         public JsonResult MemberSearch(string keyword)

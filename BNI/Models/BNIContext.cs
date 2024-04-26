@@ -363,9 +363,7 @@ namespace BNI.Models
             {
                 entity.ToTable("User");
 
-                entity.Property(e => e.ID)
-                   
-                    .HasColumnName("ID");
+                entity.Property(e => e.ID).HasColumnName("ID");
 
                 entity.Property(e => e.Address).HasMaxLength(100);
 

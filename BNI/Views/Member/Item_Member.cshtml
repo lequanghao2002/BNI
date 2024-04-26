@@ -6,44 +6,46 @@
 {
     <div class="col-lg-4">
         <div class="card w-100 text-center mb-5 border pm_rounded shadow-sm o_wprofile_pointer pm_card">
-            <div class="">
-                <div class="card-body pm_gradient">
-                    <div class="gap-2 justify-content-sm-center s_parent_member">
-                        <ul class="d-flex list-unstyled mt-auto">
-                            <li class="pe-2">
-                                <img class="rounded-circle img-fluid border border-primary border-5 bg-white"
-                                     style="width: 64px; height: 64px; object-fit: cover; cursor: pointer;" src="@ev.Logo">
-                            </li>
-                            <li class="d-flex align-items-center me-3">
-                                <small class="text-center text-light">@ev.Company</small>
-                            </li>
-                        </ul>
-                    </div>
+            <a href="~/Member/MemberDetail/?id=@ev.Id" style="text-decoration: none;">
+                <div class="">
+                    <div class="card-body pm_gradient">
+                        <div class="gap-2 justify-content-sm-center s_parent_member">
+                            <ul class="d-flex list-unstyled mt-auto">
+                                <li class="pe-2">
+                                    <img class="rounded-circle img-fluid border border-primary border-5 bg-white"
+                                         style="width: 64px; height: 64px; object-fit: cover; cursor: pointer;" src="@ev.Logo">
+                                </li>
+                                <li class="d-flex align-items-center me-3">
+                                    <small class="text-center text-light">@ev.Company</small>
+                                </li>
+                            </ul>
+                        </div>
 
-                    <div class="d-inline-block position-relative" onclick="">
-                        <img class="s_member_avatar" src="@ev.Avatar">
-                    </div>
+                        <div class="d-inline-block position-relative" onclick="">
+                            <img class="s_member_avatar" src="@ev.Avatar">
+                        </div>
 
-                    <h4 class="mt-2 mb-0 s_member_name" onclick=")" style="cursor: pointer;">@ev.Fullname</h4>
+                        <h4 class="mt-2 mb-0 s_member_name" onclick=")" style="cursor: pointer;">@ev.Fullname</h4>
 
-                    <div class="">
-                        <strong class="text-muted">@ev.Position</strong>
-                    </div>
+                        <div class="">
+                            <strong class="text-muted">@ev.Position</strong>
+                        </div>
 
-                    <div class="s_member_business_bni">
-                        <span title="Registered BNI">Ngành nghề</span>: <strong class="text-muted">
-                            Dịch vụ vệ sinh công
-                            nghiệp &amp; dân dụng
-                        </strong>
-                    </div>
+                        <div class="s_member_business_bni">
+                            <span title="Registered BNI">Ngành nghề</span>: <strong class="text-muted">
+                                Dịch vụ vệ sinh công
+                                nghiệp &amp; dân dụng
+                            </strong>
+                        </div>
 
-                    <div class="d-none s_second_member_parent">
-                        <small>
-                            <p class="text-center text-muted">@ev.Company</p>
-                        </small>
+                        <div class="d-none s_second_member_parent">
+                            <small>
+                                <p class="text-center text-muted">@ev.Company</p>
+                            </small>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </a>
 
             <div class="gap-2 d-sm-flex justify-content-sm-center">
                 <div class="s_social_media text-center o_not_editable" data-snippet="s_social_media"
@@ -55,13 +57,13 @@
                 <div class="col-8">
                     <div class="col-sm-12 p-2">
                         <a data-vcard="
-                                ADDRESS: @ev.Address1, @ev.Address2, @ev.City, @ev.Provice, @ev.Country
-                                EMAIL: @ev.Email
-                                FullName: @ev.Fullname
-                                ORG: @ev.Company
-                                TEL: @ev.PhoneNumber
-                                TITLE: @ev.Position
-                                URL: @ev.LinkWeb"
+                                    ADDRESS: @ev.Address1, @ev.Address2, @ev.City, @ev.Provice, @ev.Country
+                                    EMAIL: @ev.Email
+                                    FullName: @ev.Fullname
+                                    ORG: @ev.Company
+                                    TEL: @ev.PhoneNumber
+                                    TITLE: @ev.Position
+                                    URL: @ev.LinkWeb"
                            class="o_onclick_create_vcard w-100 btn border border-3 border-primary pm_rounded">
                             <i class="fa fa-share-alt text-primary"></i>
                             <span class="text-primary" title="Save Contact">Lưu liên hệ</span>
