@@ -49,7 +49,7 @@ namespace BNI.Controllers
         {
             return View();
         }
-        public IActionResult RegiterSucces()
+        public IActionResult RegisterSucces()
         {
             return View();
         }
@@ -122,7 +122,8 @@ namespace BNI.Controllers
                     Commercialorganizations = member.Commercialorganizations,
                     ViolationOfTheLaw = member.ViolationOfTheLaw,
                     RegulatoryCompliance = member.RegulatoryCompliance,
-                    Profession_ID = member.Profession_ID
+                    Profession_ID = member.Profession_ID,
+                    
 
                 };
                 _context.Members.Add(newMember);
