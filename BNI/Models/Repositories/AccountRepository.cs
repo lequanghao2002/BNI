@@ -96,7 +96,8 @@ namespace BNI.Models.Repositories
                 
                 if(user.Password == oldPassword)
                 {
-                    user.Password = newPassword;
+                    var userBy = _bniContext.Users.FirstOrDefault(u => u.Email == user.Email);
+                    userBy.Password = newPassword;
                     _bniContext.SaveChanges();
                     return true;
                 }
