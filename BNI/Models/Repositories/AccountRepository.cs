@@ -55,7 +55,6 @@ namespace BNI.Models.Repositories
         public bool Register(RegisterViewModel registerVM)
         {
             var registerUser = _mapper.Map<User>(registerVM);
-            registerUser.ID = 0;
             _bniContext.Users.Add(registerUser);
             _bniContext.SaveChanges();
 
@@ -90,25 +89,22 @@ namespace BNI.Models.Repositories
         public bool ChangePassword(string oldPassword, string newPassword)
         {
             string userJson = _httpContextAccessor.HttpContext.Session.GetString(CommonConstants.SessionUser);
-            if (userJson != null)
-            {
-                var user = JsonConvert.DeserializeObject<User>(userJson);
-                
-                if(user.Password == oldPassword)
+            var userSeession = JsonConvert.DeserializeObject<User>(userJson);
+            var user = _bniContext.Users.FirstOrDefault(u => u.Email == userSeession.Email);
+
+            if (user.Password == oldPassword)
                 {
-                    var userBy = _bniContext.Users.FirstOrDefault(u => u.Email == user.Email);
-                    userBy.Password = newPassword;
+                    user.Password = newPassword;
                     _bniContext.SaveChanges();
                     return true;
                 }
-            }
 
             return false;
         }
 
         public bool Update(User user)
         {
-            var userById = _bniContext.Users.SingleOrDefault(u => u.Id == user.Id);
+            var userById = _bniContext.Users.SingleOrDefault(u => u.ID == user.ID);
             if (userById != null)
             {
                 userById.FullName = user.FullName;
