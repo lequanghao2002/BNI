@@ -84,6 +84,8 @@ namespace BNI.Controllers
                     Pronoun = member.Pronoun,
                     Fullname = member.Fullname,
                     Company = member.Company,
+                    PaymentCompany = member.PaymentCompany,
+                    PaymentName = member.PaymentName,
                     Introducer = member.Introducer,
                     TaxNumber = member.TaxNumber,
                     TaxAddress = member.TaxAddress,

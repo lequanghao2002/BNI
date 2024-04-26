@@ -188,8 +188,8 @@
                                                                 <div class="sc-fznZeY gJlwEu element-container">
                                                                     <div class="sc-fzqzEs WsNPm textinput-display valid">
                                                                         <div class="ui input">
-                                                                            <input type="text" asp-for="TaxAddress">
-                                                                            <span asp-validation-for="TaxAddress" class="text-danger"></span>
+                                                                            <input type="text" asp-for="BillingAddress">
+                                                                            <span asp-validation-for="BillingAddress" class="text-danger"></span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -346,8 +346,7 @@
                                                                 <div class="sc-fznZeY gJlwEu element-container">
                                                                     <div class="sc-fzqzEs WsNPm textinput-display valid">
                                                                         <div class="ui disabled input">
-                                                                            <input disabled="" type="text" tabindex="-1" asp-for="Email" value="@ViewBag.Email">
-
+                                                                            <input readonly  type="text" tabindex="-1" asp-for="Email" value="@ViewBag.Email">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -675,7 +674,9 @@
                                                             </div>
                                                             <div class="sc-fznZeY gJlwEu element-container">
                                                                 <div class="sc-fzqzEs WsNPm textinput-display valid">
-                                                                    <div class="ui input"><input maxlength="99" type="text" asp-for="PaymentName"></div>
+                                                                    <div class="ui input">
+                                                                        <input maxlength="99" type="text" asp-for="PaymentName">
+                                                                        </div>
                                                                 </div>
                                                             </div>
                                                         </div>
