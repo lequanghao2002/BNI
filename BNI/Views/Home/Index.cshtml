@@ -3,6 +3,7 @@
 
     List<string> previousLogos = new List<string>();
 }
+
 <head>
     <meta property="og:title" content="Home | BNI Vũng Tàu" />
 
@@ -651,20 +652,16 @@
             </div>
         </section>
         <section data-snippet="s_blog_posts"
-            class="s_events s_event_upcoming_snippet s_dynamic pt32 pb32 o_colored_level s_event_event_card o_dynamic_empty"
-            data-name="Events" style="position: relative; background-image: none" data-number-of-records="3"
-            data-filter-id="1" data-template-key="website_event.dynamic_filter_template_event_event_card"
-            data-force-minimum-max-limit-to16="1" data-filter-by-tag-ids="[]">
+            class="s_blog_posts s_dynamic_snippet_blog_posts s_dynamic o_colored_level o_cc o_cc3 s_blog_post_big_picture s_blog_posts_effect_marley pt0 pb88"
+            data-name="Blog Posts" style="position: relative; background-image: none;" data-filter-by-blog-id="-1"
+            data-number-of-records="16" data-filter-id="9"
+            data-template-key="website_blog.dynamic_filter_template_blog_post_big_picture" data-number-of-elements="3">
             <div class="o_not_editable container">
-                <div class="css_non_editable_mode_hidden">
-                    <div
-                        class="missing_option_warning alert alert-info rounded-0 fade show d-none d-print-none o_default_snippet_text">
-                        Đoạn mã động của bạn sẽ được hiển thị ở đây... Thông báo này
-                        được hiển thị vì bạn không cung cấp cả bộ lọc và mẫu để sử
-                        dụng.<br />
+                <div class="dynamic_snippet_template">
+                    <div class="row my-4 ">
+                        @Html.Partial("Item_Event")
                     </div>
                 </div>
-                <div class="dynamic_snippet_template"></div>
             </div>
         </section>
         <section class="s_references o_cc2 o_colored_level pt80 pb248" data-snippet="s_references"
@@ -693,18 +690,18 @@
                 <div class="row">
                     @foreach (var member in @Model.Members)
                     {
-                            if (!previousLogos.Contains(member.Logo))
-                            {
-                                <div class="col-lg-4 pt16 pb16 o_cc o_cc1 rounded pt48 pb48 o_colored_level" style="
+                        if (!previousLogos.Contains(member.Logo))
+                        {
+                            <div class="col-lg-4 pt16 pb16 o_cc o_cc1 rounded pt48 pb48 o_colored_level" style="
                                                     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px 0px !important;
-                                                  ">
-                                    <img src="@member.Logo" alt="" class="img img-fluid mx-auto o_we_custom_image"
-                                         data-original-id="1314" data-original-src=""
-                                         data-mimetype="image/png" data-resize-width="150" loading="lazy" />
-                                </div>
-                                previousLogos.Add(member.Logo);
-                            }
+                                                                                  ">
+                                <img src="@member.Logo" alt="" class="img img-fluid mx-auto o_we_custom_image"
+                                    data-original-id="1314" data-original-src="" data-mimetype="image/png"
+                                    data-resize-width="150" loading="lazy" />
+                            </div>
+                            previousLogos.Add(member.Logo);
                         }
+                    }
                 </div>
             </div>
         </section>

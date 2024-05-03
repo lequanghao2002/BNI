@@ -1,6 +1,7 @@
 ﻿using BNI.Models;
 using BNI.Models.ViewModel;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using X.PagedList;
 
@@ -22,12 +23,14 @@ namespace BNI.Controllers
             var blogs = _context.Posts.ToList();
             var professions = _context.Professions.ToList();
             var members = _context.Members.ToList();
+            var events = _context.Events.ToList();
 
             var viewModel = new HomeViewModel
             {
                 Blogs = blogs,
                 Professions = professions,
-                Members = members
+                Members = members,
+                Events = events,
             };
 
             return View(viewModel);
@@ -56,6 +59,6 @@ namespace BNI.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-        
+
     }
 }

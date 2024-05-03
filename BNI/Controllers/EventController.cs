@@ -42,7 +42,7 @@ namespace BNI.Controllers
             var listEvent = _context.Events
                 .AsNoTracking()
                 .Where(x => x.Title.Contains(keyword))
-                .OrderByDescending(x => x.Id) 
+                .OrderByDescending(x => x.Id)
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
                 .ToList();
@@ -55,11 +55,11 @@ namespace BNI.Controllers
             return View(model);
         }
 
-       
 
 
-            
-            
+
+
+
         public IActionResult EventCategory(string eventType, int? page, int id)
         {
             //IQueryable<Event> events = _context.Events;
@@ -67,7 +67,7 @@ namespace BNI.Controllers
             int pageSize = 10;
             string evType = "";
             int pageNumber = page == null || page < 0 ? 1 : page.Value;
-            DateTime currentDate = DateTime.Now.Date; 
+            DateTime currentDate = DateTime.Now.Date;
 
             var listEvent = _context.Events.AsNoTracking();
 
