@@ -21,11 +21,13 @@ namespace BNI.Controllers
         {
             var blogs = _context.Posts.ToList();
             var professions = _context.Professions.ToList();
+            var members = _context.Members.ToList();
 
             var viewModel = new HomeViewModel
             {
                 Blogs = blogs,
-                Professions = professions
+                Professions = professions,
+                Members = members
             };
 
             return View(viewModel);
@@ -54,5 +56,6 @@ namespace BNI.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        
     }
 }
