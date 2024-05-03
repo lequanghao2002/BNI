@@ -20,7 +20,9 @@ namespace BNI.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var assignments = await _context.Assignments.Include(a => a.Term).ToListAsync(); 
+            var assignments = await _context.Assignments.Include(a => a.Term).ToListAsync();
+            ViewBag.latestTerm = await _context.Terms.OrderByDescending(x => x.StartDate).FirstOrDefaultAsync(); ;
+
             return View(assignments);
         }
     }

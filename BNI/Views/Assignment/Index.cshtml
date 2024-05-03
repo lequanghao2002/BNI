@@ -61,7 +61,7 @@
                                         <div class="col-12 tp-heading-container text-center tp-line-thickness-normal tp-line-width-normal tp-line-bottom">
 
                                             <h2 class="text-uppercase text-o-color-1 fw-bold mb-3">Ban điều hành<strong class="text-o-color-5"> Nhiệm Kỳ 19</strong></h2>
-                                            @foreach (var assignment in Model)
+                                            @* @foreach (var assignment in Model)
                                             {
                                                 if (assignment.TermId != previousTermId)
                                                 {
@@ -70,10 +70,10 @@
                                                     previousTermId = assignment.TermId;
                                                 }
 
-                                            }
+                                            } *@
 
-
-
+                                            <p class="lead mb-0">(@ViewBag.latestTerm.StartDate.ToString("dd/MM/yyyy") - @ViewBag.latestTerm.EndDate.ToString("dd/MM/yyyy"))</p>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -81,12 +81,12 @@
                             <div class="container mb32">
                                 <div class="row justify-content-evenly ">
 
-                                    @foreach (var excutiveboard in Model.Where(x => x.GroupId == 1))
+                                    @foreach (var excutiveboard in Model.Where(x => x.GroupId == 1 && x.TermId == 1))
                                     {
                                         if (excutiveboard.PositionName == "Chủ tịch")
                                         {
                                             <div class="col-lg-4">
-                                                <a href="@Url.Action("Index", "Assignment")" data-publish="on">
+                                                <a href="~/Member/MemberDetail/?id=@excutiveboard.MemberId" style="text-decoration: none;">
                                                     <div class="card bg-primary o_raise_tmp_scale w-100 text-center mb-5 border pm_rounded shadow-sm o_wprofile_pointer pm_card">
                                                         <div class="">
                                                             <div class="card-body pm_gradient">
@@ -111,7 +111,7 @@
                                         else
                                         {
                                             <div class="col-lg-4">
-                                                <a href="@Url.Action("Index", "Assignment")" data-publish="on">
+                                                <a href="~/Member/MemberDetail/?id=@excutiveboard.MemberId" style="text-decoration: none;">
                                                     <div class="card  w-100 text-center mb-5 border pm_rounded shadow-sm o_wprofile_pointer pm_card">
                                                         <div class="">
                                                             <div class="card-body pm_gradient">
@@ -159,10 +159,10 @@
                             </section>
                             <div class="container mb32">
                                 <div class="row justify-content-evenly ">
-                                    @foreach (var memberboards in Model.Where(x => x.GroupId == 2))
+                                    @foreach (var memberboards in Model.Where(x => x.GroupId == 2 && x.TermId == 1))
                                     {
                                         <div class="col-lg-4">
-                                            <a href="@Url.Action("Index", "Assignment")" data-publish="on">
+                                            <a href="~/Member/MemberDetail/?id=@memberboards.MemberId" style="text-decoration: none;">
                                                 <div class="card  w-100 text-center mb-5 border pm_rounded shadow-sm o_wprofile_pointer pm_card">
                                                     <div class="">
                                                         <div class="card-body pm_gradient">
@@ -207,10 +207,10 @@
                             </section>
                             <div class="container mb32">
                                 <div class="row justify-content-evenly ">
-                                    @foreach (var guestboards in Model.Where(x => x.GroupId == 3))
+                                    @foreach (var guestboards in Model.Where(x => x.GroupId == 3 && x.TermId == 1))
                                     {
                                         <div class="col-lg-4">
-                                            <a href="@Url.Action("Index", "Assignment")" data-publish="on">
+                                            <a href="~/Member/MemberDetail/?id=@guestboards.MemberId" style="text-decoration: none;">
                                                 <div class="card  w-100 text-center mb-5 border pm_rounded shadow-sm o_wprofile_pointer pm_card">
                                                     <div class="">
                                                         <div class="card-body pm_gradient">
@@ -255,10 +255,10 @@
                             </section>
                             <div class="container mb32">
                                 <div class="row justify-content-evenly s_public_member_snippet_temp4">
-                                    @foreach (var represetboards in Model.Where(x => x.GroupId == 4))
+                                    @foreach (var represetboards in Model.Where(x => x.GroupId == 4 && x.TermId == 1))
                                     {
                                         <div class="col-lg-4">
-                                            <a href="@Url.Action("Index", "Assignment")" data-publish="on">
+                                            <a href="~/Member/MemberDetail/?id=@represetboards.MemberId" style="text-decoration: none;">
                                                 <div class="card  w-100 text-center mb-5 border pm_rounded shadow-sm o_wprofile_pointer pm_card">
                                                     <div class="">
                                                         <div class="card-body pm_gradient">

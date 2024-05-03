@@ -39,7 +39,7 @@ namespace BNI.Controllers
             var imgev = _context.Professions.Where(x => x.Id == id).Select(x => x.Image).FirstOrDefault();
             ViewBag.imgev = imgev;
 
-            ViewData["members"] = _context.Members.Where(s => s.ProfessionId == id).ToList();
+            ViewData["members"] = _context.Members.Where(s => s.Profession_ID == id).ToList();
             ViewData["details"] = _context.ProfessionDetails.Where(s => s.ProfessionId == id).ToList();
             ViewData["related"] = _context.Professions.ToList();
 

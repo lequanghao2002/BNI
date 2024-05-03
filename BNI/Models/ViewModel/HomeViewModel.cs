@@ -1,4 +1,5 @@
-﻿namespace BNI.Models.ViewModel
+namespace BNI.Models.ViewModel
+
 {
     public class HomeViewModel
     {

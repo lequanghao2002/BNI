@@ -1,0 +1,1352 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutNull.cshtml";
+}
+@model BNI.Models.Member
+<form asp-action="Create" method="post">
+    <div class="sc-ptRml fDULPZ tab-viewport-container  form active" id="form1">
+        <span class="sc-qOjXG eQihqJ section-label-container">Thông tin cá nhân</span>
+        <div class="sc-qWgaf eJRUKU">
+            <main class="sc-pmjZF dHjuZx">
+                <div class="sc-fznyAO CWQMf element">
+                    <div class="sc-fzqzlV gMJRj display-element">
+                        <div class="sc-fzpisO jHQZJv control-container">
+                            <div class="sc-fzoyTs jZUSDr composite-element-container">
+                                <div class="sc-kEYyzF personal-information-display-container RIWmp">
+                                    <div class="sc-fzoMdx uYzkI form-builder-form">
+                                        <div class="sc-fzoxnE GqMIW section-display-container">
+                                            <div class="sc-fzplWN hRBsWH element-list">
+                                                <div class="sc-fznyAO CWQMf element">
+                                                    <div class="sc-fzqzlV gMJRj display-element">
+                                                        <div class="sc-fzpisO jHQZJv control-container">
+                                                            <div mode="DISPLAY" name="label" class="sc-fznKkj fQkkzS display -simple-element-container label">
+                                                                <div class="sc-fznZeY gJlwEu element-container">
+                                                                    <div class="sc-fzqNqU kikdAh">
+                                                                        <span class="sc-fzoiQi ozSmQ Label-Container">
+                                                                            Các thông tin bắt buộc nhưng anh/chị không có nhu cầu (vd: xuất hóa đơn), vui lòng điền "không"
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="sc-fznyAO CWQMf element" style="height:20px">
+                                                    <div class="sc-fzqzlV gMJRj display-element">
+                                                        <div class="sc-fzpisO jHQZJv control-container">
+                                                            <div mode="DISPLAY" name="titles" class="sc-fznKkj display fQkkzS -simple-element-container titles">
+                                                                <div class="sc-fznWqX dAkvW label-container">
+                                                                    <div class="ui label sc-fzqARJ eLpUJW" style="padding-left:0px">
+                                                                        <div class="sc-fzqNqU kikdAh">
+                                                                            <span class="sc-fzoiQi ozSmQ " style="padding-left:10px">Danh xưng</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="sc-fznZeY gJlwEu element-container">
+                                                    <div class="sc-fzpdbB hdEXql datepicker-display valid">
+                                                        <select asp-for="Pronoun" class="ui fluid search selection dropdown" style="margin: 5px 0px 10px 0px;padding-bottom: 5px;">
+                                                            <option value="">Vui lòng chọn</option>
+                                                            <option value="Ba">Ba</option>
+                                                            <option value="Chị">Chị</option>
+                                                            <option value="Cô">Cô</option>
+                                                            <option value="Giáo sư">Giáo sư</option>
+                                                            <option value="Ông">Ông</option>
+                                                            <option value="Tiến sĩ">Tiến sĩ</option>
+                                                        </select>
+                                                        <span asp-validation-for="Pronoun" class="text-danger"></span>
+
+                                                    </div>
+                                                </div>
+                                                <div class="sc-fznyAO CWQMf element">
+                                                    <div class="sc-fzqzlV gMJRj display-element">
+                                                        <div class="sc-fzpisO jHQZJv control-container">
+                                                            <div mode="DISPLAY" name="firstname" class="sc-fznKkj fQkkzS display -simple-element-container firstname">
+                                                                <div class="sc-fznWqX dAkvW label-container">
+                                                                    <div class="ui label sc-fzqARJ eLpUJW">
+                                                                        <div class="sc-fzqNqU kikdAh">
+                                                                            <i class="fa-solid fa-circle icons " style="color: #ce0000;font-size:5px"></i>
+                                                                            <span class="sc-fzoiQi ozSmQ Label-Container">Họ và tên đệm</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="sc-fznZeY gJlwEu element-container">
+                                                                    <div class="sc-fzqzEs WsNPm textinput-display valid">
+                                                                        <div class="ui input">
+                                                                            <input maxlength="44" type="text" asp-for="Fullname">
+                                                                            <span asp-validation-for="Fullname" class="text-danger"></span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="sc-fznZeY gJlwEu element-container form">
+                                                                    <div class="sc-fzqzEs WsNPm textinput-display valid">
+                                                                        <div class="ui input">
+                                                                            <input asp-for="UserId" class="form-control" value="@ViewBag.UserId"></input>
+                                                                            <span asp-validation-for="UserId" class="text-danger"></span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="sc-fznZeY gJlwEu element-container form">
+                                                                    <div class="sc-fzqzEs WsNPm textinput-display valid">
+                                                                        <div class="ui input">
+                                                                            <input maxlength="44" type="text" asp-for="Profession_ID" value="1">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="sc-fznyAO CWQMf element">
+                                                    <div class="sc-fzqzlV gMJRj display-element">
+                                                        <div class="sc-fzpisO jHQZJv control-container">
+                                                            <div mode="DISPLAY" name="companyname" class="sc-fznKkj fQkkzS display -simple-element-container companyname">
+                                                                <div class="sc-fznWqX dAkvW label-container">
+                                                                    <div class="ui label sc-fzqARJ eLpUJW">
+                                                                        <div class="sc-fzqNqU kikdAh">
+                                                                            <i class="fa-solid fa-circle icons " style="color: #ce0000;font-size:5px"></i>
+                                                                            <span class="sc-fzoiQi ozSmQ Label-Container">Tên công ty</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="sc-fznZeY gJlwEu element-container">
+                                                                    <div class="sc-fzqzEs WsNPm textinput-display valid">
+                                                                        <div class="ui input">
+                                                                            <input maxlength="44" type="text" asp-for="Company">
+                                                                            <span asp-validation-for="Company" class="text-danger"></span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="sc-fznyAO CWQMf element">
+                                                    <div class="sc-fzqzlV gMJRj display-element">
+                                                        <div class="sc-fzpisO jHQZJv control-container">
+                                                            <div mode="DISPLAY" name="textinput" class="sc-fznKkj fQkkzS display -simple-element-container textinput">
+                                                                <div class="sc-fznWqX dAkvW label-container">
+                                                                    <div class="ui label sc-fzqARJ eLpUJW">
+                                                                        <div class="sc-fzqNqU kikdAh">
+                                                                            <span class="sc-fzoiQi ozSmQ Label-Container">Người mời (ai mời bạn tham gia BNI?)</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="sc-fznZeY gJlwEu element-container">
+                                                                    <div class="sc-fzqzEs WsNPm textinput-display valid">
+                                                                        <div class="ui input">
+                                                                            <input type="text" value="" asp-for="Introducer">
+                                                                            <span asp-validation-for="Introducer" class="text-danger"></span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="sc-fznyAO CWQMf element">
+                                                    <div class="sc-fzqzlV gMJRj display-element">
+                                                        <div class="sc-fzpisO jHQZJv control-container">
+                                                            <div mode="DISPLAY" name="registeredtaxoffice" class="sc-fznKkj fQkkzS display -simple-element-container registeredtaxoffice">
+                                                                <div class="sc-fznWqX dAkvW label-container">
+                                                                    <div class="ui label sc-fzqARJ eLpUJW">
+                                                                        <div class="sc-fzqNqU kikdAh">
+                                                                            <i class="fa-solid fa-circle icons " style="color: #ce0000;font-size:5px"></i></i>
+                                                                            <span class="sc-fzoiQi ozSmQ Label-Container">Địa chỉ đăng ký Mã số thuế</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="sc-fznZeY gJlwEu element-container">
+                                                                    <div class="sc-fzqzEs WsNPm textinput-display valid">
+                                                                        <div class="ui input">
+                                                                            <input maxlength="98" type="text" asp-for="TaxNumber">
+                                                                            <span asp-validation-for="TaxNumber" class="text-danger"></span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="sc-fznyAO CWQMf element">
+                                                    <div class="sc-fzqzlV gMJRj display-element">
+                                                        <div class="sc-fzpisO jHQZJv control-container">
+                                                            <div mode="DISPLAY" name="textinput" class="sc-fznKkj fQkkzS display -simple-element-container textinput">
+                                                                <div class="sc-fznWqX dAkvW label-container">
+                                                                    <div class="ui label sc-fzqARJ eLpUJW">
+                                                                        <div class="sc-fzqNqU kikdAh">
+                                                                            <i class="fa-solid fa-circle icons " style="color: #ce0000;font-size:5px"></i>
+                                                                            <span class="sc-fzoiQi ozSmQ Label-Container">Địa chỉ (xuất hóa đơn)</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="sc-fznZeY gJlwEu element-container">
+                                                                    <div class="sc-fzqzEs WsNPm textinput-display valid">
+                                                                        <div class="ui input">
+                                                                            <input type="text" asp-for="BillingAddress">
+                                                                            <span asp-validation-for="BillingAddress" class="text-danger"></span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="sc-fznyAO CWQMf element">
+                                                    <div class="sc-fzqzlV gMJRj display-element">
+                                                        <div class="sc-fzpisO jHQZJv control-container">
+                                                            <div mode="DISPLAY" name="textinput" class="sc-fznKkj fQkkzS display -simple-element-container textinput">
+                                                                <div class="sc-fznWqX dAkvW label-container">
+                                                                    <div class="ui label sc-fzqARJ eLpUJW">
+                                                                        <div class="sc-fzqNqU kikdAh">
+                                                                            <i class="fa-solid fa-circle icons " style="color: #ce0000;font-size:5px"></i>
+                                                                            <span class="sc-fzoiQi ozSmQ Label-Container">Tên công ty (xuất hóa đơn)</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="sc-fznZeY gJlwEu element-container">
+                                                                    <div class="sc-fzqzEs WsNPm textinput-display valid">
+                                                                        <div class="ui input">
+                                                                            <input type="text" asp-for="BillingCompany">
+                                                                            <span asp-validation-for="BillingCompany" class="text-danger"></span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="sc-fznyAO CWQMf element">
+                                                    <div class="sc-fzqzlV gMJRj display-element">
+                                                        <div class="sc-fzpisO jHQZJv control-container">
+                                                            <div mode="DISPLAY" name="textinput" class="sc-fznKkj fQkkzS display -simple-element-container textinput">
+                                                                <div class="sc-fznWqX dAkvW label-container">
+                                                                    <div class="ui label sc-fzqARJ eLpUJW">
+                                                                        <div class="sc-fzqNqU kikdAh">
+                                                                            <i class="fa-solid fa-circle icons " style="color: #ce0000;font-size:5px"></i>
+                                                                            <span class="sc-fzoiQi ozSmQ Label-Container">Email nhận hóa đơn điện tử</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="sc-fznZeY gJlwEu element-container">
+                                                                    <div class="sc-fzqzEs WsNPm textinput-display valid">
+                                                                        <div class="ui input"><input type="text" asp-for="BillingEmail"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="sc-fznyAO CWQMf element">
+                                                    <div class="sc-fzqzlV gMJRj display-element">
+                                                        <div class="sc-fzpisO jHQZJv control-container">
+                                                            <div mode="DISPLAY" name="checkbox" class="sc-fznKkj fQkkzS display -simple-element-container checkbox">
+                                                                <div class="sc-fznWqX dAkvW label-container">
+                                                                    <div class="ui label sc-fzqARJ eLpUJW">
+                                                                        <div class="sc-fzqNqU kikdAh">
+                                                                            <i class="fa-solid fa-circle icons " style="color: #ce0000;font-size:5px"></i>
+                                                                            <span class="sc-fzoiQi ozSmQ Label-Container">Cam kết thông tin về việc xuất hóa đơn</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="sc-fznZeY gJlwEu element-container">
+                                                                    <div class="sc-oTBUA hXGkGv">
+                                                                        <section class="sc-pbxSd bpLCGT checkbox-display valid">
+                                                                            <section class="sc-pjstK jsIEAM">
+                                                                                <div class="ui checkbox">
+                                                                                    <input asp-for="Invoicecommitment" class="" tabindex="0" type="checkbox" value="true" checked>
+
+                                                                                    <label>Tôi cam kết chịu trách nhiệm về thông tin xuất hóa đơn ở trên.</label>
+                                                                                </div>
+                                                                            </section>
+                                                                        </section>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="sc-fznyAO CWQMf element" style="height:20px">
+                                                    <div class="sc-fzqzlV gMJRj display-element">
+                                                        <div class="sc-fzpisO jHQZJv control-container">
+                                                            <div mode="DISPLAY" name="titles" class="sc-fznKkj display fQkkzS -simple-element-container titles">
+                                                                <div class="sc-fznWqX dAkvW label-container">
+                                                                    <div class="ui label sc-fzqARJ eLpUJW" style="padding-left:0px">
+                                                                        <div class="sc-fzqNqU kikdAh">
+                                                                            <span class="sc-fzoiQi ozSmQ " style="padding-left:10px">Giới tính</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="sc-fznZeY gJlwEu element-container">
+                                                    <div class="sc-fzpdbB hdEXql datepicker-display valid">
+                                                        <select asp-for="Sex" class="ui fluid search selection dropdown" style="margin: 5px 0px 10px 0px;padding-bottom: 5px;">
+                                                            <option value="">Vui lòng chọn</option>
+                                                            <option value="Nam">Nam</option>
+                                                            <option value="Nữ">Nữ</option>
+                                                            <option value="Khác">Khác</option>
+                                                        </select>
+
+                                                    </div>
+                                                </div>
+                                                <div class="sc-fznyAO CWQMf element" style="height:20px">
+                                                    <div class="sc-fzqzlV gMJRj display-element">
+                                                        <div class="sc-fzpisO jHQZJv control-container">
+                                                            <div mode="DISPLAY" name="titles" class="sc-fznKkj display fQkkzS -simple-element-container titles">
+                                                                <div class="sc-fznWqX dAkvW label-container">
+                                                                    <div class="ui label sc-fzqARJ eLpUJW" style="padding-left:0px">
+                                                                        <div class="sc-fzqNqU kikdAh">
+                                                                            <span class="sc-fzoiQi ozSmQ " style="padding-left:10px">Ngôn ngữ</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="sc-fznZeY gJlwEu element-container">
+                                                    <div class="sc-fzpdbB hdEXql datepicker-display valid">
+                                                        <select asp-for="Language" class="ui fluid search selection dropdown" style="margin: 5px 0px 10px 0px;padding-bottom: 5px;">
+                                                            <option value="">Vui lòng chọn</option>
+                                                            <option value="Mĩ">Mĩ</option>
+                                                            <option value="Việt Nam">Việt Nam</option>
+                                                            <option value="Nhật">Nhật</option>
+                                                            <option value="Hàn">Hàn</option>
+                                                            <option value="Indo">Indo</option>
+                                                        </select>
+
+                                                    </div>
+                                                </div>
+                                                <div class="sc-fznyAO CWQMf element">
+                                                    <div class="sc-fzqzlV gMJRj display-element">
+                                                        <div class="sc-fzpisO jHQZJv control-container">
+                                                            <div mode="DISPLAY" name="email_address" class="sc-fznKkj fQkkzS display -simple-element-container email_address">
+                                                                <div class="sc-fznWqX dAkvW label-container">
+                                                                    <div class="ui label sc-fzqARJ eLpUJW">
+                                                                        <div class="sc-fzqNqU kikdAh">
+                                                                            <i class="fa-solid fa-circle icons " style="color: #ce0000;font-size:5px"></i>
+                                                                            <span class="sc-fzoiQi ozSmQ Label-Container">Email</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="sc-fznZeY gJlwEu element-container">
+                                                                    <div class="sc-fzqzEs WsNPm textinput-display valid">
+                                                                        <div class="ui disabled input">
+                                                                            <input readonly  type="text" tabindex="-1" asp-for="Email" value="@ViewBag.Email">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="sc-fznyAO CWQMf element">
+                                                    <div class="sc-fzqzlV gMJRj display-element">
+                                                        <div class="sc-fzpisO jHQZJv control-container">
+                                                            <div mode="DISPLAY" name="phone_number" class="sc-fznKkj fQkkzS display -simple-element-container phone_number">
+                                                                <div class="sc-fznWqX dAkvW label-container">
+                                                                    <div class="ui label sc-fzqARJ eLpUJW">
+                                                                        <div class="sc-fzqNqU kikdAh">
+                                                                            <i class="fa-solid fa-circle icons " style="color: #ce0000;font-size:5px"></i>
+                                                                            <span class="sc-fzoiQi ozSmQ Label-Container">Số ĐTDĐ</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="sc-fznZeY gJlwEu element-container">
+                                                                    <div class="sc-fzqzEs WsNPm textinput-display valid">
+                                                                        <div class="ui input">
+                                                                            <input maxlength="20" type="text" value="" asp-for="PhoneNumber">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="sc-fznyAO CWQMf element">
+                                                    <div class="sc-fzqzlV gMJRj display-element">
+                                                        <div class="sc-fzpisO jHQZJv control-container">
+                                                            <div mode="DISPLAY" name="address_line_1" class="sc-fznKkj fQkkzS display -simple-element-container address_line_1">
+                                                                <div class="sc-fznWqX dAkvW label-container">
+                                                                    <div class="ui label sc-fzqARJ eLpUJW">
+                                                                        <div class="sc-fzqNqU kikdAh">
+                                                                            <i class="fa-solid fa-circle icons " style="color: #ce0000;font-size:5px"></i>
+                                                                            <span class="sc-fzoiQi ozSmQ Label-Container">Địa chỉ 1</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="sc-fznZeY gJlwEu element-container">
+                                                                    <div class="sc-fzqzEs WsNPm textinput-display valid">
+                                                                        <div class="ui input"><input maxlength="44" type="text" value="" asp-for="Address1"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="sc-fznyAO CWQMf element">
+                                                    <div class="sc-fzqzlV gMJRj display-element">
+                                                        <div class="sc-fzpisO jHQZJv control-container">
+                                                            <div mode="DISPLAY" name="address_line_2" class="sc-fznKkj fQkkzS display -simple-element-container address_line_2">
+                                                                <div class="sc-fznWqX dAkvW label-container">
+                                                                    <div class="ui label sc-fzqARJ eLpUJW">
+                                                                        <div class="sc-fzqNqU kikdAh"><span class="sc-fzoiQi ozSmQ Label-Container">Địa chỉ 2</span></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="sc-fznZeY gJlwEu element-container">
+                                                                    <div class="sc-fzqzEs WsNPm textinput-display valid">
+                                                                        <div class="ui input">
+                                                                            <input maxlength="44" type="text" value="" asp-for="Address2">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="sc-fznyAO CWQMf element">
+                                                    <div class="sc-fzqzlV gMJRj display-element">
+                                                        <div class="sc-fzpisO jHQZJv control-container">
+                                                            <div mode="DISPLAY" name="city" class="sc-fznKkj fQkkzS display -simple-element-container city">
+                                                                <div class="sc-fznWqX dAkvW label-container">
+                                                                    <div class="ui label sc-fzqARJ eLpUJW">
+                                                                        <div class="sc-fzqNqU kikdAh">
+                                                                            <span class="sc-fzoiQi ozSmQ Label-Container">Thành phố</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="sc-fznZeY gJlwEu element-container">
+                                                                    <div class="sc-fzqzEs WsNPm textinput-display valid">
+                                                                        <div class="ui input">
+                                                                            <input maxlength="44" type="text" value="" asp-for="City">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="sc-fznyAO CWQMf element">
+                                                    <div class="sc-fzqzlV gMJRj display-element">
+                                                        <div class="sc-fzpisO jHQZJv control-container">
+                                                            <div mode="DISPLAY" name="county" class="sc-fznKkj fQkkzS display -simple-element-container county">
+                                                                <div class="sc-fznWqX dAkvW label-container">
+                                                                    <div class="ui label sc-fzqARJ eLpUJW">
+                                                                        <div class="sc-fzqNqU kikdAh"><span class="sc-fzoiQi ozSmQ Label-Container">Tỉnh / thành phố</span></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="sc-fznZeY gJlwEu element-container">
+                                                                    <div class="sc-fzqzEs WsNPm textinput-display valid">
+                                                                        <div class="ui input"><input maxlength="44" type="text" value="" asp-for="Provice"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="sc-fznyAO CWQMf element" style="height:20px">
+                                                    <div class="sc-fzqzlV gMJRj display-element">
+                                                        <div class="sc-fzpisO jHQZJv control-container">
+                                                            <div mode="DISPLAY" name="titles" class="sc-fznKkj display fQkkzS -simple-element-container titles">
+                                                                <div class="sc-fznWqX dAkvW label-container">
+                                                                    <div class="ui label sc-fzqARJ eLpUJW" style="padding-left:0px">
+                                                                        <div class="sc-fzqNqU kikdAh">
+                                                                            <span class="sc-fzoiQi ozSmQ " style="padding-left:10px">Quốc Gia</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="sc-fznZeY gJlwEu element-container">
+                                                    <div class="sc-fzpdbB hdEXql datepicker-display valid">
+                                                        <select asp-for="Country" class="ui fluid search selection dropdown" style="margin: 5px 0px 10px 0px;padding-bottom: 5px;">
+                                                            <option value="">Vui lòng chọn</option>
+                                                            <option value="Mĩ">Mĩ</option>
+                                                            <option value="Việt Nam">Việt Nam</option>
+                                                            <option value="Nhật">Nhật</option>
+                                                            <option value="Hàn">Hàn</option>
+                                                            <option value="Indo">Indo</option>
+                                                        </select>
+
+                                                    </div>
+                                                </div>
+                                                <div class="sc-fznyAO CWQMf element">
+                                                    <div class="sc-fzqzlV gMJRj display-element">
+                                                        <div class="sc-fzpisO jHQZJv control-container">
+                                                            <div mode="DISPLAY" name="postcode" class="sc-fznKkj fQkkzS display -simple-element-container postcode">
+                                                                <div class="sc-fznWqX dAkvW label-container">
+                                                                    <div class="ui label sc-fzqARJ eLpUJW">
+                                                                        <div class="sc-fzqNqU kikdAh">
+                                                                            <span class="sc-fzoiQi ozSmQ Label-Container">Mã bưu điện</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="sc-fznZeY gJlwEu element-container">
+                                                                    <div class="sc-fzqzEs WsNPm textinput-display valid">
+                                                                        <div class="ui input"><input maxlength="44" type="text" value="" asp-for="PostalCode"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="sc-fznyAO CWQMf element" style="height:20px">
+                                                    <div class="sc-fzqzlV gMJRj display-element">
+                                                        <div class="sc-fzpisO jHQZJv control-container">
+                                                            <div mode="DISPLAY" name="titles" class="sc-fznKkj display fQkkzS -simple-element-container titles">
+                                                                <div class="sc-fznWqX dAkvW label-container">
+                                                                    <div class="ui label sc-fzqARJ eLpUJW" style="padding-left:0px">
+                                                                        <div class="sc-fzqNqU kikdAh">
+                                                                            <span class="sc-fzoiQi ozSmQ " style="padding-left:10px">Lĩnh vực kinh doanh</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="sc-fznZeY gJlwEu element-container">
+                                                    <div class="sc-fzpdbB hdEXql datepicker-display valid">
+                                                        <select asp-for="BusinessSector" class="ui fluid search selection dropdown" style="margin: 5px 0px 10px 0px;padding-bottom: 5px;">
+                                                            <option value="">Vui lòng chọn</option>
+                                                            <option value="Thực phẩm và đồ uống">Thực phẩm và đồ uống</option>
+                                                            <option value="Dược phẩm">Dược phẩm</option>
+                                                            <option value="Công nghệ thông tin">Công nghệ thông tin</option>
+                                                            <option value="Tài chính">Tài chính</option>
+                                                            <option value="Bất động sản">Bất động sản</option>
+                                                            <option value="Xây dựng">Xây dựng</option>
+                                                            <option value="Năng lượng">Năng lượng</option>
+                                                            <option value="Thương mại điện tử">Thương mại điện tử</option>
+                                                            <option value="Giáo dục">Giáo dục</option>
+                                                            <option value="Y tế">Y tế</option>
+                                                            <option value="Du lịch và giải trí">Du lịch và giải trí</option>
+                                                            <option value="Giao thông vận tải">Giao thông vận tải</option>
+                                                            <option value="Dịch vụ công">Dịch vụ công</option>
+                                                            <option value="Môi trường">Môi trường</option>
+                                                            <option value="Thời trang">Thời trang</option>
+                                                            <option value="Thể thao">Thể thao</option>
+                                                            <option value="Nông nghiệp">Nông nghiệp</option>
+                                                            <option value="Chăm sóc sức khỏe">Chăm sóc sức khỏe</option>
+                                                            <option value="Vận tải hàng hóa">Vận tải hàng hóa</option>
+                                                            <option value="Tổ chức sự kiện">Tổ chức sự kiện</option>
+                                                        </select>
+
+                                                    </div>
+                                                </div>
+                                                <div class="sc-fznyAO CWQMf element">
+                                                    <div class="sc-fzqzlV gMJRj display-element">
+                                                        <div class="sc-fzpisO jHQZJv control-container">
+                                                            <div mode="DISPLAY" name="checkbox" class="sc-fznKkj fQkkzS display -simple-element-container checkbox">
+                                                                <div class="sc-fznWqX dAkvW label-container">
+                                                                    <div class="ui label sc-fzqARJ eLpUJW">
+                                                                        <div class="sc-fzqNqU kikdAh">
+                                                                            <i class="fa-solid fa-circle icons " style="color: #ce0000;font-size:5px"></i>
+                                                                            <span class="sc-fzoiQi ozSmQ Label-Container">Cam kết</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="sc-fznZeY gJlwEu element-container">
+                                                                    <div class="sc-oTBUA hXGkGv">
+                                                                        <section class="sc-pbxSd bpLCGT checkbox-display valid">
+                                                                            <section class="sc-pjstK jsIEAM">
+                                                                                <div class="ui checkbox">
+                                                                                    <input asp-for="Commitmentinformation" class="" tabindex="0" type="checkbox" value="true" checked>
+
+                                                                                    <label>Tôi cam kết những thông tin cung cấp là đúng sự thật.</label>
+                                                                                </div>
+                                                                            </section>
+                                                                        </section>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <div class="sc-ptRml fDULPZ tab-viewport-container  form" id="form2">
+        <span class="sc-qOjXG eQihqJ section-label-container">Nhiệm kỳ thành viên</span>
+        <div class="sc-qWgaf eJRUKU">
+            <main class="sc-pmjZF dHjuZx">
+                <div class="sc-fznyAO CWQMf element">
+                    <div class="sc-fzqzlV gMJRj display-element">
+                        <div class="sc-fzpisO jHQZJv control-container">
+                            <div class="sc-fzoyTs jZUSDr composite-element-container">
+                                <div class="sc-fzoMdx uYzkI form-builder-form">
+                                    <div class="sc-fzoxnE GqMIW section-display-container">
+                                        <div class="sc-fzplWN hRBsWH element-list">
+                                            <div class="sc-fznyAO CWQMf element" style="height:20px">
+                                                <div class="sc-fzqzlV gMJRj display-element">
+                                                    <div class="sc-fzpisO jHQZJv control-container">
+                                                        <div mode="DISPLAY" name="titles" class="sc-fznKkj display fQkkzS -simple-element-container titles">
+                                                            <div class="sc-fznWqX dAkvW label-container">
+                                                                <div class="ui label sc-fzqARJ eLpUJW" style="padding-left:0px">
+                                                                    <div class="sc-fzqNqU kikdAh">
+                                                                        <span class="sc-fzoiQi ozSmQ " style="padding-left:10px">Thời hạn thành viên</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="sc-fznZeY gJlwEu element-container">
+                                                <div class="sc-fzpdbB hdEXql datepicker-display valid">
+                                                    <select asp-for="DurationOfParticipation" class="ui fluid search selection dropdown" style="margin: 5px 0px 10px 0px;padding-bottom: 5px;">
+                                                        <option value="">Vui lòng chọn</option>
+                                                        <option value="12 Tháng">12 Tháng</option>
+                                                        <option value="24 Tháng">24 Tháng</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="sc-fznyAO CWQMf element">
+                                                <div class="sc-fzqzlV gMJRj display-element">
+                                                    <div class="sc-fzpisO jHQZJv control-container">
+                                                        <div mode="DISPLAY" name="companypaid" class="sc-fznKkj fQkkzS display -simple-element-container companypaid">
+                                                            <div class="sc-fznWqX dAkvW label-container">
+                                                                <div class="ui label sc-fzqARJ eLpUJW">
+                                                                    <div class="sc-fzqNqU kikdAh">
+                                                                        <i class="fa-solid fa-circle icons " style="color: #ce0000;font-size:5px"></i>
+                                                                        <span class="sc-fzoiQi ozSmQ Label-Container">Phí thành viên do Công ty thanh toán</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="sc-fznZeY gJlwEu element-container">
+                                                                <div class="sc-pRTZB cgrjKw">
+                                                                    <div class="sc-qapaw iJULWE radio-item">
+                                                                        <input asp-for="PaymentCompany" type="radio" value="true" id="radioTrue"><label for="radioTrue">Có</label>
+                                                                    </div>
+                                                                    <div class="sc-qapaw iJULWE radio-item">
+                                                                        <input asp-for="PaymentCompany" type="radio" value="false" id="radioFalse"><label for="radioFalse">Không</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="sc-fznyAO CWQMf element">
+                                                <div class="sc-fzqzlV gMJRj display-element">
+                                                    <div class="sc-fzpisO jHQZJv control-container">
+                                                        <div mode="DISPLAY" name="payername" class="sc-fznKkj fQkkzS display -simple-element-container payername">
+                                                            <div class="sc-fznWqX dAkvW label-container">
+                                                                <div class="ui label sc-fzqARJ eLpUJW">
+                                                                    <div class="sc-fzqNqU kikdAh">
+                                                                        <i class="fa-solid fa-circle icons " style="color: #ce0000;font-size:5px"></i>
+                                                                        <span class="sc-fzoiQi ozSmQ Label-Container">Tên người thanh toán</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="sc-fznZeY gJlwEu element-container">
+                                                                <div class="sc-fzqzEs WsNPm textinput-display valid">
+                                                                    <div class="ui input">
+                                                                        <input maxlength="99" type="text" asp-for="PaymentName">
+                                                                        </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="sc-fznyAO CWQMf element">
+                                                <div class="sc-fzqzlV gMJRj display-element">
+                                                    <div class="sc-fzpisO jHQZJv control-container">
+                                                        <div mode="DISPLAY" name="cofc" class="sc-fznKkj fQkkzS display -simple-element-container cofc">
+                                                            <div class="sc-fznWqX dAkvW label-container">
+                                                                <div class="ui label sc-fzqARJ eLpUJW">
+                                                                    <div class="sc-fzqNqU kikdAh">
+                                                                        <i class="fa-solid fa-circle icons " style="color: #ce0000;font-size:5px"></i>
+                                                                        <span class="sc-fzoiQi ozSmQ Label-Container">Bạn có CoC/Chứng chỉ tín dụng? (là số tháng sinh hoạt được lưu trữ từ quyền thành viên cá nhân hoặc công ty tham gia BNI trước đây)</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="sc-fznZeY gJlwEu element-container">
+                                                                <div class="sc-pRTZB cgrjKw">
+                                                                    <div class="sc-qapaw iJULWE radio-item">
+                                                                        <input asp-for="CoC" type="radio" value="true" id="radioTrue"><label for="radioTrue">Có</label>
+                                                                    </div>
+                                                                    <div class="sc-qapaw iJULWE radio-item">
+                                                                        <input asp-for="CoC" type="radio" value="false" id="radioFalse"><label for="radioFalse">Không</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <div class="sc-ptRml fDULPZ tab-viewport-container  form" id="form3">
+        <span class="sc-qOjXG eQihqJ section-label-container">Thông tin tham chiếu</span><div class="sc-qWgaf eJRUKU">
+            <main class="sc-pmjZF dHjuZx">
+                <div class="sc-fznyAO CWQMf element">
+                    <div class="sc-fzqzlV gMJRj display-element">
+                        <div class="sc-fzpisO jHQZJv control-container">
+                            <div class="sc-fzoyTs jZUSDr composite-element-container">
+                                <div class="sc-fzoMdx uYzkI form-builder-form">
+                                    <div class="sc-fzoxnE GqMIW section-display-container">
+                                        <div class="sc-fzplWN hRBsWH element-list">
+                                            <div class="sc-fznyAO CWQMf element">
+                                                <div class="sc-fzqzlV gMJRj display-element">
+                                                    <div class="sc-fzpisO jHQZJv control-container">
+                                                        <div mode="DISPLAY" name="richtext" class="sc-fznKkj fQkkzS display -simple-element-container richtext">
+                                                            <div class="sc-fznWqX dAkvW label-container">
+                                                                <div class="ui label sc-fzqARJ eLpUJW">
+                                                                    <div class="sc-fzqNqU kikdAh">
+                                                                        <span class="sc-fzoiQi ozSmQ Label-Container">Vui lòng cung cấp thông tin người để Chapter tham chiếu</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="sc-fznZeY gJlwEu element-container">
+                                                                <text class="sc-qXRQq jtOWzV">
+                                                                    <p><strong>Thông tin cần cung cấp:</strong></p>
+                                                                    <p>- Tên</p>
+                                                                    <p>- Công ty</p>
+                                                                    <p>- Chức vụ</p>
+                                                                    <p>- Số điện thoại</p>
+                                                                    <p>- Mối quan hệ với Anh/Chị</p>
+                                                                </text>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div><div class="sc-fznyAO CWQMf element">
+                                                <div class="sc-fzqzlV gMJRj display-element">
+                                                    <div class="sc-fzpisO jHQZJv control-container">
+                                                        <div mode="DISPLAY" name="textinput" class="sc-fznKkj fQkkzS display -simple-element-container textinput">
+                                                            <div class="sc-fznWqX dAkvW label-container">
+                                                                <div class="ui label sc-fzqARJ eLpUJW">
+                                                                    <div class="sc-fzqNqU kikdAh">
+                                                                        <i class="fa-solid fa-circle icons " style="color: #ce0000;font-size:5px"></i>
+                                                                        <span class="sc-fzoiQi ozSmQ Label-Container">Người tham chiếu #1</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="sc-fznZeY gJlwEu element-container">
+                                                                <div class="sc-fzqzEs WsNPm textinput-display valid">
+                                                                    <div class="ui input"><input type="text" value="" asp-for="Referrer1"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="sc-fznyAO CWQMf element">
+                                                <div class="sc-fzqzlV gMJRj display-element">
+                                                    <div class="sc-fzpisO jHQZJv control-container">
+                                                        <div mode="DISPLAY" name="textinput" class="sc-fznKkj fQkkzS display -simple-element-container textinput">
+                                                            <div class="sc-fznWqX dAkvW label-container">
+                                                                <div class="ui label sc-fzqARJ eLpUJW">
+                                                                    <div class="sc-fzqNqU kikdAh">
+                                                                        <i class="fa-solid fa-circle icons " style="color: #ce0000;font-size:5px"></i>
+                                                                        <span class="sc-fzoiQi ozSmQ Label-Container">Người tham chiếu #2</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="sc-fznZeY gJlwEu element-container">
+                                                                <div class="sc-fzqzEs WsNPm textinput-display valid">
+                                                                    <div class="ui input">
+                                                                        <input type="text" value="" asp-for="Referrer2">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <div class="sc-ptRml fDULPZ tab-viewport-container form" id="form4">
+        <span class="sc-qOjXG eQihqJ section-label-container">Thông tin bổ sung</span><div class="sc-qWgaf eJRUKU">
+            <main class="sc-pmjZF dHjuZx">
+                <div class="sc-fznyAO CWQMf element">
+                    <div class="sc-fzqzlV gMJRj display-element">
+                        <div class="sc-fzpisO jHQZJv control-container">
+                            <div class="sc-fzoyTs jZUSDr composite-element-container">
+                                <div class="sc-fzoMdx uYzkI form-builder-form">
+                                    <div class="sc-fzoxnE GqMIW section-display-container">
+                                        <div class="sc-fzplWN hRBsWH element-list">
+                                            <div class="sc-fznyAO CWQMf element"><div class="sc-fzqzlV gMJRj display-element"><div class="sc-fzpisO jHQZJv control-container"><div mode="DISPLAY" name="label" class="sc-fznKkj fQkkzS display -simple-element-container label"><div class="sc-fznZeY gJlwEu element-container"><div class="sc-fzqNqU kikdAh"><span class="sc-fzoiQi ozSmQ Label-Container">VUI LÒNG TRẢ LỜI CÁC CÂU HỎI SAU NẾU ANH/CHỊ MUỐN THAM GIA VÀO BNI VIỆT NAM:</span></div></div></div></div></div></div><div class="sc-fznyAO CWQMf element"><div class="sc-fzqzlV gMJRj display-element"><div class="sc-fzpisO jHQZJv control-container"><div mode="DISPLAY" name="textinput" class="sc-fznKkj fQkkzS display -simple-element-container textinput"><div class="sc-fznWqX dAkvW label-container"><div class="ui label sc-fzqARJ eLpUJW"><div class="sc-fzqNqU kikdAh"><i class="fa-solid fa-circle icons " style="color: #ce0000;font-size:5px"></i><span class="sc-fzoiQi ozSmQ Label-Container">Thời gian Anh/Chị làm việc trong lĩnh vực kinh doanh được bao nhiêu năm?</span></div></div></div><div class="sc-fznZeY gJlwEu element-container"><div class="sc-fzqzEs WsNPm textinput-display valid"><div class="ui input"><input type="text" value=""></div></div></div></div></div></div></div><div class="sc-fznyAO CWQMf element">
+                                                <div class="sc-fzqzlV gMJRj display-element">
+                                                    <div class="sc-fzpisO jHQZJv control-container">
+                                                        <div mode="DISPLAY" name="textinput" class="sc-fznKkj fQkkzS display -simple-element-container textinput">
+                                                            <div class="sc-fznWqX dAkvW label-container">
+                                                                <div class="ui label sc-fzqARJ eLpUJW">
+                                                                    <div class="sc-fzqNqU kikdAh">
+                                                                        <i class="fa-solid fa-circle icons " style="color: #ce0000;font-size:5px"></i><span class="sc-fzoiQi ozSmQ Label-Container">
+                                                                            Công ty của Anh/Chị thành lập được bao nhiêu năm?
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="sc-fznZeY gJlwEu element-container">
+                                                                <div class="sc-fzqzEs WsNPm textinput-display valid">
+                                                                    <div class="ui input">
+                                                                        <input type="text" value="" asp-for="Timeofcompanyestablishment">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="sc-fznyAO CWQMf element" style="height:20px">
+                                                <div class="sc-fzqzlV gMJRj display-element">
+                                                    <div class="sc-fzpisO jHQZJv control-container">
+                                                        <div mode="DISPLAY" name="titles" class="sc-fznKkj display fQkkzS -simple-element-container titles">
+                                                            <div class="sc-fznWqX dAkvW label-container">
+                                                                <div class="ui label sc-fzqARJ eLpUJW" style="padding-left:0px">
+                                                                    <div class="sc-fzqNqU kikdAh">
+                                                                        <span class="sc-fzoiQi ozSmQ " style="padding-left:10px">Lĩnh vực Anh/Chị đang làm và muốn đăng ký với BNI là công việc:</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="sc-fznZeY gJlwEu element-container">
+                                                <div class="sc-fzpdbB hdEXql datepicker-display valid">
+                                                    <select asp-for="FieldOfRegistration" class="ui fluid search selection dropdown" style="margin: 5px 0px 10px 0px;padding-bottom: 5px;">
+                                                        <option value="">Vui lòng chọn</option>
+                                                        <option value="Thực phẩm và đồ uống">Thực phẩm và đồ uống</option>
+                                                        <option value="Dược phẩm">Dược phẩm</option>
+                                                        <option value="Công nghệ thông tin">Công nghệ thông tin</option>
+                                                        <option value="Tài chính">Tài chính</option>
+                                                        <option value="Bất động sản">Bất động sản</option>
+                                                        <option value="Xây dựng">Xây dựng</option>
+                                                        <option value="Năng lượng">Năng lượng</option>
+                                                        <option value="Thương mại điện tử">Thương mại điện tử</option>
+                                                        <option value="Giáo dục">Giáo dục</option>
+                                                        <option value="Y tế">Y tế</option>
+                                                        <option value="Du lịch và giải trí">Du lịch và giải trí</option>
+                                                        <option value="Giao thông vận tải">Giao thông vận tải</option>
+                                                        <option value="Dịch vụ công">Dịch vụ công</option>
+                                                        <option value="Môi trường">Môi trường</option>
+                                                        <option value="Thời trang">Thời trang</option>
+                                                        <option value="Thể thao">Thể thao</option>
+                                                        <option value="Nông nghiệp">Nông nghiệp</option>
+                                                        <option value="Chăm sóc sức khỏe">Chăm sóc sức khỏe</option>
+                                                        <option value="Vận tải hàng hóa">Vận tải hàng hóa</option>
+                                                        <option value="Tổ chức sự kiện">Tổ chức sự kiện</option>
+                                                    </select>
+
+                                                </div>
+                                            </div>
+                                            <div class="sc-fznyAO CWQMf element">
+                                                <div class="sc-fzqzlV gMJRj display-element">
+                                                    <div class="sc-fzpisO jHQZJv control-container">
+                                                        <div mode="DISPLAY" name="radio" class="sc-fznKkj fQkkzS display -simple-element-container radio">
+                                                            <div class="sc-fznWqX dAkvW label-container">
+                                                                <div class="ui label sc-fzqARJ eLpUJW">
+                                                                    <div class="sc-fzqNqU kikdAh">
+                                                                        <i class="fa-solid fa-circle icons " style="color: #ce0000;font-size:5px"></i>
+                                                                        <span class="sc-fzoiQi ozSmQ Label-Container">Anh/Chị có cam kết sẽ tham dự những cuộc họp hàng tuần trước 06:45 sáng và ở lại đến 09:00 sáng, cũng như tham dự các khóa đào tạo bắt buộc để nhận chuyển giao công cụ khi tham gia BNI?</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="sc-fznZeY gJlwEu element-container">
+                                                                <div class="sc-pRTZB cgrjKw">
+                                                                    <div class="sc-qapaw iJULWE radio-item">
+                                                                        <input asp-for="Meetingcommitment" type="radio" value="true" id="radioTrue"><label for="radioTrue">Có</label>
+                                                                    </div>
+                                                                    <div class="sc-qapaw iJULWE radio-item">
+                                                                        <input asp-for="Meetingcommitment" type="radio" value="false" id="radioFalse"><label for="radioFalse">Không</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="sc-fznyAO CWQMf element">
+                                                <div class="sc-fzqzlV gMJRj display-element">
+                                                    <div class="sc-fzpisO jHQZJv control-container">
+                                                        <div mode="DISPLAY" name="radio" class="sc-fznKkj fQkkzS display -simple-element-container radio">
+                                                            <div class="sc-fznWqX dAkvW label-container">
+                                                                <div class="ui label sc-fzqARJ eLpUJW">
+                                                                    <div class="sc-fzqNqU kikdAh">
+                                                                        <i class="fa-solid fa-circle icons " style="color: #ce0000;font-size:5px"></i>
+                                                                        <span class="sc-fzoiQi ozSmQ Label-Container">Có cá nhân nào có thể đi họp thay Anh/Chị không? (PGĐ, Khách hàng, Nhà cung cấp, Người thân…)</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="sc-fznZeY gJlwEu element-container">
+                                                                <div class="sc-pRTZB cgrjKw">
+                                                                    <div class="sc-qapaw iJULWE radio-item">
+                                                                        <input asp-for="AlternateMeetingPerson" type="radio" value="true" id="radioTrue"><label for="radioTrue">Có</label>
+                                                                    </div>
+                                                                    <div class="sc-qapaw iJULWE radio-item">
+                                                                        <input asp-for="AlternateMeetingPerson" type="radio" value="false" id="radioFalse"><label for="radioFalse">Không</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="sc-fznyAO CWQMf element">
+                                                <div class="sc-fzqzlV gMJRj display-element">
+                                                    <div class="sc-fzpisO jHQZJv control-container">
+                                                        <div mode="DISPLAY" name="checkbox" class="sc-fznKkj fQkkzS display -simple-element-container checkbox">
+                                                            <div class="sc-fznWqX dAkvW label-container">
+                                                                <div class="ui label sc-fzqARJ eLpUJW">
+                                                                    <div class="sc-fzqNqU kikdAh">
+                                                                        <i class="fa-solid fa-circle icons " style="color: #ce0000;font-size:5px"></i>
+                                                                        <span class="sc-fzoiQi ozSmQ Label-Container">Anh/Chị muốn đóng góp gì cho Chapter Anh/Chị đang tham dự</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="sc-fznZeY gJlwEu element-container">
+                                                                <div class="sc-oTBUA hXGkGv">
+                                                                    <section class="sc-pbxSd bpLCGT checkbox-display valid checkbox-group-1">
+                                                                        <section class="sc-pjstK jsIEAM">
+                                                                            <div class="ui checkbox">
+                                                                                <input asp-for="Contribute" id="checkbox1" name="group-1" class="hidden" readonly="" tabindex="0" type="radio" value="Trao cơ hội kinh doanh">
+                                                                                <label for="checkbox1">Trao cơ hội kinh doanh</label>
+                                                                            </div>
+                                                                        </section>
+                                                                        <section class="sc-pjstK jsIEAM">
+                                                                            <div class="ui checkbox">
+                                                                                <input asp-for="Contribute" id="checkbox2" name="group-1" class="hidden" readonly="" tabindex="0" type="radio" value="Chia sẻ các mối quan hệ">
+                                                                                <label for="checkbox2">Chia sẻ các mối quan hệ</label>
+                                                                            </div>
+                                                                        </section>
+                                                                        <section class="sc-pjstK jsIEAM">
+                                                                            <div class="ui checkbox">
+                                                                                <input asp-for="Contribute" id="checkbox3" name="group-1" class="hidden" readonly="" tabindex="0" type="radio" value="Khác">
+                                                                                <label for="checkbox3">Khác</label>
+                                                                            </div>
+                                                                        </section>
+                                                                    </section>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="sc-fznyAO CWQMf element">
+                                                <div class="sc-fzqzlV gMJRj display-element">
+                                                    <div class="sc-fzpisO jHQZJv control-container">
+                                                        <div mode="DISPLAY" name="radio" class="sc-fznKkj fQkkzS display -simple-element-container radio">
+                                                            <div class="sc-fznWqX dAkvW label-container">
+                                                                <div class="ui label sc-fzqARJ eLpUJW">
+                                                                    <div class="sc-fzqNqU kikdAh">
+                                                                        <i class="fa-solid fa-circle icons " style="color: #ce0000;font-size:5px"></i>
+                                                                        <span class="sc-fzoiQi ozSmQ Label-Container">Mức độ Anh/Chị có thể giới thiệu khách mời tiềm năng cho Chapter?</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="sc-fznZeY gJlwEu element-container">
+                                                                <div class="sc-pRTZB cgrjKw">
+                                                                    <div class="sc-qapaw iJULWE radio-item">
+                                                                        <input asp-for="Guestreferrals" type="radio" name="Group-2" value="Rất ít">
+                                                                        <label>Rất ít</label>
+                                                                    </div>
+                                                                    <div class="sc-qapaw iJULWE radio-item">
+                                                                        <input asp-for="Guestreferrals" type="radio" name="Group-2" value="Trung bình">
+                                                                        <label>Trung bình</label>
+                                                                    </div>
+                                                                    <div class="sc-qapaw iJULWE radio-item">
+                                                                        <input asp-for="Guestreferrals" type="radio" name="Group-2" value="Nhiều">
+                                                                        <label>Nhiều</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div><div class="sc-fznyAO CWQMf element">
+                                                <div class="sc-fzqzlV gMJRj display-element">
+                                                    <div class="sc-fzpisO jHQZJv control-container">
+                                                        <div mode="DISPLAY" name="radio" class="sc-fznKkj fQkkzS display -simple-element-container radio">
+                                                            <div class="sc-fznWqX dAkvW label-container">
+                                                                <div class="ui label sc-fzqARJ eLpUJW">
+                                                                    <div class="sc-fzqNqU kikdAh">
+                                                                        <i class="fa-solid fa-circle icons " style="color: #ce0000;font-size:5px"></i>
+                                                                        <span class="sc-fzoiQi ozSmQ Label-Container">Anh/Chị đã từng tham gia BNI chưa?</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="sc-fznZeY gJlwEu element-container">
+                                                                <div class="sc-pRTZB cgrjKw">
+                                                                    <div class="sc-qapaw iJULWE radio-item">
+                                                                        <input asp-for="ParticipationHistory" type="radio" value="true" id="radioTrue"><label for="radioTrue">Có</label>
+                                                                    </div>
+                                                                    <div class="sc-qapaw iJULWE radio-item">
+                                                                        <input asp-for="ParticipationHistory" type="radio" value="false" id="radioFalse"><label for="radioFalse">Chưa</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="sc-fznyAO CWQMf element">
+                                                <div class="sc-fzqzlV gMJRj display-element">
+                                                    <div class="sc-fzpisO jHQZJv control-container">
+                                                        <div mode="DISPLAY" name="textinput" class="sc-fznKkj fQkkzS display -simple-element-container textinput">
+                                                            <div class="sc-fznWqX dAkvW label-container">
+                                                                <div class="ui label sc-fzqARJ eLpUJW">
+                                                                    <div class="sc-fzqNqU kikdAh">
+                                                                        <span class="sc-fzoiQi ozSmQ Label-Container">Nếu có, vui lòng nhập tên Chapter đã tham gia:</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="sc-fznZeY gJlwEu element-container">
+                                                                <div class="sc-fzqzEs WsNPm textinput-display valid">
+                                                                    <div class="ui input">
+                                                                        <input type="text" value="" asp-for="Nameofparticipation">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="sc-fznyAO CWQMf element">
+                                                <div class="sc-fzqzlV gMJRj display-element">
+                                                    <div class="sc-fzpisO jHQZJv control-container">
+                                                        <div mode="DISPLAY" name="textinput" class="sc-fznKkj fQkkzS display -simple-element-container textinput">
+                                                            <div class="sc-fznWqX dAkvW label-container">
+                                                                <div class="ui label sc-fzqARJ eLpUJW">
+                                                                    <div class="sc-fzqNqU kikdAh">
+                                                                        <span class="sc-fzoiQi ozSmQ Label-Container">Anh/Chị đang tham gia tổ chức kết nối thương mại hay hiệp hội nào?</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="sc-fznZeY gJlwEu element-container">
+                                                                <div class="sc-fzqzEs WsNPm textinput-display valid">
+                                                                    <div class="ui input">
+                                                                        <input type="text" value="" asp-for="Commercialorganizations">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div><div class="sc-fznyAO CWQMf element">
+                                                <div class="sc-fzqzlV gMJRj display-element">
+                                                    <div class="sc-fzpisO jHQZJv control-container">
+                                                        <div mode="DISPLAY" name="radio" class="sc-fznKkj fQkkzS display -simple-element-container radio">
+                                                            <div class="sc-fznWqX dAkvW label-container">
+                                                                <div class="ui label sc-fzqARJ eLpUJW">
+                                                                    <div class="sc-fzqNqU kikdAh">
+                                                                        <span class="sc-fzoiQi ozSmQ Label-Container">Anh/Chị có đang hoặc đã từng liên quan đến vi phạm pháp luật</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="sc-fznZeY gJlwEu element-container">
+                                                                <div class="sc-pRTZB cgrjKw">
+                                                                    <div class="sc-qapaw iJULWE radio-item">
+                                                                        <input asp-for="ViolationOfTheLaw" type="radio" value="true" id="radioTrue"><label for="radioTrue">Có</label>
+                                                                    </div>
+                                                                    <div class="sc-qapaw iJULWE radio-item">
+                                                                        <input asp-for="ViolationOfTheLaw" type="radio" value="false" id="radioFalse"><label for="radioFalse">Không</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <div class="sc-ptRml fDULPZ tab-viewport-container form" id="form5">
+        <span class="sc-qOjXG eQihqJ section-label-container">Điều khoản &amp; Điều kiện</span><div class="sc-qWgaf eJRUKU">
+            <main class="sc-pmjZF dHjuZx">
+                <div class="sc-fznyAO CWQMf element">
+                    <div class="sc-fzqzlV gMJRj display-element">
+                        <div class="sc-fzpisO jHQZJv control-container">
+                            <div class="sc-fzoyTs jZUSDr composite-element-container">
+                                <div class="sc-fzoMdx uYzkI form-builder-form">
+                                    <div class="sc-fzoxnE GqMIW section-display-container">
+                                        <div class="sc-fzplWN hRBsWH element-list">
+                                            <div class="sc-fznyAO CWQMf element">
+                                                <div class="sc-fzqzlV gMJRj display-element">
+                                                    <div class="sc-fzpisO jHQZJv control-container">
+                                                        <div mode="DISPLAY" name="terms" class="sc-fznKkj fQkkzS display -simple-element-container terms">
+                                                            <div class="sc-fznWqX dAkvW label-container"><div class="ui label sc-fzqARJ eLpUJW"><div class="sc-fzqNqU kikdAh"><i class="fa-solid fa-circle icons " style="color: #ce0000;font-size:5px"></i><span class="sc-fzoiQi ozSmQ Label-Container">Điều khoản &amp; Điều kiện tham gia BNI</span></div></div></div><div class="sc-fznZeY gJlwEu element-container">
+                                                                <div class="sc-pQsrT euxcKx terms-display valid">
+                                                                    <div class="sc-qPLKk dtYqxP">
+                                                                        <text class="sc-qXRQq jtOWzV">
+                                                                            <h1><span style="color: rgb(184,49,47);font-size: 18px;font-family: Arial;">A. QUY TRÌNH ĐĂNG KÝ THAM GIA BNI VIỆT NAM </span></h1>
+                                                                            <p><strong>Khi tham gia vào BNI, người tham gia (Anh/Chị) đồng ý tuân theo quy trình đăng ký sau:</strong></p>
+                                                                            <ol>
+                                                                                <li>Khi được giới thiệu với tư cách là khách mời, Anh/Chị có thể tham dự nhiều nhất 2 buổi tham vấn hàng tuần của Nhóm tư vấn (Chapter).</li>
+                                                                                <li>Anh/Chị điền đầy đủ thông tin vào PHIẾU THÔNG TIN KHÁCH MỜI và gửi cho Ban Thành Viên thẩm định. Nếu đủ điều kiện tham gia, Trưởng Ban Thành Viên sẽ gửi thư chấp thuận qua email cho anh chị và cho Văn phòng BNI Việt Nam.</li>
+                                                                                <li>Anh/Chị đóng phí tư vấn bằng cách chuyển khoản cho văn phòng BNI Việt Nam (<strong>ghi rõ Họ và tên – SĐT – Tên Chapter – Mã số thuế – TV mới</strong>).</li>
+                                                                                <li>Anh/Chị thông báo về việc đã đóng phí cho Ban Thành Viên để Ban Điều Hành Chapter tiến hành nghi thức kết nạp Anh/Chị trở thành thành viên BNI.</li>
+                                                                                <li>Anh/Chị sẽ nhận được email kích hoạt tài khoản BNIConnect.com vào địa chỉ email đăng ký trong đơn này.&nbsp;</li>
+                                                                            </ol>
+                                                                            <h1><span style="color: rgb(184,49,47);font-size: 18px;font-family: Arial;">B. CAM KẾT KHI THAM GIA BNI VIỆT NAM</span></h1>
+                                                                            <p><strong>Khi tham gia vào BNI, thành viên (Tôi) đồng ý tuân theo các cam kết sau:</strong></p>
+                                                                            <ol>
+                                                                                <li>Tôi sẽ cung cấp đúng chất lượng dịch vụ ở mức giá mà tôi đã báo.</li>
+                                                                                <li>Tôi sẽ thành thật với các thành viên khác cũng như những người mà họ giới thiệu.</li>
+                                                                                <li>Tôi sẽ xây dựng mối quan hệ tốt cũng như sự tín nhiệm với các thành viên khác và những người mà họ giới thiệu.</li>
+                                                                                <li>Tôi sẽ đảm nhận việc liên hệ và làm việc với những người tôi được các thành viên khác giới thiệu.</li>
+                                                                                <li>Tôi sẽ luôn duy trì thái độ tích cực và hỗ trợ khi trình bày những công việc liên quan đến BNI.</li>
+                                                                                <li>Tôi sống và làm theo những giá trị cốt lõi và truyền thống của BNI.&nbsp;</li>
+                                                                            </ol>
+                                                                            <h1><span style="color: rgb(184,49,47);font-size: 18px;font-family: Arial;">C. QUY ĐỊNH HOẠT ĐỘNG KHI THAM GIA BNI VIỆT NAM  </span></h1>
+                                                                            <p><strong>Khi tham gia vào BNI, thành viên đồng ý tuân theo các quy định hoạt động sau:</strong></p>
+                                                                            <ol>
+                                                                                <li>Đây là hệ thống tư vấn quản lý kinh doanh do BNI Việt Nam tổ chức dưới hình thức Nhóm tư vấn (Chapter), người tham gia (thành viên) được cung cấp các thông tin tư vấn từ đại diện BNI Việt Nam, được chia sẻ kinh nghiệm, cơ hội kinh doanh từ các thành viên cùng Chapter; Thành viên sẽ được hướng dẫn thực hiện các hoạt động, quy định, cam kết khi tham gia BNI</li>
+                                                                                <li>Khi tham dự các buổi tham vấn của Chapter, thành viên phải đảm bảo đúng giờ (từ 6h45 đến 9h sáng) và đủ thời lượng. Việc tham dự các buổi tham vấn của Chapter là bắt buộc, nếu vì sự việc bất khả kháng, thành viên có thể cử người đi thay (nhưng người đó không được là thành viên cùng Chapter). Thành viên không được vắng quá 03 lần trong vòng 06 tháng (trường hợp vì lý do sức khoẻ thì không được vắng quá 08 tuần và phải có chứng thư biện giải).</li>
+                                                                                <li>Khi tham dự, thành viên phải đăng ký ngành nghề kinh doanh chính của mình, khi muốn thay đổi phải làm bản đăng ký mới và phải được Ban Thành viên chấp thuận. Trong cùng một thời điểm, mỗi cá nhân thành viên chỉ được đăng ký là thành viên của một Chapter. Trong mỗi Chapter, mỗi ngành nghề chỉ có một thành viên đại diện, Ban Thành viên có thẩm quyền quyết định cuối cùng nếu xảy ra xung đột liên quan đến ngành nghề giữa các thành viên.</li>
+                                                                                <li>Trung thực trong việc giới thiệu khách mời, cơ hội kinh doanh cho thành viên của Chapter; Tuân thủ mức quy định tối thiểu do Chapter đề ra về số lượng khách mời, số lượng cơ hội kinh doanh để đảm bảo duy trì tư cách thành viên và hoạt động của Chapter; BNI Việt Nam hoàn toàn không chịu mọi trách nhiệm về các rủi ro xảy ra trong các giao dịch giữa các thành viên hoặc với cá nhân, đơn vị do thành viên giới thiệu khi thực hiện việc trao đổi cơ hội kinh doanh.</li>
+                                                                                <li>Luôn có thái độ thân thiện, quan hệ tốt với các thành viên khác, có tinh thần tương hỗ, trung thực và tuân thủ các chuẩn mực nghề nghiệp của bản thân, đạo đức kinh doanh của cá nhân hoặc doanh nghiệp mà thành viên đại diện tham gia.</li>
+                                                                                <li>Danh sách thành viên của Chapter được công bố công khai, nhưng thành viên không được lạm dụng sử dụng vào bất kỳ mục đích không thuộc phạm vi quy định của hệ thống tư vấn BNI Việt Nam.</li>
+                                                                                <li>Thành viên khi tham gia vào hệ thống tư vấn BNI Việt Nam, buộc phải tham dự các chương trình tư vấn, huấn luyện bắt buộc gồm: MSP trong vòng 30 ngày; MYS và “Referrals Skills” trong vòng 06 tháng kể từ ngày chính thức tham gia Chapter. Thành viên sẽ phải chịu phí thuê địa điểm, in ấn tài liệu, teabreak.</li>
+                                                                                <li>Khi đã tham gia hệ thống tư vấn BNI Việt Nam thì thành viên không được tham gia bất kỳ các hệ thống tương tự BNI Việt Nam, liên quan đến hoạt động tư vấn quản lý, trao đổi cơ hội kinh doanh, kết nối kinh doanh. Ngoài ra, thành viên không được kinh doanh trong lĩnh vực bán hàng đa cấp, không được tham gia các hội nhóm bất hợp pháp theo quy định pháp luật Việt Nam, cũng như không được thực hiện bất kỳ hành vi không thuộc phạm vi tư vấn, cho phép của BNI Việt Nam tại bất kỳ Chapter nào trong hệ thống tư vấn BNI Việt Nam.</li>
+                                                                                <li>Phí tư vấn bao gồm: chi phí tư vấn, phí bản quyền tài liệu, phí hành chính văn phòng, phí duy trì, phí nhượng quyền; nhưng không bao gồm các chi phí thuê địa điểm, ăn sáng. Phí tư vấn không được chuyển từ người này sang người kia trừ trường hợp 2 người làm cùng một công ty. Phí tư vấn có thể thay đổi theo từng giai đoạn cụ thể, nhưng được thông báo tối thiểu trước 06 tháng.</li>
+                                                                                <li>Ngoại trừ các phí thành viên đã kể trên, thành viên có thể phải trả một vài phí phát sinh thêm khác trong quá trình tham gia vào BNI (ví dụ: phí tham dự buổi họp Chapter, phí tham dự đào tạo và các sự kiện,...)</li>
+                                                                                <li>Khi thành viên đồng ý và thực hiện đóng phí tư vấn, nghĩa là thành viên đã mặc nhiên đồng ý ký, chấp thuận các nội dung quy định của BNI Việt Nam; Thành viên không có bất kỳ khiếu nại, khiếu kiện liên quan đến mức phí tư vấn phải trả cho BNI Việt Nam cũng như các nội dung, thông tin tư vấn, cách thức tổ chức mô hình tư vấn do BNI Việt Nam thực hiện, cung cấp cho thành viên.</li>
+                                                                                <li>BNI Việt Nam có quyền sử dụng các tư liệu truyền thông, bao gồm nhưng không giới hạn, hình ảnh, video, âm thanh có liên quan đến Thành viên nhằm mục đích truyền thông và quảng bá về BNI trên các phương tiện truyền thông của BNI.</li>
+                                                                                <li>Đại diện BNI Việt Nam tại Chapter có quyền thông báo nhắc nhở thành viên khắc phục các vi phạm liên quan đến quy định của BNI Việt Nam. Nếu thành viên vẫn không khắc phục sau thời hạn ấn định, đại diện BNI Việt Nam có quyền chấm dứt tư cách thành viên tham dự tại Chapter, cũng như không hoàn trả phí tư vấn đối với thành viên đó; Nếu muốn tái tham gia, thành viên đó phải đợi sau 06 tháng và đăng ký với tư cách là khách mời (trừ trường hợp chấm dứt vì lý do sức khỏe). Đối với thành viên sau khi đã hết hạn phí tư vấn hoặc trước đó chấm dứt vì lý do sức khỏe, nếu muốn tiếp tục tham gia hệ thống tư vấn BNI Việt Nam, thì thực hiện thủ tục đăng ký tái tham gia và đóng phí tư vấn tái tham gia theo quy định.</li>
+                                                                                <li>Thành viên xác nhận rằng đã đọc, hiểu và chấp thuận mọi nội dung quy định nêu trên mà không có bất kỳ khiếu nại, khiếu kiện.</li>
+                                                                            </ol>
+                                                                            <p><span style="color: rgb(184,49,47);font-size: 18px;font-family: Arial;"><strong>D. CHÍNH SÁCH QUYỀN RIÊNG TƯ</strong></span></p>
+                                                                            <p>Website https://bni.vn/ quan tâm sâu sắc đến quyền riêng tư của người dùng, những người sử dụng một hoặc nhiều dịch vụ của chúng tôi (gọi chung là “<strong>Người Dùng</strong>”). Vì vậy, Chính Sách Quyền Riêng Tư này (gọi chung là “<strong>Chính Sách</strong>”) mô tả cách BNI VN cùng thu thập, sử dụng thông tin cá nhân của Người Dùng, cũng như giải thích về các quyền mà Người Dùng có thể có đối với thông tin cá nhân đó. Chính sách này áp dụng cho tất cả Người Dùng sử dụng dịch vụ của BNI VN trên nền tảng https://bni.vn/ (gọi chung là “<strong>Nền Tảng</strong>”).&nbsp;</p>
+                                                                            <p>Trước khi truy cập và sử dụng dịch vụ tại Nền Tảng, Người Dùng cam kết và đảm bảo rằng đã đọc kỹ và hiểu đầy đủ các quy định, điều kiện, cam đoan, bảo đảm và cam kết được nêu tại Chính Sách này liên quan đến thông tin, dữ liệu của Người Dùng được BNI VN thu thập. Sự đồng ý của Người Dùng đối với việc BNI VN xử lý thông tin, dữ liệu theo Chính Sách này được thể hiện bằng việc nhấn chọn vào ô đã hiểu và chấp thuận khi điền Đơn đăng ký tham gia<em>.</em> Người Dùng hoàn toàn chịu mọi trách nhiệm, nghĩa vụ phát sinh do hành vi vi phạm quy định, cam kết, bảo đảm và/hoặc điều kiện được quy định tại Chính Sách này và sẽ không được miễn trừ với lí do Người Dùng chưa hoặc không đọc và hiểu đầy đủ nội dung quy định tại Chính Sách này. Nếu Người Dùng đọc, hiểu đầy đủ Chính Sách này và phản đối các quy định của BNI VN, Người Dùng cần rời khỏi Nền Tảng và ngừng sử dụng bất kỳ dịch vụ của BNI VN ngay lập tức.</p>
+                                                                            <p><strong>1.</strong> <strong>Phạm Vi Thu Thập Thông Tin Cá Nhân Của BNI VN</strong></p>
+                                                                            <p>a. Thông tin mà Người Dùng cung cấp khi sử dụng dịch vụ của BNI VN bao gồm: họ tên Người Dùng, tên công ty mà Người Dùng đang công tác, mã số thuế, địa chỉ đăng ký mã số thuế, email, giới tính, số điện thoại, địa chỉ, quốc gia sinh sống, lĩnh vực kinh doanh, tên người tham chiếu, thời gian làm việc trong lĩnh vực kinh doanh, số năm công ty được thành lập và thông tin khác cần cung cấp để sử dụng dịch vụ, tính năng, chức năng của Nền Tảng theo thông báo, yêu cầu của BNI VN tùy từng thời điểm.&nbsp;</p>
+                                                                            <p>b. Thông tin của Người Dùng mà BNI VN thu thập được khi Người Dùng truy cập, đăng nhập, trải nghiệm và sử dụng dịch vụ, tính năng tại Nền Tảng bao gồm nhưng không giới hạn: lịch sử giao dịch, các tác vụ và tương tác của Người Dùng khi truy cập, nhấp chọn lưu trữ/theo dõi, tạo lập và/hoặc thực hiện hoạt động bất kỳ trên Nền Tảng; Các thông tin và dữ liệu của Người Dùng cung cấp khi tạo lập, cập nhật, đăng tải, cho phép truy cập, nộp và/hoặc lưu trữ trên Nền Tảng. Theo đó, Người Dùng cần đảm bảo về tính hợp pháp, trung thực và chính xác của thông tin mà Người Dùng cung cấp, giới thiệu, cập nhật cho BNI VN và Người Dùng chịu hoàn toàn trách nhiệm và miễn trừ cho BNI VN khỏi các nghĩa vụ, trách nhiệm phát sinh từ hành vi vi phạm điều khoản này của Người Dùng.&nbsp;</p>
+                                                                            <p>c. Thông tin BNI VN thu thập từ một bên thứ ba:&nbsp;</p>
+                                                                            <p>&nbsp;&nbsp;i. Thông tin được thu thập, cung cấp từ website, trang thông tin điện tử, mạng xã hội hoặc website khác mà Người Dùng truy cập (“<strong>Website</strong>”), BNI VN khuyến cáo Người Dùng cần đọc và tìm hiểu kỹ về chính sách bảo mật thông tin, chính sách quyền riêng tư, điều kiện sử dụng dịch vụ của các Website nêu trên trước khi truy cập, chia sẻ và cung cấp các thông tin, dữ liệu của Người Dùng cho các Website này. Theo đó, BNI VN không thể kiểm soát, quản lý việc thu thập, chia sẻ, sử dụng và quản lý thông tin cá nhân của các Website nêu trên và BNI VN sẽ không chịu bất kỳ trách nhiệm, thiệt hại và nghĩa vụ phát sinh do hành vi không đảm bảo an toàn thông tin, dữ liệu của các Website đó.</p>
+                                                                            <p>&nbsp;&nbsp;ii. Thông tin BNI VN thu thập hoặc được cung cấp, cập nhật từ các khiếu nại, phê bình, đánh giá, phản ánh, thông báo, cảnh báo, giải quyết tranh chấp, hòa giải, khiếu nại từ Người Dùng khác hoặc một bên thứ ba, quyết định, phán quyết của cơ quan tài phán hoặc cơ quan nhà nước có thẩm quyền cung cấp cho BNI VN.</p>
+                                                                            <p>&nbsp;&nbsp;iii. Thông tin thanh toán của Người Dùng khi thực hiện thanh toán các khoản tiền liên quan đến việc sử dụng dịch vụ trên Nền Tảng được cung cấp cho BNI VN bởi một đơn vị dịch vụ thanh toán, tổ chức tín dụng, ngân hàng.</p>
+                                                                            <p>&nbsp;&nbsp;iv. Thông tin của Người Dùng được cung cấp, thu thập từ các nguồn thông tin chính thống công khai bao gồm như không giới hạn: cổng thông tin quản lý của cơ quan nhà nước, thông tin niêm yết tại trụ sở của cơ quan nhà nước.&nbsp;</p>
+                                                                            <p><strong>2.</strong> <strong>Mục Đích Và Phạm Vi Sử Dụng Thông Tin</strong></p>
+                                                                            <p>BNI VN thu thập thông tin, dữ liệu của Người Dùng nhằm mục đích xây dựng BNI VN trở thành một nền tảng mang lại nhiều tiện ích và hỗ trợ dịch vụ tốt nhất cho Người Dùng. Bên cạnh việc sử dụng thông tin, dữ liệu của Người Dùng nhằm hỗ trợ cung cấp dịch vụ, tính năng, chức năng cho Người Dùng thì việc sử dụng thông tin, dữ liệu của Người Dùng sẽ phục vụ cho những hoạt động bao gồm nhưng không giới hạn như sau:&nbsp;</p>
+                                                                            <p>a. Cung cấp, phát triển, điều chỉnh, cải thiện hoặc hỗ trợ việc sử dụng dịch vụ, tính năng, chức năng và tiện ích cho Người Dùng trên Nền Tảng và các tiện ích, tác vụ liên quan đến việc sử dụng dịch vụ được cung cấp trên Nền Tảng.</p>
+                                                                            <p>b. Gửi các thông tin liên quan đến tình hình hoạt động, sự kiện của BNI VN.&nbsp;</p>
+                                                                            <p>c. Đồng bộ dữ liệu lên ứng dụng BNI Connect do BNI Global quản lý.&nbsp;</p>
+                                                                            <p>d. Công bố thông tin liên lạc lên Nền Tảng tại phần giới thiệu thành viên nhằm gia tăng cơ hội kết nối kinh doanh cho thành viên.&nbsp;</p>
+                                                                            <p>e. Liên lạc cho Người Dùng phục vụ cho mục đích hỗ trợ, cung cấp dịch vụ, thông tin về dịch vụ, giải đáp yêu cầu và thắc mắc, xúc tiến thương mại, giải quyết, phản hồi tranh chấp và khiếu nại phát sinh của Người Dùng liên quan trực tiếp đến việc sử dụng dịch vụ trên Nền Tảng, cảnh báo rủi ro và nguy hiểm, cập nhật thông báo quy định và chính sách mới của Nền Tảng và các trường hợp khẩn cấp hoặc cần thiết khác tùy từng thời điểm.&nbsp;</p>
+                                                                            <p>f. Để giúp BNI VN tổng hợp, nghiên cứu, phân tích, cập nhật, đánh giá mở rộng phạm vi thông tin, dữ liệu nhằm xác định, dự đoán, ước tính về khách hàng tiềm năng, chiến lược phát triển, phân khúc khách hàng/thị trường và phạm vi cung ứng dịch vụ.&nbsp;</p>
+                                                                            <p>g. Để tổng hợp, phân tích, xác định, nghiên cứu tính hiệu quả, hiệu suất của các hoạt động tiếp thị, dịch vụ, hỗ trợ của BNI VN để cải thiện, phát triển và khắc phục (nếu có) nhằm đưa ra sự trải nghiệm dịch vụ tốt nhất cho Người Dùng.&nbsp;</p>
+                                                                            <p>h. Gửi nhắc nhở, thông báo, công văn, văn bản, đề xuất, kế hoạch thanh toán chi tiết, hóa đơn, lộ trình thanh toán, lộ trình và cách thức sử dụng dịch vụ.&nbsp;</p>
+                                                                            <p>i. Phục vụ cho việc thu thập, lưu trữ, phân tích, đối chiếu, so sánh để đưa ra các đánh giá cụ thể cho từng Người Dùng theo chương trình, quy định và chính sách của BNI VN tùy từng thời điểm.&nbsp;</p>
+                                                                            <p>j. Thông báo về những thay đổi, cập nhật của Nền Tảng và các thông báo khác liên quan đến việc sử dụng và truy cập Nền Tảng của Người Dùng.&nbsp;</p>
+                                                                            <p>k. Phục vụ cho mục đích quản lý, yêu cầu, lệnh và quyết định của cơ quan nhà nước và quy định của pháp luật tùy từng thời điểm.&nbsp;</p>
+                                                                            <p>l. Hỗ trợ hoặc hướng dẫn xử lý giải quyết các vấn đề kỹ thuật, lỗi kỹ thuật, khắc phục lỗi, thử nghiệm, vận hành Nền Tảng và các vấn đề kỹ thuật, quản lý và sử dụng dịch vụ khác liên quan đến Nền Tảng.&nbsp;</p>
+                                                                            <p>m. Các mục đích sử dụng khác khi nhận được sự đồng ý từ Người Dùng.&nbsp;</p>
+                                                                            <p><strong>3.</strong> <strong>Phạm Vi Chia Sẻ Thông Tin</strong></p>
+                                                                            <p>BNI VN biết rằng thông tin về Người Dùng là một phần rất quan trọng trong việc kinh doanh và BNI VN sẽ không được bán, chuyển nhượng cho một bên thứ ba nào khác. BNI VN sẽ không chia sẻ hoặc cho phép truy cập thông tin Người Dùng trừ những trường hợp cụ thể sau đây:</p>
+                                                                            <p>a. Cung cấp cho các bên thứ ba nhằm phục vụ cho việc sử dụng dịch vụ của Người Dùng trên Nền Tảng bao gồm nhưng không giới hạn: Công ty con và công ty liên kết của BNI VN; Bên cung cấp dịch vụ máy chủ; Bên cung cấp dịch vụ trung gian thanh toán, ngân hàng, tổ chức tín dụng; Bên cung cấp dịch vụ viễn thông; nhân viên, quản lý, bộ phận chăm sóc khách hàng của BNI VN là những người cần tiếp cận thông tin để thực hiện công việc của mình và cung cấp dịch vụ cho Người Dùng; Đơn vị cung cấp dịch vụ phân tích dữ liệu; Đơn vị cung cấp dịch vụ điều tra gian lận; đơn vị cung cấp dịch vụ tiếp thị; đơn vị cung cấp dịch vụ phân tích tài chính; đơn vị cung cấp dịch vụ tư vấn kỹ thuật; Các nhà cung cấp dịch vụ lưu trữ, mạng và nhà cung cấp dịch vụ bảo trì (“<strong>Bên Thứ Ba</strong>”). Theo đó, các Bên Thứ Ba khi tiếp cận nội dung thông tin của Người Dùng sẽ tuân theo các hướng dẫn, quy định, nguyên tắc và chỉ dẫn được nêu tại Chính Sách này và chỉ phục vụ cho mục đích liên quan đến việc cung cấp, sử dụng dịch vụ của Nền Tảng và trong phạm vi sử dụng được nêu tại Chính Sách này.&nbsp;</p>
+                                                                            <p>b. Để bảo vệ quyền lợi của BNI VN và các bên thứ ba khác khi tin chắc rằng việc đưa những thông tin đó là phù hợp với luật pháp, bảo vệ quyền lợi, tài sản của Người Dùng, của BNI VN hoặc các bên thứ ba khác.&nbsp;</p>
+                                                                            <p>c. Yêu cầu từ cơ quan tài phán, trọng tài hoặc cơ quan nhà nước để phục vụ cho việc giải quyết tranh chấp hoặc tuân thủ quy định của pháp luật.&nbsp;</p>
+                                                                            <p>d. Trường hợp BNI VN thực hiện sáp nhập, hợp nhất, bán, chuyển nhượng toàn bộ hoặc một phần tài sản của BNI VN, mua lại, phá sản hoặc các sự kiện tương tự thì thông tin, dữ liệu của Người Dùng có thể được chuyển giao cho bên kế thừa.&nbsp;</p>
+                                                                            <p>e. Đối với các trường hợp chia sẻ thông tin, dữ liệu khác thì BNI VN sẽ thông báo cho Người Dùng khi phải tiết lộ, chia sẻ thông tin và thông tin này chỉ được cung cấp khi được sự phản hồi đồng ‎ý‎ từ phía Người Dùng.&nbsp;</p>
+                                                                            <p><strong>4.</strong> <strong>Thời Gian Xử Lý Thông Tin</strong></p>
+                                                                            <p>BNI VN sẽ thực hiện quá trình xử lý thông tin cá nhân Người Dùng ngay khi Người Dùng bắt đầu cung cấp thông tin cá nhân của Người Dùng cho BNI VN. BNI VN áp dụng phương thức lưu trữ bản sao thông tin của Người Dùng trong khoảng thời gian tương đương với khoản thời gian Người Dùng tiếp tục duy trì giao dịch được tạo lập thông qua Nền Tảng hoặc giao dịch được tạo lập ngoài Nền Tảng nhưng có liên quan trực tiếp, gián tiếp đến việc sử dụng Nền Tảng mà theo đó BNI VN cần thông tin, dữ liệu của Người Dùng để cung ứng dịch vụ, hỗ trợ liên quan hoặc tuân thủ các nghĩa vụ pháp lý của BNI VN hoặc để giải quyết các tranh chấp liên quan đến Người Dùng hoặc bảo vệ lợi ích hợp pháp của BNI VN, Người Dùng hoặc bên thứ ba khác.&nbsp;</p>
+                                                                            <p><strong>5.</strong> <strong>Quyền Của Người Dùng Đối Với Thông Tin Được Thu Thập</strong></p>
+                                                                            <p>a. Người Dùng được quyền lựa chọn đồng ý hoặc không đồng ý cung cấp thông tin, dữ liệu đối với các trường hợp thu thập thông tin tự động trên Nền Tảng. Theo đó, Người Dùng đồng ý rằng trường hợp Người Dùng không đồng ý cung cấp một số thông tin được thu thập theo hình thức tự động trên Nền Tảng sẽ làm giới hạn quyền được sử dụng, trải nghiệm, truy cập một số tính năng, chức năng, dịch vụ, tiện ích mà các tính năng, chức năng, dịch vụ và tiện ích đó cần một số thông tin, dữ liệu của Người Dùng để vận hành và triển khai.&nbsp;</p>
+                                                                            <p>b. Người Dùng được quyền tiếp cận, truy cập và kiểm tra thông tin cá nhân của mình trực tiếp thông qua liên hệ đến bộ phận hỗ trợ của BNI VN để được kiểm tra các thông tin.&nbsp;</p>
+                                                                            <p>c. Người Dùng được quyền tiếp cận chỉnh sửa, điều chỉnh thông tin nhất định bằng liên hệ trực tiếp bộ phận hỗ trợ của BNI VN để thực hiện việc điều chỉnh và chỉnh sửa.</p>
+                                                                            <p>d. Người Dùng được quyền liên hệ trực tiếp bộ phận hỗ trợ của BNI VN để thực hiện việc xóa hoặc hủy thông tin nhất định.</p>
+                                                                            <p>Xin lưu ý rằng việc xóa, hủy thông tin của Người Dùng sẽ không đồng nghĩa với việc dẫn đến xóa toàn bộ thông tin, dữ liệu của Người Dùng khỏi cơ sở dữ liệu và lưu trữ của BNI VN. Theo đó, BNI VN vẫn có quyền lưu trữ một số lượng thông tin và dữ liệu nhất định, cần thiết của Người Dùng để cung ứng dịch vụ, hỗ trợ liên quan hoặc tuân thủ các nghĩa vụ pháp lý của BNI VN hoặc để giải quyết các tranh chấp liên quan đến Người Dùng hoặc bảo vệ lợi ích hợp pháp của BNI VN, Người Dùng hoặc một bên thứ ba khác.&nbsp;</p>
+                                                                            <p>e. Người Dùng có quyền yêu cầu BNI VN hạn chế xử lý thông tin cá nhân của Người Dùng trong một số trường hợp nhất định, chẳng hạn khi thông tin, dữ liệu mà Người Dùng cung cấp là không chính xác, đúng đắn và hợp pháp.&nbsp;</p>
+                                                                            <p>f. Người Dùng có quyền phản đối BNI VN xử lý dữ liệu cá nhân của Người Dùng nhằm ngăn chặn hoặc hạn chế việc BNI VN tiết lộ thông tin cá nhân của Người Dùng hoặc việc BNI VN sử dụng thông tin này cho mục đích quảng cáo, tiếp thị.&nbsp;</p>
+                                                                            <p>g. Người Dùng có quyền rút lại sự đồng ý về việc BNI VN xử lý thông tin cá nhân của Người Dùng bất cứ lúc nào. Việc Người Dùng rút lại sự đồng ý sẽ không ảnh hưởng đến tính hợp pháp của bất kỳ quy trình xử lý nào mà BNI VN đã tiến hành trước khi Người Dùng yêu cầu rút lại sự đồng ý.&nbsp;</p>
+                                                                            <p>h. Người Dùng có quyền yêu cầu bồi thường thiệt hại theo quy định pháp luật khi xảy ra vi phạm quy định về bảo vệ thông tin cá nhân, trừ trường hợp BNI VN  và Người Dùng có các thỏa thuận về bồi thường theo các sản phẩm, dịch vụ cụ thể.&nbsp;</p>
+                                                                            <p><strong>6.</strong> <strong>Cam Kết Và Bảo Đảm Bảo Mật Thông Tin Của Người Dùng</strong></p>
+                                                                            <p>a. BNI VN bảo đảm thông tin của Người Dùng được lưu trữ bảo mật tốt nhất có thể. Tuy nhiên, Người Dùng vẫn có trách nhiệm tự mình bảo vệ trước sự tiếp cận thông tin về mật khẩu và đảm bảo các yêu cầu về an toàn thiết bị theo nội dung quy định tại Chính Sách này.&nbsp;</p>
+                                                                            <p>b. BNI VN chỉ cho phép Bên Thứ Ba của  BNI VN được quyền theo Chính Sách này được truy cập thông tin và chỉ có thể làm như vậy để phục vụ cho các chức năng, mục đích và công việc liên quan trực tiếp đến việc sử dụng dịch vụ của Nền Tảng và các trường hợp khác theo quy định Chính Sách này; ngoài ra  BNI VN không sử dụng, không chuyển giao, cung cấp hay tiết lộ thông tin cho bên thứ ba nào khác về thông tin của Người Dùng khi không có sự cho phép đồng ý từ Người Dùng đó.&nbsp;</p>
+                                                                            <p>c. Trong trường hợp hệ thống lưu trữ thông tin bị tấn công, virus dẫn đến mất mát dữ liệu của Người Dùng,  BNI VN sẽ có trách nhiệm thông báo vụ việc cho cơ quan chức năng có thẩm quyền điều tra xử lý kịp thời và thông báo cho Người Dùng được biết.&nbsp;</p>
+                                                                            <p>d. Để đảm bảo an toàn thông tin, dữ liệu của Người Dùng thì Người Dùng cần phải đảm bảo các thiết bị có thể truy cập một cách an toàn.&nbsp;</p>
+                                                                            <p><strong>7.</strong> <strong>Điều Khoản Miễn Trừ</strong></p>
+                                                                            <p>Người Dùng đồng ý rằng sẽ chịu mọi trách nhiệm và miễn trừ toàn bộ cho BNI VN khỏi tất cả các trách nhiệm, nghĩa vụ, tổn thất, thiệt hại, chi phí phát sinh từ các trường hợp sau:&nbsp;</p>
+                                                                            <p>a. Người Dùng không đảm bảo tính trung thực, đúng đắn, hợp pháp và đầy đủ của các thông tin, mô tả, dữ liệu mà Người Dùng đăng tải, cung cấp, cập nhật, lưu trữ trên Nền Tảng.&nbsp;</p>
+                                                                            <p>b. Người Dùng sử dụng, đăng tải, chia sẻ, lan truyền, lưu trữ lên Nền Tảng các thông tin xâm phạm quyền và lợi ích hợp pháp của một bên thứ ba, vi phạm quy định của  BNI VN, bất hợp pháp, đe doạ, phản động, lạm dụng, bôi nhọ, nói xấu, khiêu dâm, phi thẩm mỹ, xúc phạm hoặc bất kỳ loại thông tin không đúng đắn nào khác.&nbsp;</p>
+                                                                            <p>c. Người Dùng không cập nhật đầy đủ, chính xác và trung thực thông tin liên quan đến Người Dùng theo yêu cầu và quy định của BNI VN; Không thông báo hoặc cập nhật liên tục các thông tin nếu có bất kỳ thay đổi nào liên quan tới thông tin của Người Dùng trên Nền Tảng.&nbsp;</p>
+                                                                            <p>d. Người Dùng không thông báo ngay lập tức cho  BNI VN kể từ thời điểm phát hiện có những hành vi sử dụng trái phép, lạm dụng, vi phạm bảo mật, lưu giữ thông tin mà Người Dùng đã cung cấp để hai bên cùng hợp tác xử lý kịp thời.&nbsp;</p>
+                                                                            <p>e. Người Dùng thiếu trách nhiệm về bảo mật và lưu giữ thông tin, dữ liệu, hoạt động sử dụng dịch vụ do BNI VN cung cấp.&nbsp;</p>
+                                                                            <p>f. Người Dùng không tuân thủ và thực hiện các quy định của pháp luật và quy định của  BNI VN khi sử dụng dịch vụ của  BNI VN.&nbsp;</p>
+                                                                            <p>g. Người Dùng thực hiện các hành vi vi phạm khác được nêu tại Chính Sách này hoặc quy định của pháp luật.&nbsp;</p>
+                                                                            <p><strong>8.</strong> <strong>Hành Vi Cấm</strong></p>
+                                                                            <p>a. Đăng thông tin lặp đi lặp lại (spam) trên cùng một danh mục hoặc các danh mục khác nhau.&nbsp;</p>
+                                                                            <p>b. Tuyên truyền về những thông tin vi phạm quy định: sử dụng heroin, thuốc lắc, giết người, cướp của, v.v.&nbsp;</p>
+                                                                            <p>c. Khuyến khích, quảng cáo cho việc sử dụng các sản phẩm độc hại và các nội dung bị cấm khác theo quy định pháp luật.&nbsp;</p>
+                                                                            <p>d. Sao chép, chỉnh sửa, tái tạo, tạo ra sản phẩm mới hoặc phiên bản tái sinh trên cơ sở Nền Tảng của BNI VN.&nbsp;</p>
+                                                                            <p>e. Bán, chuyển giao, cấp quyền lại, tiết lộ hoặc hình thức chuyển giao khác hay đưa một phần hoặc toàn bộ Nền Tảng cho bên thứ ba bất kỳ.&nbsp;</p>
+                                                                            <p>f. Thiết kế lại, biên dịch, tháo gỡ, chỉnh sửa, thiết kế ngược Nền Tảng của BNI VN.&nbsp;</p>
+                                                                            <p>g. Sử dụng Nền Tảng để thực hiện bất kỳ hành động gây hại cho hệ thống an ninh mạng của  BNI VN, bao gồm không giới hạn sử dụng dữ liệu hoặc truy cập vào máy chủ hệ thống hoặc tài khoản không được phép; truy cập vào hệ thống mạng để xoá bỏ, chỉnh sửa và thêm các thông tin; phát tán các chương trình độc hại, virus hoặc thực hiện bất kỳ hành động nào khác nhằm gây hại hoặc phá huỷ hệ thống mạng.&nbsp;</p>
+                                                                            <p>h. Sử dụng Nền Tảng để đăng tải, chuyển, truyền hoặc lưu trữ các thông tin vi phạm pháp luật, đạo đức, văn hóa, lịch sử.</p>
+                                                                            <p>i. Tiết lộ bất kỳ thông tin cá nhân, tổ chức nào khác, bao gồm nhưng không giới hạn địa chỉ, số điện thoại, e-mail, số thẻ tín dụng hoặc bất kỳ thông tin nào có thể được sử dụng để theo dõi, liên lạc hoặc mạo danh cá nhân, tổ chức đó.</p>
+                                                                            <p>j. Cố gắng để mạo danh bất kỳ bên nào khác trong đó bao gồm nhưng không giới hạn là các Người Dùng đang sử dụng Nền Tảng của BNI VN.&nbsp;</p>
+                                                                            <p>k. Các hành vi vi khác phạm quy định của BNI VN; quy định pháp luật; hoặc xâm phạm lợi ích của một bên thứ ba.&nbsp;</p>
+                                                                            <p><strong>9.</strong> <strong>Cơ Chế Tiếp Cận, Giải Quyết Khiếu Nại, Tranh Chấp Của Người Dùng Liên Quan Đến Việc Thông Tin Của Người Dùng Bị Sử Dụng Sai Mục Đích Hoặc Phạm Vi Đã Thông Báo Và Chế Tài Áp Dụng Khi Vi Phạm</strong></p>
+                                                                            <p>a. Quy trình và cơ chế giải quyết tranh chấp chung:&nbsp;</p>
+                                                                            <p>Nếu có phát sinh các vấn đề về khiếu nại, tranh chấp từ phía Người Dùng với BNI VN việc giải quyết tranh chấp được thực hiện thông qua các bước giải quyết như sau:&nbsp;</p>
+                                                                            <p>Bước 1: Người Dùng gửi thông tin khiếu nại, yêu cầu về địa chỉ email <a href="mailto:infor@bni.vn" target="_blank" rel="noopener noreferrer">info@bni.vn</a>&nbsp;</p>
+                                                                            <p>Bước 2: BNI VN sẽ tiếp nhận các khiếu nại, yêu cầu của Người Dùng, tùy theo tính chất và mức độ của khiếu nại, yêu cầu thì BNI VN sẽ có những biện pháp cụ thể hỗ trợ Người Dùng để giải quyết tranh chấp đó. Trường hợp thắc mắc, khiếu nại của Người Dùng nằm trong khả năng, thẩm quyền giải quyết và liên quan đến BNI VN,  BNI VN sẽ chủ động liên hệ và giải đáp cho Người Dùng thông qua thông tin liên hệ được Người Dùng cung cấp. Trường hợp khiếu nại, yêu cầu của Người Dùng liên quan trực tiếp đến Người Dùng khác, BNI VN sẽ chuyển thông tin khiếu nại, thắc mắc sang cho Người Dùng đó.&nbsp;</p>
+                                                                            <p>Bước 3: BNI VN yêu cầu Người Dùng phải cung cấp đủ thông tin liên quan đến khiếu nại bao gồm: Vấn đề khiếu nại, các tài liệu, chứng cứ, email chứng minh và Yêu cầu cụ thể (ví dụ: đòi bồi thường; xin lỗi v.v.); và chứng minh, chứng cứ hợp pháp khác.&nbsp;</p>
+                                                                            <p>Bước 4: Trong trường hợp tranh chấp, khiếu nại nằm ngoài khả năng và thẩm quyền của BNI VN hoặc các bên không thể thương lượng giải quyết theo phương thức hòa giải đàm phán thì BNI VN sẽ yêu cầu Người Dùng đưa vụ việc này ra cơ quan nhà nước có thẩm quyền giải quyết theo pháp luật.&nbsp;</p>
+                                                                            <p>Thời gian tiếp nhận và xử lý phản ánh là 07 (bảy) ngày làm việc kể từ thời điểm BNI VN nhận được phản ánh từ Người Dùng. Thời gian có thể được kéo dài, tùy theo tình hình thực tế và mức độ nghiêm trọng của vụ việc mà cần thời gian dài hơn để điều tra, nghiên cứu và tìm hiểu nhưng không quá 02 (hai) tháng kể từ ngày nhận được phản ánh từ Người Dùng.&nbsp;</p>
+                                                                            <p>Quy trình và cơ chế giải quyết tranh chấp giữa các Người Dùng: Việc giải quyết tranh chấp, khiếu nại giữa các Người Dùng sẽ tuân theo thỏa thuận và quy định giữa các Người Dùng đó. BNI VN sẽ hỗ trợ cung cấp thông tin nếu BNI VN nhận định rằng việc cung cấp thông tin là cần thiết để hỗ trợ giải quyết tranh chấp giữa các bên.</p>
+                                                                            <p>b. Chế tài áp dụng khi vi phạm</p>
+                                                                            <p>Tùy mức độ nghiêm trọng của hành vi vi phạm của Người Dùng mà BNI VN sẽ áp dụng một/nhiều biện pháp sau đối với Người Dùng:&nbsp;</p>
+                                                                            <p>i. BNI VN có quyền nhưng không có nghĩa vụ gửi thông báo vi phạm và yêu cầu khắc phục vi phạm trong khoản thời gian cụ thể theo thông báo của  BNI VN về hành vi vi phạm của Người Dùng.&nbsp;</p>
+                                                                            <p>ii. Điều chỉnh, chỉnh sửa, loại bỏ hoặc xóa thông tin, dữ liệu, bài đăng mà Người Dùng cung cấp, đăng tải, lưu trữ, truyền tải, cập nhật lên Nền Tảng vi phạm quy định Chính Sách, quy định pháp luật.&nbsp;</p>
+                                                                            <p>iii. Yêu cầu Người Dùng chịu trách nhiệm bồi thường thiệt hại cho BNI VN hoặc một bên thứ ba chịu tác động từ hành vi vi phạm của Người Dùng.&nbsp;</p>
+                                                                            <p>iv. Đưa vụ việc ra cơ quan nhà nước có thẩm quyền nếu vi phạm nghiêm trọng hoặc không thể khắc phục.&nbsp;</p>
+                                                                            <p><strong>10.</strong> <strong>Khuyến Cáo Với Người Dùng</strong></p>
+                                                                            <p>a. Không một biện pháp hay công nghệ bảo mật nào là tuyệt đối. Vì vậy thông tin chỉ có thể được bảo mật bởi nỗ lực của tất cả các bên liên quan.&nbsp;</p>
+                                                                            <p>b. BNI VN không chịu bất kỳ trách nhiệm nào đối với những thiệt hại hoặc mất mát (nếu có) do việc Người Dùng không tuân thủ quy định của  BNI VN và/hoặc trường hợp các hành vi thông tin cá nhân bị tiết lộ không do lỗi của BNI VN.</p>
+                                                                            <p>c. Chính Sách này chỉ áp dụng tại Nền Tảng của  BNI VN và không điều chỉnh hoặc liên quan đến các bên thứ ba đặt quảng cáo hay có link, đường dẫn tại Nền Tảng.&nbsp;</p>
+                                                                            <p>d. Trường hợp Người Dùng không đồng ý với các điều khoản của Chính Sách, BNI VN đề nghị Người Dùng không nên gửi, cung cấp, cập nhật thông tin, dữ liệu cho  BNI VN.&nbsp;</p>
+                                                                            <p>e. Nếu bất kỳ phần nào của Chính Sách bị tuyên bố vô hiệu vì bất kỳ lý do nào, phần bị vô hiệu sẽ không ảnh hưởng tới các điều khoản còn lại của Chính Sách.&nbsp;</p>
+                                                                            <p>f. BNI VN có thể chuyển giao quyền và nghĩa vụ theo quy định tại Chính Sách này, một phần hay toàn bộ, và  BNI VN cũng có thể ủy quyền thực hiện bất kỳ nghĩa vụ nào của mình theo Chính Sách này. Người Dùng không được chuyển giao quyền và nghĩa vụ theo Chính Sách này dù một phần hay toàn bộ cũng như không được chuyển nhượng hay cấp phép lại các quyền của Người Dùng theo Chính Sách cho bất kỳ bên thứ ba nào.&nbsp;</p>
+                                                                            <p><strong>11.</strong> <strong>Cập Nhật Và Giải Thích Chính Sách</strong></p>
+                                                                            <p>BNI VN bảo lưu quyền điều chỉnh, thay đổi hoặc sửa đổi các điều khoản, điều kiện và quy định của Chính Sách này tại bất cứ thời điểm nào mà BNI VN cho là phù hợp. Bất cứ khi nào BNI VN thay đổi các Điều khoản này, các thay đổi sẽ có hiệu lực ngay lập tức sau khi BNI VN đăng các quy định, điều khoản và điều kiện đã sửa đổi đó (được chỉ định bằng cách sửa đổi ngày ở phần đầu Chính Sách này). Bất kỳ điều chỉnh, sửa đổi, bổ sung, thay thế Chính Sách này sẽ được BNI VN đăng tải công khai trên website của BNI VN và/hoặc thông báo cho Người Dùng thông qua các phương thức phù hợp BNI VN.</p>
+                                                                            <p><strong>12.</strong> <strong>Địa Chỉ Của BNI VN, Cách Thức Liên Hệ Để Người Dùng Có Thể Liên Hệ Để Hỏi Về Hoạt Động Thu Thập, Xử Lý Thông Tin Liên Quan Đến Người Dùng</strong></p>
+                                                                            <p>Địa chỉ của đơn vị thu thập và quản lý thông tin của Người Dùng:</p>
+                                                                            <p>Tên Công ty: CÔNG TY CỔ PHẦN BUSINESS CONNECTIONS</p>
+                                                                            <p>Mã số doanh nghiệp: 3703166854</p>
+                                                                            <p>Địa chỉ: Số 89 Hồ Bá Kiện, Phường 15, Quận 10, TP. Hồ Chí Minh, Việt Nam</p>
+                                                                            <p>Hotline: 028 7107 7979</p>
+                                                                            <p>Email: <a href="mailto:info@bni.vn" target="_blank" rel="noopener noreferrer">inf@bni.vn</a>&nbsp;</p>
+                                                                        </text>
+                                                                    </div>
+                                                                    <div class="sc-pYNsO iaFdeJ">
+                                                                        <div class="sc-oUOMp ljofuW checkbox-wrapper">
+                                                                            <div class="ui checkbox">
+                                                                                <input asp-for="Commitmentinformation" class="" tabindex="0" type="checkbox" value="true" checked><label>Tôi đồng ý tuân thủ các điều khoản &amp; điều kiện và quy định tham gia BNI</label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <div class="sc-ptRml fDULPZ tab-viewport-container form" id="form6">
+        <span class="sc-qOjXG eQihqJ section-label-container">Thanh toán</span><div class="sc-qWgaf eJRUKU">
+            <main class="sc-pmjZF dHjuZx">
+                <div class="sc-fznyAO CWQMf element">
+                    <div class="sc-fzqzlV gMJRj display-element">
+                        <div class="sc-fzpisO jHQZJv control-container">
+                            <div class="sc-fzoyTs jZUSDr composite-element-container">
+                                <div class="sc-fzoMdx uYzkI form-builder-form">
+                                    <div class="sc-fzoxnE GqMIW section-display-container">
+                                        <div class="sc-fzplWN hRBsWH element-list">
+                                            <div class="sc-fznyAO CWQMf element">
+                                                <div class="sc-fzqzlV gMJRj display-element">
+                                                    <div class="sc-fzpisO jHQZJv control-container">
+                                                        <div mode="DISPLAY" name="richtext" class="sc-fznKkj fQkkzS display -simple-element-container richtext">
+                                                            <div class="sc-fznWqX dAkvW label-container"><div class="ui label sc-fzqARJ eLpUJW"><div class="sc-fzqNqU kikdAh"><span class="sc-fzoiQi ozSmQ Label-Container">Phí tư vấn thành viên BNI</span></div></div></div><div class="sc-fznZeY gJlwEu element-container">
+                                                                <text class="sc-qXRQq jtOWzV">
+                                                                    <p><span style="font-size: 16px;"><strong>PHƯƠNG THỨC THANH TOÁN</strong></span></p>
+                                                                    <p><strong>1. Thông tin chuyển khoản:</strong></p>
+                                                                    <p>- Tên tài khoản: Công ty Cổ Phần Business Connections</p>
+                                                                    <p>- Số tài khoản: 393993368</p>
+                                                                    <p>- Ngân hàng: Thương mại cổ phần Á Châu (ACB) – Chi nhánh Ông Ích Khiêm</p>
+                                                                    <p>- Nội dung : Tên thành viên + Chapter + Mã số thuế + Số điện thoại&nbsp;</p>
+                                                                    <p><strong>2. Thông tin trả góp: </strong></p>
+                                                                    <p>- Truy cập vào website → Đăng ký trả góp qua thẻ Tín dụng → <a href="https://plus.baokim.vn/shop/bnivietnam" target="_blank" rel="noopener noreferrer">Tại đây </a>&nbsp;</p>
+                                                                    <p>- Hướng dẫn thanh toán trả góp → <a href="https://bni.vn/huong-dan-thanh-toan-tra-gop-qua-the-tin-dung-credit-card/" target="_blank" rel="noopener noreferrer">Tại đây</a>&nbsp;</p>
+                                                                    <p><strong> Hỗ trợ thông tin: Văn phòng BNI Việt Nam </strong></p>
+                                                                    <ul>
+                                                                        <li>Điện thoại : <strong>028 7107 7979 </strong>(Ext: 1)</li>
+                                                                        <li>Email :  info@bni.vn&nbsp;</li>
+                                                                        <li>Địa chỉ : 89 Hồ Bá Kiện, Phường 15, Quận 10, Tp HCM</li>
+                                                                    </ul>
+                                                                    <img style="float:none;height: auto;width: 600px" alt="undefined" src="http://bni.vn/wp-content/uploads/2023/10/z4775788575596_52e9e83de615fd51a1a07cc667fec0fc.jpg">
+                                                                    <p></p>
+                                                                </text>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <div class="form-group text-right">
+                <input type="submit" value="Đăng kí" class="custom-button">
+            </div>
+        </div>
+    </div>
+</form>
+
