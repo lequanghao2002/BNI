@@ -32,7 +32,7 @@ using System.ComponentModel.DataAnnotations.Schema;
         public string? BillingAddress { get; set; }
         public string? BillingCompany { get; set; }
         public string? BillingEmail { get; set; }
-        public bool Invoicecommitment { get; set; }
+        public bool? Invoicecommitment { get; set; }
         public string? Sex { get; set; }
         public string? Language { get; set; }
         public string? PhoneNumber { get; set; }
@@ -47,23 +47,23 @@ using System.ComponentModel.DataAnnotations.Schema;
         public string? BusinessSector { get; set; }
         public string? Referrer1 { get; set; }
         public string? Referrer2 { get; set; }
-        public bool Commitmentinformation { get; set; }
+        public bool? Commitmentinformation { get; set; }
         public string? DurationOfParticipation { get; set; }
-        public bool PaymentCompany { get; set; }
+        public bool? PaymentCompany { get; set; }
         public string? PaymentName { get; set; }
-        public bool CoC { get; set; }
+        public bool? CoC { get; set; }
         public string? Timeintheindustry { get; set; }
         public string? Timeofcompanyestablishment { get; set; }
         public string? FieldOfRegistration { get; set; }
-        public bool Meetingcommitment { get; set; }
-        public bool AlternateMeetingPerson { get; set; }
+        public bool? Meetingcommitment { get; set; }
+        public bool? AlternateMeetingPerson { get; set; }
         public string? Contribute { get; set; }
         public string? Guestreferrals { get; set; }
-        public bool ParticipationHistory { get; set; }
+        public bool? ParticipationHistory { get; set; }
         public string? Nameofparticipation { get; set; }
         public string? Commercialorganizations { get; set; }
-        public bool ViolationOfTheLaw { get; set; }
-        public bool RegulatoryCompliance { get; set; }
+        public bool? ViolationOfTheLaw { get; set; }
+        public bool? RegulatoryCompliance { get; set; }
         public int Profession_ID { get; set; }
         public virtual Profession Profession { get; set; } 
         public string? Position { get; set; }
@@ -90,7 +90,7 @@ using System.ComponentModel.DataAnnotations.Schema;
         public string? BillingAddress { get; set; }
         public string? BillingCompany { get; set; }
         public string? BillingEmail { get; set; }
-        public bool Invoicecommitment { get; set; }
+        public bool? Invoicecommitment { get; set; }
         public string? Sex { get; set; }
         public string? Language { get; set; }
         public string? PhoneNumber { get; set; }
@@ -105,23 +105,23 @@ using System.ComponentModel.DataAnnotations.Schema;
         public string? BusinessSector { get; set; }
         public string? Referrer1 { get; set; }
         public string? Referrer2 { get; set; }
-        public bool Commitmentinformation { get; set; }
+        public bool? Commitmentinformation { get; set; }
         public string? DurationOfParticipation { get; set; }
-        public bool PaymentCompany { get; set; }
+        public bool? PaymentCompany { get; set; }
         public string? PaymentName { get; set; }
-        public bool CoC { get; set; }
+        public bool? CoC { get; set; }
         public string? Timeintheindustry { get; set; }
         public string? Timeofcompanyestablishment { get; set; }
         public string? FieldOfRegistration { get; set; }
-        public bool Meetingcommitment { get; set; }
-        public bool AlternateMeetingPerson { get; set; }
+        public bool? Meetingcommitment { get; set; }
+        public bool? AlternateMeetingPerson { get; set; }
         public string? Contribute { get; set; }
         public string? Guestreferrals { get; set; }
-        public bool ParticipationHistory { get; set; }
+        public bool? ParticipationHistory { get; set; }
         public string? Nameofparticipation { get; set; }
         public string? Commercialorganizations { get; set; }
-        public bool ViolationOfTheLaw { get; set; }
-        public bool RegulatoryCompliance { get; set; }
+        public bool? ViolationOfTheLaw { get; set; }
+        public bool? RegulatoryCompliance { get; set; }
         public int Profession_ID { get; set; }
     }
 }
