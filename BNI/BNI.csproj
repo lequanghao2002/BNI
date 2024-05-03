@@ -94,7 +94,6 @@
     <None Remove="Views\Assignment\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Member\" />
     <Folder Include="Views\Assignment\" />
   </ItemGroup>
 </Project>

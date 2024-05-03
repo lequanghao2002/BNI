@@ -1,7 +1,17 @@
-﻿@model List<BNI.Models.Assignment>
+﻿@model BNI.Models.Member
 @{
     ViewData["Title"] = "MemberDetail";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    BNIContext _context = new BNIContext();
+    var assigments = _context.Assignments.Where(a => a.MemberId == Model.Id).ToList();
+    foreach (var item in assigments)
+    {
+       item.Member = _context.Members.FirstOrDefault(x => x.Id == item.MemberId);
+       item.Group = _context.Groups.FirstOrDefault(x => x.Id == item.GroupId);
+       item.Term = _context.Terms.FirstOrDefault(x => x.Id == item.TermId);
+       item.Position = _context.Positions.FirstOrDefault(x => x.Id == item.PositionId);
+    }
 }
 
 <main style="padding-top: 71px;">
@@ -10,7 +20,7 @@
         <div class="col-lg-5">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="~/Member">Các thành viên</a></li>
-                <li class="breadcrumb-item active"><span>@Model[0].Member.Company, @Model[0].Member.Fullname</span></li>
+                <li class="breadcrumb-item active"><span>@Model.Company, @Model.Fullname</span></li>
             </ol>
         </div>
         <div class="container mt-5">
@@ -18,31 +28,31 @@
                 <div class="card p-3 py-4">
 
                     <div class="text-center">
-                        <img class="s_member_avatar_x2 rounded-circle" width="100" src=@Model[0].Member.Avatar loading="lazy" style="">
+                        <img class="s_member_avatar_x2 rounded-circle" width="100" src=@Model.Avatar loading="lazy" style="">
                     </div>
 
                     <div class="text-center mt-3">
                         <div>
-                            <span class="bg-secondary p-1 px-4 rounded text-white">@Model[0].Member.Company</span>
+                            <span class="bg-secondary p-1 px-4 rounded text-white">@Model.Company</span>
                         </div>
                         <h3 class="mt-2 mb-0">
-                            <span>@Model[0].Member.Fullname</span>
+                            <span>@Model.Fullname</span>
                         </h3>
                         <div class="lead mb-2">
-                            <i class="fa fa-briefcase fa-fw me-1"></i><span class="fw-bold">@Model[0].Member.Position</span>
+                            <i class="fa fa-briefcase fa-fw me-1"></i><span class="fw-bold">@Model.Position</span>
                         </div>
                         <div class="lead mb-2">
-                            Đăng ký BNI: <span class="fw-bold">@Model[0].Member.BusinessSector</span>
+                            Đăng ký BNI: <span class="fw-bold">@Model.BusinessSector</span>
                         </div>
 
                         <div class="s_social_media text-center o_not_editable" data-snippet="s_social_media" data-name="Social Media" contenteditable="false">
-                            <a target="" href="@Model[0].Member.Facebook" class="s_social_media_facebook m-2">
+                            <a target="" href="@Model.Facebook" class="s_social_media_facebook m-2">
                                 <i class="fa fa-2x fa-facebook m-1"></i>
                             </a>
-                            <a target="" href="@Model[0].Member.Youtube" class="s_social_media_youtube m-2">
+                            <a target="" href="@Model.Youtube" class="s_social_media_youtube m-2">
                                 <i class="fa fa-2x fa-youtube m-1"></i>
                             </a>
-                            <a target="" href="@Model[0].Member.Zalo" class="s_social_media_zalo_2x m-2">
+                            <a target="" href="@Model.Zalo" class="s_social_media_zalo_2x m-2">
                                 <img src="https://csjchapter.com/membership_profile/static/src/img/zalo.svg" loading="lazy" style="">
                             </a>
                         </div>
@@ -54,7 +64,7 @@
                                 <i class="fa fa-share-alt"></i>
                                 <span class="d-none d-sm-inline">Lưu liên hệ</span>
                             </a>
-                            <a target="_blank" class="btn btn-primary px-4 ms-3" href="@Model[0].Member.LinkWeb">
+                            <a target="_blank" class="btn btn-primary px-4 ms-3" href="@Model.LinkWeb">
                                 <i class="fa fa-globe"></i>
                                 <span class="d-none d-sm-inline">Đi đến Website</span>
                             </a>
@@ -81,7 +91,7 @@
                 <div class="collapse d-md-block o_not_editable" id="o_wprofile_committee_collapse">
                     @{
                         var check = 1;
-                        foreach (var item in Model)
+                        foreach (var item in assigments)
                         {
                             <div class="@(check % 2 == 1 ? "s_timeline_row d-block d-md-flex flex-row" : "s_timeline_row d-block d-md-flex flex-row-reverse")" data-name="Row">
                                 <div class="s_timeline_date">

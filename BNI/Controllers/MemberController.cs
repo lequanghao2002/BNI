@@ -20,16 +20,8 @@ namespace BNI.Controllers
             
         public IActionResult MemberDetail(int id)
         {
-            var assigments = _context.Assignments.Where(a => a.MemberId == id).ToList();
-            foreach (var item in assigments)
-            {
-                item.Member = _context.Members.FirstOrDefault(x => x.Id == item.MemberId);
-                item.Group = _context.Groups.FirstOrDefault(x => x.Id == item.GroupId);
-                item.Term = _context.Terms.FirstOrDefault(x => x.Id == item.TermId);
-                item.Position = _context.Positions.FirstOrDefault(x => x.Id == item.PositionId);
-            }
-
-            return View(assigments);
+            var memberDetail = _context.Members.SingleOrDefault(m => m.Id == id);
+            return View(memberDetail);
         }
 
         public JsonResult MemberSearch(string keyword)
