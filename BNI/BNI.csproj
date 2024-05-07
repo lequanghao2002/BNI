@@ -85,6 +85,7 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
     <PackageReference Include="X.PagedList" Version="9.1.2" />
     <PackageReference Include="X.PagedList.Mvc.Core" Version="9.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
   </ItemGroup>
 
   <ItemGroup>

@@ -75,7 +75,6 @@ namespace BNI.Models
                 entity.ToTable("Contact");
 
                 entity.Property(e => e.Id)
-                    //Moi sua cho nay ne
                     .ValueGeneratedOnAdd()
                     .HasColumnName("ID");
 
@@ -124,9 +123,12 @@ namespace BNI.Models
 
             modelBuilder.Entity<EventsRegister>(entity =>
             {
-                entity.HasNoKey();
+                //entity.HasNoKey();
 
                 entity.ToTable("Events_Register");
+                entity.Property(e => e.ID)
+                    .ValueGeneratedOnAdd()
+                    .HasColumnName("ID");
 
                 entity.Property(e => e.AddDate).HasColumnType("datetime");
 

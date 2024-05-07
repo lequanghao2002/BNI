@@ -1,12 +1,26 @@
 ﻿
 using System.Drawing.Printing;
 using System.Xml.Linq;
+using BNI.Common;
 using BNI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using X.PagedList;
 using static Microsoft.Extensions.Logging.EventSource.LoggingEventSource;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.WebSockets;
+using System.Text.Json;
+using System.Threading.Tasks;
+using BNI.Models.Repositories;
+using BNI.Models.ViewModel;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using JsonSerializer = System.Text.Json.JsonSerializer;
+using Microsoft.Extensions.Logging;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -14,7 +28,19 @@ namespace BNI.Controllers
 {
     public class EventController : Controller
     {
-        BNIContext _context = new BNIContext();
+        //BNIContext _context = new BNIContext();
+        private readonly BNIContext _context;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IEventsRegisterRepository _eventsregisterRepository;
+        private readonly ILogger<EventController> _logger;
+
+        public EventController(BNIContext context, ILogger<EventController> logger, IHttpContextAccessor httpContextAccessor, IEventsRegisterRepository eventsregisterRepository)
+        {
+            _context = context;
+            _logger = logger;
+            _eventsregisterRepository = eventsregisterRepository;
+            _httpContextAccessor = httpContextAccessor;
+        }
         // GET: /<controller>/
         public IActionResult Index(int? page)
         {
@@ -30,6 +56,19 @@ namespace BNI.Controllers
             var ev = _context.Events.SingleOrDefault(x => x.Id == id);
             var imgev = _context.Events.Where(x => x.Id == id).Select(x => x.Image).FirstOrDefault();
             ViewBag.imgev = imgev;
+
+            string? userJson = HttpContext.Session.GetString(CommonConstants.SessionUser);
+            User? user = null;
+            if (userJson != null)
+            {
+                user = JsonConvert.DeserializeObject<User>(userJson);
+            }
+            bool is_registed = false;
+            if (user != null)
+            {
+                is_registed = _context.EventsRegisters.Any(e => e.EventId == id && e.UserId == user.ID && !(e.Cancel ?? false));
+            }
+            ViewData["is_registed"] = is_registed;
             return View(ev);
         }
 
@@ -54,12 +93,6 @@ namespace BNI.Controllers
 
             return View(model);
         }
-
-
-
-
-
-
         public IActionResult EventCategory(string eventType, int? page, int id)
         {
             //IQueryable<Event> events = _context.Events;
@@ -91,8 +124,66 @@ namespace BNI.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        public JsonResult EventRegister(int eventId, string mode = "add")
+        {
+            string? userJson = HttpContext.Session.GetString(CommonConstants.SessionUser);
+            User? user = null;
+            if (userJson != null)
+            {
+                user = JsonConvert.DeserializeObject<User>(userJson);
+            }
 
+            if (user == null || eventId <= 0)
+            {
+                return Json(new { message = "Not found", code = 0 });
+            }
 
+            var eventRegister = new EventsRegister();
+
+            if (mode == "add")
+            {
+                eventRegister = _context.EventsRegisters.FirstOrDefault(x => x.EventId == eventId && x.UserId == user.ID);
+
+                if (eventRegister != null)
+                {
+                    eventRegister.Cancel = false;
+                }
+                else
+                {
+                    eventRegister = new EventsRegister
+                    {
+                        UserId = user.ID,
+                        EventId = eventId,
+                        AddDate = DateTime.Now,
+                        Cancel = false
+                    };
+                    _context.EventsRegisters.Add(eventRegister);
+                }
+            }
+            else
+            {
+                eventRegister = _context.EventsRegisters.FirstOrDefault(x => x.EventId == eventId && x.UserId == user.ID && !(x.Cancel ?? false));
+
+                if (eventRegister != null)
+                {
+                    eventRegister.Cancel = true;
+                    _context.SaveChanges();
+                }
+                else
+                {
+                    return Json(new { message = "Event not found", code = 0 });
+                }
+            }
+
+            _context.SaveChanges();
+            return Json(new { message = (mode == "add") ? "Đã đăng ký sự kiện thành công" : "Update successful", code = 1 });
+        }
+
+        public ActionResult EventRegister()
+        {
+            return View();
+        }
     }
 }
 

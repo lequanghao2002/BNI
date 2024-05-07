@@ -171,9 +171,14 @@
                                                 </div>
 
                                                 <footer class="alert-secondary small align-self-end w-100 card-footer border-top">
-                                                    <span>
-                                                        Đăng ký đã đóng
-                                                    </span>
+                                                    @if (events.StartTime < DateTime.Now)
+                                                    {
+                                                            <span>Đăng ký đã đóng</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span>Đăng ký</span>
+                                                    }
                                                 </footer>
                                             </div>
                                         </article>

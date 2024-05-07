@@ -5,7 +5,11 @@ using Microsoft.EntityFrameworkCore;
 using System;
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.AddLogging(loggingBuilder =>
+{
+    loggingBuilder.AddConsole();
+    loggingBuilder.AddDebug();
+});
 builder.Services.AddControllersWithViews();
 var connectionString = builder.Configuration.GetConnectionString("BNI");
 builder.Services.AddDbContext<BNIContext>(options =>
@@ -14,12 +18,16 @@ builder.Services.AddDbContext<BNIContext>(options =>
 
 builder.Services.AddSession();
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
-builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 
 builder.Services.AddScoped<IPostCategoryRepository, PostCategoryRepository>();
 builder.Services.AddScoped<IContactRepository, ContactRepository>();
+builder.Services.AddScoped<IEventsRegisterRepository, EventsRegisterRepository>();
+builder.Services.AddHttpContextAccessor();
+
+
+
 
 var app = builder.Build();
 
